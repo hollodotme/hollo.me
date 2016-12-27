@@ -1,0 +1,27 @@
+{
+	"name": "hollodotme/hollodotme-blog",
+	"description": "Holger Woltersdorf's blog",
+	"minimum-stability": "stable",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Holger Woltersdorf",
+			"email": "hw@hollo.me"
+		}
+	],
+	"require-dev": {
+		"tm/tooly-composer-script": "^1.0"
+	},
+	"scripts": {
+		"post-install-cmd": "Tooly\\ScriptHandler::installPharTools",
+		"post-update-cmd": "Tooly\\ScriptHandler::installPharTools"
+	},
+	"extra": {
+		"tools": {
+			"spg": {
+				"url": "https://github.com/icehawk/static-page-generator/releases/download/v1.1.0/static-page-generator.phar",
+				"only-dev": true
+			}
+		}
+	}
+}

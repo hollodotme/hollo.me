@@ -1,0 +1,221 @@
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+ins {
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Fonts */
+@font-face {
+	font-family: 'Source Sans Pro';
+	src: url('../fonts/sourcesanspro-regular-webfont.eot');
+	src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'),
+	url('../fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+	url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
+	url('../fonts/sourcesanspro-regular-webfont.svg#webfont') format('svg');
+}
+
+@font-face {
+	font-family: 'Source Code Pro';
+	src: url('../fonts/sourcecodepro-regular-webfont.eot');
+	src: url('../fonts/sourcecodepro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/sourcecodepro-regular-webfont.woff') format('woff'),
+	url('../fonts/sourcecodepro-regular-webfont.woff2') format('woff2'),
+	url('../fonts/sourcecodepro-regular-webfont.ttf') format('truetype'),
+	url('../fonts/sourcecodepro-regular-webfont.svg#webfont') format('svg');
+}
+
+/* basics */
+* html, body {
+	font-family: "Source Sans Pro", Arial, Verdana, sans-serif;
+	font-size: 12pt;
+	font-weight: normal;
+	color: #555555;
+	background: #000000;
+	line-height: 16pt;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: bold;
+	display: block;
+}
+
+h1 {
+	font-size: xx-large;
+	margin-bottom: 15px;
+}
+
+h2 {
+	font-size: x-large;
+	margin-bottom: 13px;
+}
+
+h3 {
+	font-size: large;
+	margin-bottom: 11px;
+}
+
+h4 {
+	font-size: larger;
+	margin-bottom: 9px;
+}
+
+h5 {
+	font-size: medium;
+	margin-bottom: 8px;
+}
+
+b, strong {
+	font-weight: bold;
+	color: #202020;
+}
+
+em {
+	font-style: italic;
+}
+
+a {
+	color: #b22222;
+	text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+	color: #b22222;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* Layout */
+
+#sidebar {
+	background-color: #98cc74;
+	color: #ffffff;
+	position: fixed;
+	top: 5px;
+	bottom: 5px;
+	left: 5px;
+	width: 16%;
+	padding: 25px 15px;
+	overflow-y: auto;
+}
+
+#sidebar > hr {
+	height: 0;
+	border: 0;
+	border-top: 1px solid #82b45e;
+	border-bottom: 1px solid #b1e58c;
+	border-radius: 2px;
+	margin: 15px 20px;
+}
+
+#main {
+	background-color: #f6f6f6;
+	position: fixed;
+	top: 5px;
+	bottom: 5px;
+	left: 20%;
+	right: 15%;
+	overflow: auto;
+	padding: 25px;
+}
+
+ul.sidebar-nav li > a {
+	display: block;
+	color: #547339;
+	padding: 5px 3px;
+	transition: background-color 300ms;
+}
+
+ul.sidebar-nav li > a:hover,
+ul.sidebar-nav li > a:focus,
+ul.sidebar-nav li > a:active {
+	background-color: #82b45e;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+ul.sidebar-nav li.active > a {
+	background-color: #82b45e;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+ul.sidebar-nav > li > ul {
+	margin: 0 0 15px 25px;
+	font-size: 90%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+.brand-well {
+	border-radius: 5px;
+	background: #82b45e;
+	padding: 5px 5px 0 5px;
+	box-shadow: inset 0 0 2px #547339;
+	width: 50%;
+	margin: 0 auto 15px auto;
+}
+
+.brand-well > img {
+	max-width: 100%;
+	margin: 0;
+	border-radius: 5px;
+}
