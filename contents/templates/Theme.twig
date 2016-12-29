@@ -78,14 +78,33 @@
 <div class="themewrapper">
 	<div id="sidebar">
 		<div class="brand-well">
-			<img src="{{ project.getUrl('/img/Profile.png') }}" alt="Holger Woltersdorf">
+			<a href="@baseUrl@">
+				<img src="{{ project.getUrl('/img/Profile.png') }}" alt="Holger Woltersdorf">
+			</a>
 		</div>
 
-		<h2 class="text-center text-uppercase">Holger Woltersdorf</h2>
-		<h5 class="text-center text-uppercase">
-			CIO &middot; Developer with <i class="fa fa-heart"></i>
-			&middot; Speaker &middot; PHP &middot; WEB &middot; Markdown lover
-		</h5>
+		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
+		<p class="text-center text-uppercase subline">
+			CIO &middot; Developer &middot; Speaker<br>
+			PHP &middot; WEB &middot; Markdown lover
+		</p>
+
+		<hr>
+
+		<ul class="sociallinks">
+			<li>
+				<a href="@twitter_url@" title="Holger Woltersdorf on twitter (@twitter_handle@)" target="_blank"><i class="fa fa-twitter"></i></a>
+			</li>
+			<li>
+				<a href="@xing_url@" title="Holger Woltersdorf on Xing" target="_blank"><i class="fa fa-xing"></i></a>
+			</li>
+			<li>
+				<a href="@github_url@" title="Holger Woltersdorf on GitHub" target="_blank"><i class="fa fa-github"></i></a>
+			</li>
+			<li>
+				<a href="@linkedin_url@" title="Holger Woltersdorf on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+			</li>
+		</ul>
 
 		<hr>
 
@@ -106,10 +125,39 @@
 
 		<hr>
 
+		<ul class="sidebar-nav">
+			<li><a href="@baseUrl@/imprint.html">Imprint</a></li>
+		</ul>
+
 	</div>
+
+	<div id="breadcrumbs">
+		<ul>
+			{% for url, title in breadCrumb %}
+				{% if loop.last %}
+					<li class="active">
+						{% if loop.first %}<i class="fa fa-map-marker"></i>{% endif %}
+						{{ title }}
+					</li>
+				{% else %}
+					<li>
+						<a href="@baseUrl@{{ url }}">
+							{% if loop.first %}<i class="fa fa-map-marker"></i>{% endif %}
+							{{ title }}
+						</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+
 	<div id="main">
 		{{ content|raw }}
 	</div>
 </div>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

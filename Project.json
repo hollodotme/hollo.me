@@ -8,6 +8,7 @@
 		"@github_url@": "https://github.com/hollodotme",
 		"@twitter_url@": "https://twitter.com/hollodotme",
 		"@xing_url@": "https://www.xing.com/profile/HolgerWoltersdorf",
+		"@linkedin_url@": "https://www.linkedin.com/in/holgerwoltersdorf",
 		"@contact_email@": "blog@hollo.me",
 		"@twitter_handle@": "@hollodotme"
 	},
@@ -18,16 +19,14 @@
 			"pageTitle": "Home",
 			"description": "Holger Woltersdorf's blog",
 			"language": "en",
-			"imageUrl": "/images/logo.png",
+			"imageUrl": "/images/Profile.png",
 			"tags": [
-
 			],
 			"contentType": "markdown",
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
 			"contentFile": "home.md",
 			"children": [
-
 			]
 		},
 		"/404.html": {
@@ -36,7 +35,7 @@
 			"pageTitle": "404 - Not Found",
 			"description": "The page you requested was not found.",
 			"language": "en",
-			"imageUrl": "/images/logo.png",
+			"imageUrl": "/images/Profile.png",
 			"tags": [],
 			"contentType": "markdown",
 			"renderer": "twig",
