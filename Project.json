@@ -27,7 +27,12 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "home.md",
 			"children": [
-				"/php.html"
+				"/php.html",
+				"/talks.html",
+				"/projects.html",
+				"/devops.html",
+				"/reading-list.html",
+				"/imprint.html"
 			]
 		},
 		"/404.html": {
@@ -65,11 +70,28 @@
 			"children": [
 				"/php/traitful-configs.html",
 				"/php/fluent-validation-with-ease.html",
-				"/php/custom-exceptions-with-context.html",
-				"/php/divide-and-conquer-2-years-of-cqrs-in-production.html",
-				"/php/phar-better-tools.html",
-				"/php/practical-cqrs-newsletter-double-opt-in.html"
+				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/projects.html": {
+			"pageLevel": 2,
+			"navName": "Projects",
+			"pageTitle": "Projects",
+			"description": "Software projects I maintain or I am involved in",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"Open Source",
+				"Project",
+				"Involved",
+				"GitHub",
+				"Software"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "projects.md",
+			"children": []
 		},
 		"/php/custom-exceptions-with-context.html": {
 			"pageLevel": 3,
@@ -134,7 +156,31 @@
 			"contentFile": "php/TraitfulConfigsPost.md",
 			"children": []
 		},
-		"/php/divide-and-conquer-2-years-of-cqrs-in-production.html": {
+		"/talks.html": {
+			"pageLevel": 2,
+			"navName": "Talks",
+			"pageTitle": "Talks",
+			"description": "Talks I gave at several places",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"Speaker",
+				"Talks",
+				"Slides",
+				"Sharing",
+				"Contents"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/index.md",
+			"children": [
+				"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html",
+				"/talks/phar-better-tools.html",
+				"/talks/practical-cqrs-newsletter-double-opt-in.html"
+			]
+		},
+		"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html": {
 			"pageLevel": 3,
 			"navName": "Divide and Conquer",
 			"pageTitle": "Divide and Conquer - 2 years of CQRS in production",
@@ -153,10 +199,10 @@
 			"contentType": "markdown",
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
-			"contentFile": "php/DivideAndConquer2YearsOfCqrsInProductionTalk.md",
+			"contentFile": "talks/DivideAndConquer2YearsOfCqrsInProductionTalk.md",
 			"children": []
 		},
-		"/php/phar-better-tools.html": {
+		"/talks/phar-better-tools.html": {
 			"pageLevel": 3,
 			"navName": "PHAR better tools",
 			"pageTitle": "PHAR better tools",
@@ -176,14 +222,14 @@
 			"contentType": "markdown",
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
-			"contentFile": "php/PharBetterToolsTalk.md",
+			"contentFile": "talks/PharBetterToolsTalk.md",
 			"children": []
 		},
-		"/php/practical-cqrs-newsletter-double-opt-in.html": {
+		"/talks/practical-cqrs-newsletter-double-opt-in.html": {
 			"pageLevel": 3,
 			"navName": "CQRS - Newsletter Double Opt-In",
 			"pageTitle": "Practical CQRS - Newsletter Double Opt-In",
-			"description": "Why the MVC pattern solves a problem that doesn't exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the <a href='http://phpug-dresden.orf' target='_blank'>PHP USERGROUP DRESDEN</a>.",
+			"description": "Why the MVC pattern solves a problem that doesn't exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the <a href='http://phpug-dresden.org' target='_blank'>PHP USERGROUP DRESDEN</a>.",
 			"language": "en",
 			"imageUrl": "/images/Profile.png",
 			"tags": [
@@ -195,7 +241,80 @@
 			"contentType": "markdown",
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
-			"contentFile": "php/PracticalCqrsNewsletterDoubleOptInTalk.md",
+			"contentFile": "talks/PracticalCqrsNewsletterDoubleOptInTalk.md",
+			"children": []
+		},
+		"/devops.html": {
+			"pageLevel": 2,
+			"navName": "DevOps",
+			"pageTitle": "DevOps",
+			"description": "Unsorted stuff written down while setting up development environments or dealing with issues.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "devops/index.md",
+			"children": [
+				"/devops/self-hosted-vagrant-cloud.html",
+				"/devops/install-xmpp-server-prosody.html"
+			]
+		},
+		"/devops/self-hosted-vagrant-cloud.html": {
+			"pageLevel": 3,
+			"navName": "Self-hosted 'vagrant cloud'",
+			"pageTitle": "How to set up a self-hosted 'vagrant cloud' with versioned, self-packaged vagrant boxes",
+			"description": "",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "devops/SelfHostedVagrantCloud.md",
+			"children": []
+		},
+		"/devops/install-xmpp-server-prosody.html": {
+			"pageLevel": 3,
+			"navName": "Install XMPP server prosody",
+			"pageTitle": "How to install XMPP server prosody with mysql auth backend on Ubuntu",
+			"description": "",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "devops/InstallProsody.md",
+			"children": []
+		},
+		"/reading-list.html": {
+			"pageLevel": 2,
+			"navName": "Reading list",
+			"pageTitle": "Reading list",
+			"description": "",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "ReadingList.md",
+			"children": []
+		},
+		"/imprint.html": {
+			"pageLevel": 2,
+			"navName": "Imprint",
+			"pageTitle": "Imprint",
+			"description": "",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "Imprint.md",
 			"children": []
 		}
 	}

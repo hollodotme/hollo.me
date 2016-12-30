@@ -4,9 +4,9 @@
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>PHP | Holger Woltersdorf&#039;s blog</title>
+	<title>Practical CQRS - Newsletter Double Opt-In | Holger Woltersdorf&#039;s blog</title>
 	<meta name="description" content="Coming Soon">
-	<meta name="keywords" content="PHP, Post, Blog, Sharing, Contents">
+	<meta name="keywords" content="PHP, CQRS, Newsletter, Double Opt-In">
 	<meta name="HandheldFriendly" content="True"/>
 	<meta name="geo.region" content="DE-SN"/>
 	<meta name="geo.placename" content="Dresden"/>
@@ -46,26 +46,25 @@
 	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link rel="canonical" href="https://hollo.me/php.html"/>
+	<link rel="canonical" href="https://hollo.me/talks/practical-cqrs-newsletter-double-opt-in.html"/>
 	<meta name="referrer" content="origin"/>
 
 	<meta property="og:site_name" content="Holger Woltersdorf&#039;s blog"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:title" content="PHP | Holger Woltersdorf&#039;s blog"/>
-	<meta property="og:description" content="PHP related blog posts"/>
+	<meta property="og:title" content="Practical CQRS - Newsletter Double Opt-In | Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:description" content="Why the MVC pattern solves a problem that doesn&#039;t exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the &lt;a href=&#039;http://phpug-dresden.org&#039; target=&#039;_blank&#039;&gt;PHP USERGROUP DRESDEN&lt;/a&gt;."/>
 	<meta property="og:url" content="https://hollo.me"/>
 	<meta property="og:image" content="https://hollo.me/images/Profile.png"/>
 	<meta property="article:published_time" content="2016-12-30T23:14:27+01:00"/>
 	<meta property="article:modified_time" content="2016-12-30T23:14:27+01:00"/>
 			<meta property="article:tag" content="PHP"/>
-			<meta property="article:tag" content="Post"/>
-			<meta property="article:tag" content="Blog"/>
-			<meta property="article:tag" content="Sharing"/>
-			<meta property="article:tag" content="Contents"/>
+			<meta property="article:tag" content="CQRS"/>
+			<meta property="article:tag" content="Newsletter"/>
+			<meta property="article:tag" content="Double Opt-In"/>
 		<meta name="twitter:card" content="summary_large_image"/>
-	<meta name="twitter:title" content="PHP | Holger Woltersdorf&#039;s blog"/>
-	<meta name="twitter:description" content="PHP related blog posts"/>
-	<meta name="twitter:url" content="https://hollo.me/php.html"/>
+	<meta name="twitter:title" content="Practical CQRS - Newsletter Double Opt-In | Holger Woltersdorf&#039;s blog"/>
+	<meta name="twitter:description" content="Why the MVC pattern solves a problem that doesn&#039;t exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the &lt;a href=&#039;http://phpug-dresden.org&#039; target=&#039;_blank&#039;&gt;PHP USERGROUP DRESDEN&lt;/a&gt;."/>
+	<meta name="twitter:url" content="https://hollo.me/talks/practical-cqrs-newsletter-double-opt-in.html"/>
 	<meta name="twitter:image:src" content="https://hollo.me/images/Profile.png"/>
 
 	<meta name="generator" content="IceHawk Static Page Generator"/>
@@ -113,22 +112,8 @@
 				<a href="https://hollo.me/" title="Home">Home</a>
 			</li>
 			
-						<li class="active">
+						<li>
 		<a href="https://hollo.me/php.html">PHP</a>
-					<ul class="nav">
-															<li>
-		<a href="https://hollo.me/php/custom-exceptions-with-context.html">Custom exceptions with context</a>
-			</li>
-
-											<li>
-		<a href="https://hollo.me/php/fluent-validation-with-ease.html">Fluent validation with ease</a>
-			</li>
-
-											<li>
-		<a href="https://hollo.me/php/traitful-configs.html">&#039;Traitful&#039; configs</a>
-			</li>
-
-							</ul>
 			</li>
 
 
@@ -139,8 +124,22 @@
 
 
 			
-						<li>
+						<li class="active">
 		<a href="https://hollo.me/talks.html">Talks</a>
+					<ul class="nav">
+															<li>
+		<a href="https://hollo.me/talks/divide-and-conquer-2-years-of-cqrs-in-production.html">Divide and Conquer</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/phar-better-tools.html">PHAR better tools</a>
+			</li>
+
+											<li class="active">
+		<a href="https://hollo.me/talks/practical-cqrs-newsletter-double-opt-in.html">CQRS - Newsletter Double Opt-In</a>
+			</li>
+
+							</ul>
 			</li>
 
 
@@ -188,24 +187,31 @@
 							<i class="fa fa-map-marker"></i>							Home
 						</a>
 					</li>
+																<li>
+						<a href="https://hollo.me/talks.html">
+														Talks
+						</a>
+					</li>
 																<li class="active">
-												PHP
+												CQRS - Newsletter Double Opt-In
 					</li>
 									</ul>
 	</div>
 
 	<div id="main">
 
-		<h1>PHP</h1>
-		<h5>PHP related blog posts</h5>
+		<h1>Practical CQRS - Newsletter Double Opt-In</h1>
+		<h5>Why the MVC pattern solves a problem that doesn't exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the <a href='http://phpug-dresden.org' target='_blank'>PHP USERGROUP DRESDEN</a>.</h5>
 
 		<hr>
 
-		<ul>
-<li>04/03/2016 - <a href="https://hollo.me/php/fluent-validation-with-ease.html">Fluent validation with ease</a></li>
-<li>03/12/2016 - <a href="https://hollo.me/php/traitful-configs.html">&quot;Traitful&quot; configs</a></li>
-<li>01/16/2016 - <a href="https://hollo.me/php/custom-exceptions-with-context.html">Custom exceptions with context</a></li>
+		<h3>Sample project on GitHub</h3>
+<ul>
+<li><i class="fa fa-github"></i> <a href="https://github.com/hollodotme/cqrs-newsletter-double-opt-in">hollodotme/cqrs-newsletter-double-opt-in</a></li>
 </ul>
+<h3>Slides on <a href="https://speakerdeck.com/hollodotme">Speaker Deck</a></h3>
+<script async class="speakerdeck-embed" data-id="940fe3e83e8c4883bc7f14270f943563" data-ratio="1.77469670710572" src="//speakerdeck.com/assets/embed.js"></script>
+<p><small>09/23/2015</small></p>
 	</div>
 </div>
 

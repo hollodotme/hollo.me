@@ -95,6 +95,7 @@ h1, h2, h3, h4, h5 {
 h1 {
 	font-size: xx-large;
 	margin-bottom: 15px;
+	line-height: 25pt;
 }
 
 h2 {
@@ -208,6 +209,11 @@ img {
 }
 
 small {
+	font-size: smaller;
+}
+
+sup {
+	vertical-align: super;
 	font-size: smaller;
 }
 
@@ -428,4 +434,9 @@ ul.sociallinks > li {
 .fa.fa-twitter {
 	color: #41aaf1;
 	text-shadow: 0 0 2px #ffffff;
+}
+
+.website-version {
+	color: #82b4c4;
+	text-shadow: 1px 1px 1px #b7e9f9;
 }
