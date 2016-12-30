@@ -1,3 +1,18 @@
+{% macro subTree(loopPage, project, breadCrumb) %}
+	{% set isActive = (loopPage.getUri in breadCrumb|keys) %}
+	<li{% if isActive %} class="active"{% endif %}>
+		<a href="{{ project.getUrl(loopPage.getUri) }}">{{ loopPage.getNavName }}</a>
+		{% if loopPage.hasChildren and isActive %}
+			<ul class="nav">
+				{% import _self as nav %}
+				{% for child in project.getChildrenOf(loopPage) %}
+					{{ nav.subTree(child, project, breadCrumb) }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</li>
+{% endmacro subTree %}
+{% import _self as nav %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,18 +124,14 @@
 		<hr>
 
 		<ul class="sidebar-nav">
-			<li><a href="#">Link somewhere</a></li>
-			<li class="active">
-				<a href="#">Link somewhere</a>
-				<ul>
-					<li><a href="#">Link somewhere</a></li>
-					<li class="active"><a href="#">Link somewhere</a></li>
-					<li><a href="#">Link somewhere</a></li>
-				</ul>
+			<li class="hidden-sm hidden-md hidden-lg">
+				<a href="{{ project.getUrl('/') }}" title="Home">Home</a>
 			</li>
-			<li><a href="#">Link somewhere</a></li>
-			<li><a href="#">Link somewhere</a></li>
-			<li><a href="#">Link somewhere</a></li>
+			{% for loopPage in project.getPageConfigsAtLevel(2) %}
+
+				{{ nav.subTree(loopPage, project, breadCrumb) }}
+
+			{% endfor %}
 		</ul>
 
 		<hr>
@@ -152,6 +163,12 @@
 	</div>
 
 	<div id="main">
+
+		<h1>{{ page.getPageTitle }}</h1>
+		<h5>{{ page.getDescription|raw }}</h5>
+
+		<hr>
+
 		{{ content|raw }}
 	</div>
 </div>

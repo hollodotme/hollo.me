@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Custom exceptions with context | Holger Woltersdorf&#039;s blog</title>
+	<meta name="description" content="Coming Soon">
+	<meta name="keywords" content="PHP, exception, context, custom, with, inline construction">
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="geo.region" content="DE-SN"/>
+	<meta name="geo.placename" content="Dresden"/>
+	<meta name="geo.position" content="51.052088;13.741672"/>
+	<meta name="ICBM" content="51.052088, 13.741672"/>
+	<meta name="twitter:site" content="@hollodotme">
+	<meta name="twitter:creator" content="@hollodotme">
+	<script type="application/ld+json">{
+  "@context" : "http://schema.org",
+  "@type": "Person",
+  "name": "Holger Woltersdorf&#039;s blog",
+  "image": "https://hollo.me/images/Profile.png",
+  "url": "https://hollo.me",
+  "sameAs" : [
+      "https://twitter.com/hollodotme",
+      "https://www.xing.com/profile/HolgerWoltersdorf"
+    ]
+  }
+}</script>
+	<meta property="article:author" content="https://www.xing.com/profile/HolgerWoltersdorf"/>
+	<meta property="article:publisher" content="https://www.xing.com/profile/HolgerWoltersdorf"/>
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="canonical" href="https://hollo.me/php/custom-exceptions-with-context.html"/>
+	<meta name="referrer" content="origin"/>
+
+	<meta property="og:site_name" content="Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="Custom exceptions with context | Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:description" content="You&#039;re tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information."/>
+	<meta property="og:url" content="https://hollo.me"/>
+	<meta property="og:image" content="https://hollo.me/images/Profile.png"/>
+	<meta property="article:published_time" content="2016-12-30T15:24:47+01:00"/>
+	<meta property="article:modified_time" content="2016-12-30T15:24:47+01:00"/>
+			<meta property="article:tag" content="PHP"/>
+			<meta property="article:tag" content="exception"/>
+			<meta property="article:tag" content="context"/>
+			<meta property="article:tag" content="custom"/>
+			<meta property="article:tag" content="with"/>
+			<meta property="article:tag" content="inline construction"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="Custom exceptions with context | Holger Woltersdorf&#039;s blog"/>
+	<meta name="twitter:description" content="You&#039;re tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information."/>
+	<meta name="twitter:url" content="https://hollo.me/php/custom-exceptions-with-context.html"/>
+	<meta name="twitter:image:src" content="https://hollo.me/images/Profile.png"/>
+
+	<meta name="generator" content="IceHawk Static Page Generator"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://hollo.me/css/theme.css">
+	<script src="https://use.fontawesome.com/3513f09ab7.js"></script>
+	</head>
+<body>
+<div class="themewrapper">
+	<div id="sidebar">
+		<div class="brand-well">
+			<a href="https://hollo.me">
+				<img src="https://hollo.me/img/Profile.png" alt="Holger Woltersdorf">
+			</a>
+		</div>
+
+		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
+		<p class="text-center text-uppercase subline">
+			CIO &middot; Developer &middot; Speaker<br>
+			PHP &middot; WEB &middot; Markdown lover
+		</p>
+
+		<hr>
+
+		<ul class="sociallinks">
+			<li>
+				<a href="https://twitter.com/hollodotme" title="Holger Woltersdorf on twitter (@hollodotme)" target="_blank"><i class="fa fa-twitter"></i></a>
+			</li>
+			<li>
+				<a href="https://www.xing.com/profile/HolgerWoltersdorf" title="Holger Woltersdorf on Xing" target="_blank"><i class="fa fa-xing"></i></a>
+			</li>
+			<li>
+				<a href="https://github.com/hollodotme" title="Holger Woltersdorf on GitHub" target="_blank"><i class="fa fa-github"></i></a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/holgerwoltersdorf" title="Holger Woltersdorf on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<ul class="sidebar-nav">
+			<li class="hidden-sm hidden-md hidden-lg">
+				<a href="https://hollo.me/" title="Home">Home</a>
+			</li>
+			
+						<li class="active">
+		<a href="https://hollo.me/php.html">PHP</a>
+					<ul class="nav">
+															<li class="active">
+		<a href="https://hollo.me/php/custom-exceptions-with-context.html">Custom exceptions with context</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/fluent-validation-with-ease.html">Fluent validation with ease</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/traitful-configs.html">&#039;Traitful&#039; configs</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/divide-and-conquer-2-years-of-cqrs-in-production.html">Divide and Conquer</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/phar-better-tools.html">PHAR better tools</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/practical-cqrs-newsletter-double-opt-in.html">CQRS - Newsletter Double Opt-In</a>
+			</li>
+
+							</ul>
+			</li>
+
+
+					</ul>
+
+		<hr>
+
+		<ul class="sidebar-nav">
+			<li><a href="https://hollo.me/imprint.html">Imprint</a></li>
+		</ul>
+
+	</div>
+
+	<div id="breadcrumbs">
+		<ul>
+												<li>
+						<a href="https://hollo.me/index.html">
+							<i class="fa fa-map-marker"></i>							Home
+						</a>
+					</li>
+																<li>
+						<a href="https://hollo.me/php.html">
+														PHP
+						</a>
+					</li>
+																<li class="active">
+												Custom exceptions with context
+					</li>
+									</ul>
+	</div>
+
+	<div id="main">
+
+		<h1>Custom exceptions with context</h1>
+		<h5>You're tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information.</h5>
+
+		<hr>
+
+		<h2>The problem</h2>
+<p>While our web applications grow, the developers concentrate on new features and business logic,
+the topic of error handling is often neglected. </p>
+<p>Quite often this results in wild changes to method return values or - even worst - passing additional parameters by reference
+to bring uprising errors to the presentation layer.</p>
+<p>Let's take a typical example: Changing a customer's email address with the following subtasks:</p>
+<ol>
+<li>Load a <code>Customer</code> object by a customer ID from storage </li>
+<li>Change the email address of that <code>Customer</code> object</li>
+<li>Unload the <code>Customer</code> object to the storage</li>
+<li>Handling a request that invokes the previous 3 tasks</li>
+</ol>
+<p>The author of the following code chose &quot;wisely&quot; an <code>ErrorList</code> object instead of a php array for collecting error messages.</p>
+<h4>Load the Customer object from storage</h4>
+<pre><code class="language-php">&lt;?php
+
+class CustomerRepository 
+{
+    /**
+     * @param string $customerId
+     *
+     * @return Customer|ErrorList
+     */
+    public function findOneWithId( string $customerId )
+    {
+        // Code that loads the customer object from storage
+
+        if ( $customer !== null )
+        {
+            return $customer;
+        }
+
+        return new ErrorList( "Customer with ID {$customerId} not found." );
+    }
+}</code></pre>
+<p>This code already comes up with a bunch of problems:</p>
+<ul>
+<li>The method has different return types, so you can't define a return type hint in php7</li>
+<li>The method has more than one responsibility, namely
+<ul>
+<li>returning the customer object we're searching for </li>
+<li>creating an error message for the user</li>
+</ul></li>
+<li>The context of the error is ambiguous for further handling, or is encapsulated in the plaintext error message. </li>
+</ul>
+<p>But let's go on for now ...</p>
+<h4>Change the customer object's email address</h4>
+<pre><code class="language-php">&lt;?php
+
+class Customer
+{
+    private $email;
+
+    /**
+     * @param string $newEmail
+     *
+     * @return ErrorList
+     */
+    public function changeEmail( string $newEmail ) : ErrorList
+    {
+        $errorList = new ErrorList();
+
+        if ( empty($newEmail) )
+        {
+            $errorList-&gt;addMessage( 'Email address is empty.' ); 
+        }
+        elseif ( !filter_var( $newEmail, FILTER_VALIDATE_EMAIL ) )
+        {
+            $errorList-&gt;addMessage( 'Email address is invalid.' );
+        }
+        elseif ( $newEmail == $this-&gt;email )
+        {
+            $errorList-&gt;addMessage( 'Email address is same as current address.' );
+        }
+
+        $this-&gt;email = $newEmail;
+
+        return $errorList;
+    }
+}</code></pre>
+<hr />
+<h4>Unload the Customer object to the storage</h4>
+<pre><code class="language-php">&lt;?php
+
+class CustomerRepository 
+{
+    /**
+     * @param Customer $customer
+     *
+     * @return ErrorList
+     */
+    public function update( Customer $customer ) : ErrorList
+    {
+        $errorList = new ErrorList();
+
+        // Code that unloads the customer object to the storage
+
+        if ( !$updateResult )
+        {
+            $errorList-&gt;addMessage( "Updating customer object failed." );
+        }
+
+        return $errorList;
+    }
+}</code></pre>
+<hr />
+<h4>Handling the request to change a customer's email address</h4>
+<pre><code class="language-php">&lt;?php
+
+class ChangeCustomerEmailHandler
+{
+    /**
+     * @param Request $request
+     */
+    public function handle( Request $request )
+    {
+        $errorList = new ErrorList();
+
+        $customerRepository = new CustomerRepository();
+
+        # 1. Load the customer object from storage
+        $customer = $customerRepository-&gt;findOneWithId( $request-&gt;getCustomerId() );
+
+        if ( $customer instanceof Customer )
+        {
+            # 2. Change the customer object's email address
+            $error = $customer-&gt;changeEmail( $request-&gt;getNewEmail() );
+
+            if ( !$error-&gt;isEmpty() )
+            {
+                $errorList-&gt;append( $error );
+            }
+            else
+            {
+                # 3. Unload changed customer object to storage
+                $error = $customerRepository-&gt;update( $customer );
+
+                if ( !$error-&gt;isEmpty() )
+                {
+                    $errorList-&gt;append( $error );
+                }
+            }
+        }
+        elseif ( $customer instance of ErrorList )
+        {
+            $errorList-&gt;append($customer);
+        }
+
+        if ( $errorList-&gt;isEmpty() )
+        {
+            echo "Email address was changed successfully.";
+        }
+        else
+        {
+            echo "Email address could not be changed: ";
+            echo join( '&lt;br&gt;', $errorList-&gt;getMessages() );
+        }
+    }
+}</code></pre>
+<p>Code like this is</p>
+<ul>
+<li>hardly untestable, because you have no mechanical information about what error occured or where,</li>
+<li>a bad read, because e.g. <code>$customer</code> has two completely different value types assigned (<code>Customer</code> object or <code>ErrorList</code> object),</li>
+<li>too nested, because you must react on so many method behaviours and</li>
+<li>not reusable without duplicating all the nested handling of the method's return types.</li>
+</ul>
+<p>By the way you can ask yourself, if you really want to present a message to the user, if your system was unable to persist a customer. </p>
+<p>Another problem with these specific, distributed error messages for users is, you can't change them for other use cases
+or languages without turning the whole application upside-down.</p>
+<hr />
+<h3>Refactoring #1: Exceptions instead of ErrorList</h3>
+<p>In the first step of our refactoring we'll replace the <code>ErrorList</code> returns with <code>Exceptions</code>.</p>
+<pre><code class="language-php">&lt;?php
+
+class CustomerRepository 
+{
+    /**
+     * @param string $customerId
+     *
+     * @throws Exception
+     * @return Customer
+     */
+    public function findOneWithId( string $customerId ) : Customer
+    {
+        // Code that loads the customer object from storage
+
+        if ( $customer !== null )
+        {
+            return $customer;
+        }
+
+        throw new Exception( "Customer with ID {$customerId} not found." );
+    }
+
+    /**
+     * @param Customer $customer
+     *
+     * @throws Exception
+     */
+    public function update( Customer $customer )
+    {
+        // Code that unloads the customer object to storage
+
+        if ( !$updateResult )
+        {
+            throw new Exception( "Updating customer object failed." );
+        }
+    }
+}
+
+class Customer
+{
+    private $email;
+
+    /**
+     * @param string $email
+     *
+     * @throws Exception
+     */
+    public function changeEmail( string $newEmail )
+    {
+        if ( empty($newEmail) )
+        {
+            throw new Exception( 'Email address is empty.' ); 
+        }
+        elseif ( !filter_var( $newEmail, FILTER_VALIDATE_EMAIL ) )
+        {
+            throw new Exception( 'Email address is invalid.' );
+        }
+        elseif ( $newEmail == $this-&gt;email )
+        {
+            throw new Exception( 'Email address is same as current address.' );
+        }
+
+        $this-&gt;email = $newEmail;
+    }
+}
+
+class ChangeCustomerEmailHandler
+{
+    /**
+     * @param Request $request
+     */
+    public function handle( Request $request )
+    {
+        $customerRepository = new CustomerRepository();
+
+        try 
+        {
+            # 1. Loading the customer object from storage
+            $customer = $customerRepository-&gt;findOneWithId( $request-&gt;getCustomerId() );
+
+            # 2. Changing the customer object's email address
+            $customer-&gt;changeEmail( $request-&gt;getNewEmail() );
+
+            # 3. Unloading the customer object to storage
+            $customerRepository-&gt;update( $customer );
+
+            echo "Email address was changed successfully.";
+        }
+        catch ( Exception $e )
+        {
+            echo "Email address could not be changed: " . $e-&gt;getMessage();
+        }
+    }
+}</code></pre>
+<p>By this first change we can see at a glance:</p>
+<ul>
+<li>the code is notably shorter, especially in the <code>ChangeCustomerEmailHandler</code>,</li>
+<li>the code is more comprehensible, because every variable has a clear value assigned,</li>
+<li>the code is technically more precise, because we could give <code>CustomerRepository::findOneWithId</code> a unique return type and</li>
+<li>the code is less nested.</li>
+</ul>
+<p>But the following problems remain unresolved:</p>
+<ul>
+<li>We can not identify the origin context of error messages.</li>
+<li>The <code>Exception</code>'s messages still contain error messages for users.</li>
+</ul>
+<hr />
+<h3>Refactoring #2: Context exceptions</h3>
+<p>To get aware of the context the error occured in we'll replace the generic <code>Exception</code> class with our own <em>Context Exceptions</em>.
+To do so, we need to identify the contexts in the first place:</p>
+<ul>
+<li>1st context is the scope of the <code>CustomerRepository</code> class to load and unload <code>Customer</code> objects from/to the storage. Let's name this context <code>CustomerStorage</code>.</li>
+<li>2nd context is the scope of the <code>Customer</code> class to change its state by changing its data. Let's name this context <code>CustomerData</code>.</li>
+</ul>
+<p>Now we can deduce the names of our exceptions from these contexts:</p>
+<ol>
+<li><code>CustomerStorageException</code></li>
+<li><code>CustomerDataException</code></li>
+</ol>
+<p>Depending on your application or structure of components you can define contexts more widely.
+The macro context here would be <code>Customer</code> and its <em>Context Exception</em> <code>CustomerException</code>.</p>
+<p>But let's move on with our two contexts. </p>
+<p>After the replacement the code looks as follows:</p>
+<pre><code class="language-php">&lt;?php
+
+class CustomerStorageException extends Exception {}
+class CustomerDataException extends Exception {}
+
+class CustomerRepository 
+{
+    /**
+     * @param string $customerId
+     *
+     * @throws Exception
+     * @return Customer
+     */
+    public function findOneWithId( string $customerId ) : Customer
+    {
+        // Code that loads the customer object from storage
+
+        if ( $customer !== null )
+        {
+            return $customer;
+        }
+
+        throw new CustomerStorageException( "Customer with ID {$customerId} not found." );
+    }
+
+    /**
+     * @param Customer $customer
+     *
+     * @throws Exception
+     */
+    public function update( Customer $customer )
+    {
+        // Code that unloads the customer object to storage
+
+        if ( !$updateResult )
+        {
+            throw new CustomerStorageException( "Updating customer object failed." );
+        }
+    }
+}
+
+class Customer
+{
+    private $email;
+
+    /**
+     * @param string $email
+     *
+     * @throws Exception
+     */
+    public function changeEmail( string $newEmail )
+    {
+        if ( empty($newEmail) )
+        {
+            throw new CustomerDataException( 'Email address is empty.' ); 
+        }
+        elseif ( !filter_var( $newEmail, FILTER_VALIDATE_EMAIL ) )
+        {
+            throw new CustomerDataException( 'Email address is invalid.' );
+        }
+        elseif ( $newEmail == $this-&gt;email )
+        {
+            throw new CustomerDataException( 'Email address is same as current address.' );
+        }
+
+        $this-&gt;email = $newEmail;
+    }
+}
+
+class ChangeCustomerEmailHandler
+{
+    /**
+     * @param Request $request
+     */
+    public function handle( Request $request )
+    {
+        $customerRepository = new CustomerRepository();
+
+        try 
+        {
+            # 1. Loading the customer object from storage
+            $customer = $customerRepository-&gt;findOneWithId( $request-&gt;getCustomerId() );
+
+            # 2. Changing the customer object's email address
+            $customer-&gt;changeEmail( $request-&gt;getNewEmail() );
+
+            # 3. Unloading the customer object to storage
+            $customerRepository-&gt;update( $customer );
+
+            echo "Email address was changed successfully.";
+        }
+        catch ( CustomerDataException $e )
+        {
+            echo "Emailaddress could not be changed: " . $e-&gt;getMessage();
+        }
+        catch ( CustomerStorageException $e )
+        {
+            echo "Storage error.";
+        }
+    }
+}</code></pre>
+<p>By adding a second <code>catch</code> branch we now can differentiate between both error contexts.
+This allows us to handle these errors in a more compliant way.</p>
+<ul>
+<li>On errors from the <code>CustomerData</code> context a message shall be presented to the user.</li>
+<li>On errors from the <code>CustomerStorage</code> context the admin shall be informed and the user shall get an &quot;Internal Server Error&quot; response.</li>
+</ul>
+<p>This is quite easy now:</p>
+<pre><code class="language-php">&lt;php
+
+class ChangeCustomerEmailHandler
+{
+    /**
+     * @param Request $request
+     */
+    public function handle( Request $request )
+    {
+        $customerRepository = new CustomerRepository();
+
+        try 
+        {
+            # 1. Loading the customer object from storage
+            $customer = $customerRepository-&gt;findOneWithId( $request-&gt;getCustomerId() );
+
+            # 2. Changing the customer object's email address
+            $customer-&gt;changeEmail( $request-&gt;getNewEmail() );
+
+            # 3. Unloading the customer object to storage
+            $customerRepository-&gt;update( $customer );
+
+            echo "Email address was changed successfully.";
+        }
+        catch ( CustomerDataException $e )
+        {
+            # Message to the user
+            echo "Email address could not be changed: " . $e-&gt;getMessage();
+        }
+        catch ( CustomerStorageException $e )
+        {
+            # Inform the admin
+            mail( 'admin@example.com', 'Customer storage error', $e-&gt;getMessage() );
+
+            # Internal Server Error response to user
+            header( 'Content-Type: text/plain', true, 500 );
+            echo "Internal Server Error";
+        }
+    }
+}</code></pre>
+<p>In most cases this context distiction is too rough to present proper messages to the user or even offer adequate actions.</p>
+<p>So it makes sense to bring more precision into our introduced contexts by extending the exceptions to more specialized ones.</p>
+<p>By the way we still need to solve the problem of distributed user messages in several application layers.</p>
+<p>There are 2 concrete errors in the <code>CustomerStorage</code> context:</p>
+<ol>
+<li>No customer was found for the given customer ID.</li>
+<li>Updating the customer object in storage failed.</li>
+</ol>
+<p>There are 3 concrete errors in the <code>CustomerData</code> context:</p>
+<ol>
+<li>The new email address is empty.</li>
+<li>The new email address is invalid.</li>
+<li>The new email address is the same as the current one.</li>
+</ol>
+<p>We can merge the first two errors together, because an empty email address is an invalid email address.</p>
+<p>For a better read of our code we choose expressive names for our new exceptions:</p>
+<pre><code class="language-php">&lt;?php
+
+# CustomerStorage context
+
+class CustomerNotFound extends CustomerStorageException {}
+
+class UpdatingCustomerFailed extends CustomerStorageException {}
+
+# CustomerData context
+
+class InvalidEmailAddress extends CustomerDataException {}
+
+class EmailAddressAlreadySet extends CustomerDataException {}</code></pre>
+<p>... and embed them into our code:</p>
+<pre><code class="language-php">&lt;?php
+
+class CustomerRepository 
+{
+    /**
+     * @param string $customerId
+     *
+     * @throws CustomerNotFound
+     * @return Customer
+     */
+    public function findOneWithId( string $customerId ) : Customer
+    {
+        // Code that loads the customer object from storage
+
+        $this-&gt;guardCustomerWasFound( $customer );
+
+        return $customer;
+    }
+
+    /**
+     * @param Customer|null $customer
+     *
+     * @throws CustomerNotFound
+     */
+    private function guardCustomerWasFound( $customer )
+    {
+        if ( !($customer instanceof Customer) )
+        {
+            throw new CustomerNotFound();
+        }
+    }
+
+    /**
+     * @param Customer $customer
+     *
+     * @throws UpdatingCustomerFailed
+     */
+    public function update( Customer $customer )
+    {
+        // Code that unloads the customer object to storage
+
+        $this-&gt;guardCustomerWasUpdated( $updateResult );
+    }
+
+    /**
+     * @param bool $updateResult
+     *
+     * @throws UpdatingCustomerFailed
+     */
+    private function guardCustomerWasUpdated( bool $updateResult )
+    {
+        if ( $updateResult === false )
+        {
+            throw new UpdatingCustomerFailed();
+        }
+    }
+}
+
+class Customer
+{
+    private $email;
+
+    /**
+     * @param string $email
+     *
+     * @throws Exception
+     */
+    public function changeEmail( string $newEmail )
+    {
+        $this-&gt;guardEmailAddressIsValid( $newEmail );
+        $this-&gt;guardEmailAddressDiffers( $newEmail );
+
+        $this-&gt;email = $newEmail;
+    }
+
+    /**
+     * @param string $email
+     *
+     * @throws InvalidEmailAddress
+     */
+    private function guardEmailAddressIsValid( string $email )
+    {
+        if ( empty($newEmail) )
+        {
+            throw new InvalidEmailAddress(); 
+        }
+
+        if ( !filter_var( $newEmail, FILTER_VALIDATE_EMAIL ) )
+        {
+            throw new InvalidEmailAddress();
+        }
+    }
+
+    /**
+     * @param string
+     *
+     * @throws EmailAddressAlreadySet
+     */
+    private function guardEmailAddressDiffers( string $email )
+    {
+        if ( $newEmail == $this-&gt;email )
+        {
+            throw new EmailAddressAlreadySet();
+        }
+    }
+}
+
+class ChangeCustomerEmailHandler
+{
+    /**
+     * @param Request $request
+     */
+    public function handle( Request $request )
+    {
+        $customerRepository = new CustomerRepository();
+
+        try 
+        {
+            # 1. Loading customer object from storage
+            $customer = $customerRepository-&gt;findOneWithId( $request-&gt;getCustomerId() );
+
+            # 2. Changing the customer object's email address
+            $customer-&gt;changeEmail( $request-&gt;getNewEmail() );
+
+            # 3. Unloading the customer object to storage
+            $customerRepository-&gt;update( $customer );
+
+            echo "Email address was changed successfully.";
+        }
+        catch ( InvalidEmailAddress $e )
+        {
+            # Message to the user
+            echo "The given email address is invalid. Please check your input.";
+        }
+        catch ( EmailAddressAlreadySet $e )
+        {
+            # Message to the user
+            echo "Please choose another email address.";
+        }
+        catch ( CustomerStorageException $e )
+        {
+            # Inform admin
+            mail( 'admin@example.com', 'Customer storage error', get_class( $e ) . ' - ' . $e-&gt;getMessage() );
+
+            # Internal Server Error response to the user
+            header( 'Content-Type: text/plain', true, 500 );
+            echo "Internal Server Error";
+        }
+    }
+}</code></pre>
+<p>For better separation of concerns checks were extracted to <code>guard...()</code> methods.
+This also reduces the complexity of our business methods.</p>
+<p>By adding another <code>catch</code> branch we now can differentiate between both concrete errors from the <code>CustomerData</code> context.
+Errors from <code>CustomerStorage</code> context remain grouped by a single <code>catch</code>, but we now tell the admin what error occurred (<code>get_class( $e )</code>).</p>
+<p>This means we're free to decide whether to handle occurred errors precisely or in less detail.</p>
+<p>Furthermore we do not have user messages in the <code>CustomerRepository</code> and <code>Customer</code> class anymore.
+These user messages are genereted in the <code>ChangeCustomerEmailHandler</code> according to requirements.
+So now we have a closed context where we can produce user or language specific error messages.
+And this is where they belong, the place nearest to or even part of the presentation layer.</p>
+<p>In addition our code is reusable now, because another handler can react on our <em>Context Exceptions</em> in a different way,
+without us changing the code the errors come from.</p>
+<p>Let's summarize:</p>
+<ul>
+<li>We gave context to our error messages by creating <em>Context Exceptions</em> and throwing them in their context.</li>
+<li>We can differentiate errors by their context.</li>
+<li>We specialized our <em>Context Exceptions</em> to increase their information content.</li>
+<li>We separated the concerns of our methods.</li>
+<li>We moved user messages to where the output is generated / prepared.</li>
+<li>We made our business code reusable.</li>
+</ul>
+<hr />
+<h4>Refactoring #3: Even more context, please.</h4>
+<p>In the beginning our code included the information which customer ID we searched for, when the error occured that it could not be found.</p>
+<pre><code class="language-php">return new ErrorList( "Customer with ID {$customerId} not found." );</code></pre>
+<p>This information vanished by our replacement with Exceptions.</p>
+<pre><code class="language-php">throw new CustomerNotFound();</code></pre>
+<p>Poor admin, who now gets the email with this error message. He won't be able to search any backup for a distinct customer ID.  </p>
+<p>In order to get additional information from the specific context to our error description, we simply can extend our
+specialized <em>Context Exceptions</em>. A best practice is to use so called <code>with...()</code> methods, because they ensure a good read of the code.</p>
+<p>On the example of our <code>CustomerNotFound</code> exception this looks like this:</p>
+<pre><code class="language-php">&lt;?php
+
+class CustomerNotFound extends CustomerStorageException
+{
+    private $customerId = '';
+
+    public function withCustomerId( string $customerId ) : self
+    {
+        $this-&gt;customerId = $customerId;
+
+        return $this;
+    }
+
+    public function getCustomerId() : string
+    {
+        return $this-&gt;customerId;
+    }
+}</code></pre>
+<p>So its call will change as follows:</p>
+<pre><code class="language-php">&lt;?php
+
+class CustomerRepository 
+{
+    /**
+     * @param string $customerId
+     *
+     * @throws CustomerNotFound
+     * @return Customer
+     */
+    public function findOneWithId( string $customerId ) : Customer
+    {
+        // Code that loads the customer object from storage
+
+        $this-&gt;guardCustomerWasFound( $customerId, $customer );
+
+        return $customer;
+    }
+
+    /**
+     * @param string $customerId
+     * @param Customer|null $customer
+     *
+     * @throws CustomerNotFound
+     */
+    private function guardCustomerWasFound( string $customerId, $customer )
+    {
+        if ( !($customer instanceof Customer) )
+        {
+            throw (new CustomerNotFound)-&gt;withCustomerId( $customerId );
+        }
+    }
+}</code></pre>
+<p>And handling this error could possibly look like this:</p>
+<pre><code class="language-php">&lt;?php
+
+class ChangeCustomerEmailHandler
+{
+    /**
+     * @param Request $request
+     */
+    public function handle( Request $request )
+    {
+        $customerRepository = new CustomerRepository();
+
+        try 
+        {
+            # 1. Loading the customer object from storage
+            $customer = $customerRepository-&gt;findOneWithId( $request-&gt;getCustomerId() );
+
+            # ...
+
+            echo "Email address was changed successfully.";
+        }
+        /*
+
+        ...
+
+        */
+        catch ( CustomerNotFound $e )
+        {
+            # Inform admin
+            $subject = 'Customer with ID ' . $e-&gt;getCustomerId() . ' not found in storage.';
+            mail( 'admin@example.com', $subject, get_class( $e ) . ' - ' . $e-&gt;getMessage() );
+
+            # Internal Server Error response to customer
+            header( 'Content-Type: text/plain', true, 500 );
+            echo "Internal Server Error";
+        }
+    }
+}</code></pre>
+<p>As we handle the precise <code>CustomerNotFound</code> exception we make sure there is a getter for a customer ID providing
+information we can embed in the error message.</p>
+<p>Of course this use case is trivial, because we could have taken the customer ID from the <code>Request</code> object.
+More interesting than the customer ID would be e.g. the current used storage.</p>
+<p>With this aproach we now are able to &quot;carry&quot; usually hidden information from the context to the error handling part of our application.</p>
+<p>- HaPHPy throwing!</p>
+<p><small>01/16/2016</small></p>
+	</div>
+</div>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -27,6 +27,7 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "home.md",
 			"children": [
+				"/php.html"
 			]
 		},
 		"/404.html": {
@@ -41,6 +42,160 @@
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
 			"contentFile": "404.md",
+			"children": []
+		},
+		"/php.html": {
+			"pageLevel": 2,
+			"navName": "PHP",
+			"pageTitle": "PHP",
+			"description": "PHP related blog posts",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"Post",
+				"Blog",
+				"Sharing",
+				"Contents"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/index.md",
+			"children": [
+				"/php/traitful-configs.html",
+				"/php/fluent-validation-with-ease.html",
+				"/php/custom-exceptions-with-context.html",
+				"/php/divide-and-conquer-2-years-of-cqrs-in-production.html",
+				"/php/phar-better-tools.html",
+				"/php/practical-cqrs-newsletter-double-opt-in.html"
+			]
+		},
+		"/php/custom-exceptions-with-context.html": {
+			"pageLevel": 3,
+			"navName": "Custom exceptions with context",
+			"pageTitle": "Custom exceptions with context",
+			"description": "You're tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"exception",
+				"context",
+				"custom",
+				"with",
+				"inline construction"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/CustomExceptionsWithContextPost.md",
+			"children": []
+		},
+		"/php/fluent-validation-with-ease.html": {
+			"pageLevel": 3,
+			"navName": "Fluent validation with ease",
+			"pageTitle": "Fluent validation with ease",
+			"description": "Free yourself from consuming and redundant data validation by lining up if statements. Use the fluent interface for validating form input or other data objects. The FluidValidator makes it happen and offers flexible capabilities.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"validation",
+				"fluent interface",
+				"open source",
+				"github",
+				"library",
+				"packagist"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/FluentValidationWithEasePost.md",
+			"children": []
+		},
+		"/php/traitful-configs.html": {
+			"pageLevel": 3,
+			"navName": "'Traitful' configs",
+			"pageTitle": "'Traitful' configs",
+			"description": "An application specifies requirements for its configuration and subdivedes them into MUST haves and COULD haves. The concept of 'Traitful' configs shows how you can force the user of the application to implement the MUST haves and individually use the default implementations of the COULD haves.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"configuration",
+				"traits",
+				"partial implementation",
+				"defaults"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/TraitfulConfigsPost.md",
+			"children": []
+		},
+		"/php/divide-and-conquer-2-years-of-cqrs-in-production.html": {
+			"pageLevel": 3,
+			"navName": "Divide and Conquer",
+			"pageTitle": "Divide and Conquer - 2 years of CQRS in production",
+			"description": "'The MVC pattern solves a problem, that does not exist in the web.' - These few words and some scribbles on the whiteboard has a whole development ideology torn apart in seconds. Mhh, aha, Command Query Responsibility Segregation - Sounds good! And how does one implement this? This session tells the story about the genesis of a PHP micro-framework respecting CQRS, the rethinking of its developers, two years of production experience and the learnings on the road to version 2.0.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"CQRS",
+				"production",
+				"framework",
+				"IceHawk",
+				"GitHub",
+				"Open Source"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/DivideAndConquer2YearsOfCqrsInProductionTalk.md",
+			"children": []
+		},
+		"/php/phar-better-tools.html": {
+			"pageLevel": 3,
+			"navName": "PHAR better tools",
+			"pageTitle": "PHAR better tools",
+			"description": "Introduction to PHAR tools, usage examples, how to distribute and update PHARs, PhiVE and PHAR.io",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"PHAR",
+				"packed",
+				"Toolchain",
+				"Distribution",
+				"Updated",
+				"PhiVE",
+				"PHAR.io"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/PharBetterToolsTalk.md",
+			"children": []
+		},
+		"/php/practical-cqrs-newsletter-double-opt-in.html": {
+			"pageLevel": 3,
+			"navName": "CQRS - Newsletter Double Opt-In",
+			"pageTitle": "Practical CQRS - Newsletter Double Opt-In",
+			"description": "Why the MVC pattern solves a problem that doesn't exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the <a href='http://phpug-dresden.orf' target='_blank'>PHP USERGROUP DRESDEN</a>.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"CQRS",
+				"Newsletter",
+				"Double Opt-In"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/PracticalCqrsNewsletterDoubleOptInTalk.md",
 			"children": []
 		}
 	}
