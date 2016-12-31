@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://hollo.me/index.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Home</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/404.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>404 - Not Found</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/php.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>PHP</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/projects.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Projects</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/php/custom-exceptions-with-context.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Custom exceptions with context</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/php/fluent-validation-with-ease.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Fluent validation with ease</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/php/traitful-configs.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>'Traitful' configs</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Talks</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/divide-and-conquer-2-years-of-cqrs-in-production.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Divide and Conquer - 2 years of CQRS in production</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/phar-better-tools.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>PHAR better tools</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/practical-cqrs-newsletter-double-opt-in.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Practical CQRS - Newsletter Double Opt-In</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/devops.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>DevOps</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/devops/self-hosted-vagrant-cloud.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>How to set up a self-hosted 'vagrant cloud' with versioned, self-packaged vagrant boxes</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/devops/install-xmpp-server-prosody.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>How to install XMPP server prosody with mysql auth backend on Ubuntu</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/reading-list.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Reading list</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/imprint.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Imprint</image:caption>
+    </image:image>
+  </url>
+</urlset>
