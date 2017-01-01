@@ -148,10 +148,11 @@ code {
 }
 
 hr {
-	height: 2px;
-	border: 0;
+	height: 0;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #ffffff;
 	margin: 25px 50px;
-	background-color: #8abbcb;
+	background-color: transparent;
 }
 
 blockquote {
