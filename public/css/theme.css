@@ -220,8 +220,8 @@ sup {
 /* Layout */
 
 #sidebar {
-	background-color: #acdeee;
-	color: #445358;
+	background-color: #75bd5f;
+	color: #ffffff;
 	position: fixed;
 	top: 5px;
 	bottom: 5px;
@@ -235,15 +235,16 @@ sup {
 #sidebar > hr {
 	height: 0;
 	border: 0;
-	border-top: 1px solid #99cada;
-	border-bottom: 1px solid #b7e9f9;
+	border-top: 1px solid #5da553;
+	border-bottom: 1px solid #8fdb79;
 	border-radius: 2px;
 	margin: 15px 20px;
 }
 
-#sidebar .subline {
-	color: #82b4c4;
-	text-shadow: 1px 1px 1px #b7e9f9;
+#sidebar .subline,
+#sidebar .website-version {
+	color: #2d5a2d;
+	text-shadow: 1px 1px 1px #8fdb79;
 }
 
 #breadcrumbs {
@@ -282,7 +283,7 @@ sup {
 #breadcrumbs li > a:hover,
 #breadcrumbs li > a:focus,
 #breadcrumbs li > a:active {
-	color: #b7e9f9;
+	color: #8fdb79;
 	text-decoration: none;
 }
 
@@ -309,7 +310,7 @@ sup {
 	left: 0;
 	height: 40px;
 	width: 40px;
-	background: #82b4c4;
+	background: #3e7c3e;
 	color: #ffffff;
 	line-height: 80px;
 	text-align: center;
@@ -319,7 +320,7 @@ sup {
 	content: '';
 	display: block;
 	position: absolute;
-	border-top: 40px solid #82b4c4;
+	border-top: 40px solid #3e7c3e;
 	border-right: 40px solid transparent;
 }
 
@@ -398,30 +399,34 @@ sup {
 ul.sidebar-nav {
 	list-style-type: none;
 	padding: 0;
-	margin-left: 10px;
 }
 
 ul.sidebar-nav li > a {
 	display: block;
-	color: #445358;
-	padding: 5px 7px;
+	color: #2d5a2d;
+	text-shadow: 1px 1px 1px #8fdb79;
+	padding: 5px 15px;
 	transition: background-color 300ms;
 }
 
 ul.sidebar-nav li > a:hover,
 ul.sidebar-nav li > a:focus,
 ul.sidebar-nav li > a:active {
-	background-color: #9bcddd;
+	background-color: #8fdb79;
 	text-decoration: none;
 	/*color: #ffffff;*/
-	color: #445358;
+	color: #1f3e1f;
 }
 
 ul.sidebar-nav li.active > a {
-	background-color: #8abbcb;
-	text-decoration: none;
+	/*background-color: #8fdb79;*/
 	font-weight: bold;
-	color: #ffffff;
+	text-decoration: none;
+}
+
+ul.sidebar-nav li.active > a:before {
+	content: '+';
+	padding-right: 5px;
 }
 
 ul.sidebar-nav > li > ul {
@@ -485,7 +490,7 @@ ul.sidebar-nav > li > ul {
 	border-radius: 50%;
 	width: 128px;
 	height: 128px;
-	border: 3px solid #8abbcb;
+	border: 3px solid #418541;
 	margin: 0 auto 15px auto;
 }
 
@@ -512,26 +517,21 @@ ul.sociallinks > li {
 /* Icon Colors */
 
 .fa.fa-github {
-	color: #505050;
-	text-shadow: 0 0 2px #ffffff;
+	color: #202020;
+	text-shadow: 0 0 3px #94e27e;
 }
 
 .fa.fa-xing {
 	color: #005654;
-	text-shadow: 0 0 2px #ffffff;
+	text-shadow: 0 0 3px #94e27e;
 }
 
 .fa.fa-linkedin {
 	color: #0083be;
-	text-shadow: 0 0 2px #ffffff;
+	text-shadow: 0 0 3px #94e27e;
 }
 
 .fa.fa-twitter {
-	color: #41aaf1;
-	text-shadow: 0 0 2px #ffffff;
-}
-
-.website-version {
-	color: #82b4c4;
-	text-shadow: 1px 1px 1px #b7e9f9;
+	color: #1da1f2;
+	text-shadow: 0 0 3px #94e27e;
 }
