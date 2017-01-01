@@ -1,0 +1,33 @@
+{% extends "templates/Theme.twig" %}
+
+{% block content %}
+	<h1>Latest blog posts</h1>
+
+	{% for page in project.getPageConfigsAtLevel(2) %}
+
+		<hr>
+
+		{% if page.getUri not in ['/imprint.html', '404.html'] %}
+
+			<h2>{{ page.getPageTitle }}</h2>
+			<p>
+				{{ page.getDescription }} |
+				<a href="{{ project.getUrl(page.getUri) }}" title="{{ page.getPageTitle }}">read more ...</a>
+			</p>
+
+			{% for childPage in project.getChildrenOf(page) %}
+
+				<h3>{{ childPage.getPageTitle }}</h3>
+				<blockquote>
+					{{ childPage.getDescription }}<br>
+					<a href="{{ project.getUrl(childPage.getUri) }}" title="{{ childPage.getPageTitle }}">read more ...</a>
+				</blockquote>
+				<br>
+
+			{% endfor %}
+
+		{% endif %}
+
+	{% endfor %}
+
+{% endblock %}

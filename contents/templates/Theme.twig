@@ -176,12 +176,17 @@
 
 	<div id="main">
 
-		<h1>{{ page.getPageTitle }}</h1>
-		<h5>{{ page.getDescription|raw }}</h5>
+		{% block content %}
 
-		<hr>
+			<h1>{{ page.getPageTitle }}</h1>
+			<h5>{{ page.getDescription|raw }}</h5>
 
-		{{ content|raw }}
+			<hr>
+
+			{{ content|raw }}
+
+		{% endblock %}
+
 	</div>
 </div>
 <script src="{{ project.getUrl('/js/theme.js') }}"></script>

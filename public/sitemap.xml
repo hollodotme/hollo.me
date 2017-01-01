@@ -8,13 +8,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://hollo.me/404.html</loc>
-    <image:image>
-      <image:loc>https://hollo.me/images/Profile.png</image:loc>
-      <image:caption>404 - Not Found</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://hollo.me/php.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
@@ -22,17 +15,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://hollo.me/projects.html</loc>
+    <loc>https://hollo.me/php/traitful-configs.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
-      <image:caption>Projects</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://hollo.me/php/custom-exceptions-with-context.html</loc>
-    <image:image>
-      <image:loc>https://hollo.me/images/Profile.png</image:loc>
-      <image:caption>Custom exceptions with context</image:caption>
+      <image:caption>'Traitful' configs</image:caption>
     </image:image>
   </url>
   <url>
@@ -43,10 +29,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://hollo.me/php/traitful-configs.html</loc>
+    <loc>https://hollo.me/php/custom-exceptions-with-context.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
-      <image:caption>'Traitful' configs</image:caption>
+      <image:caption>Custom exceptions with context</image:caption>
     </image:image>
   </url>
   <url>
@@ -78,6 +64,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/projects.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Projects</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/devops.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
@@ -88,14 +81,14 @@
     <loc>https://hollo.me/devops/self-hosted-vagrant-cloud.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
-      <image:caption>How to set up a self-hosted 'vagrant cloud' with versioned, self-packaged vagrant boxes</image:caption>
+      <image:caption>Self-hosted 'vagrant cloud'</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://hollo.me/devops/install-xmpp-server-prosody.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
-      <image:caption>How to install XMPP server prosody with mysql auth backend on Ubuntu</image:caption>
+      <image:caption>Install XMPP server prosody</image:caption>
     </image:image>
   </url>
   <url>
@@ -110,6 +103,13 @@
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>
       <image:caption>Imprint</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/404.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>404 - Not Found</image:caption>
     </image:image>
   </url>
 </urlset>

@@ -4,12 +4,11 @@
 	"outputDir": "./public",
 	"contentsDir": "./contents/",
 	"replacements": {
-		"@website_version@": "v0.1.0",
+		"@website_version@": "v1.0.0",
 		"@github_url@": "https://github.com/hollodotme",
 		"@twitter_url@": "https://twitter.com/hollodotme",
 		"@xing_url@": "https://www.xing.com/profile/HolgerWoltersdorf",
 		"@linkedin_url@": "https://www.linkedin.com/in/holgerwoltersdorf",
-		"@contact_email@": "blog@hollo.me",
 		"@twitter_handle@": "@hollodotme"
 	},
 	"pages": {
@@ -22,10 +21,10 @@
 			"imageUrl": "/images/Profile.png",
 			"tags": [
 			],
-			"contentType": "markdown",
+			"contentType": "html",
 			"renderer": "twig",
-			"template": "templates/Theme.twig",
-			"contentFile": "home.md",
+			"template": "templates/home.twig",
+			"contentFile": "",
 			"children": [
 				"/php.html",
 				"/talks.html",
@@ -34,20 +33,6 @@
 				"/reading-list.html",
 				"/imprint.html"
 			]
-		},
-		"/404.html": {
-			"pageLevel": 1,
-			"navName": "Not Found",
-			"pageTitle": "404 - Not Found",
-			"description": "The page you requested was not found.",
-			"language": "en",
-			"imageUrl": "/images/Profile.png",
-			"tags": [],
-			"contentType": "markdown",
-			"renderer": "twig",
-			"template": "templates/Theme.twig",
-			"contentFile": "404.md",
-			"children": []
 		},
 		"/php.html": {
 			"pageLevel": 2,
@@ -73,45 +58,24 @@
 				"/php/custom-exceptions-with-context.html"
 			]
 		},
-		"/projects.html": {
-			"pageLevel": 2,
-			"navName": "Projects",
-			"pageTitle": "Projects",
-			"description": "Software projects I maintain or I am involved in",
-			"language": "en",
-			"imageUrl": "/images/Profile.png",
-			"tags": [
-				"Open Source",
-				"Project",
-				"Involved",
-				"GitHub",
-				"Software"
-			],
-			"contentType": "markdown",
-			"renderer": "twig",
-			"template": "templates/Theme.twig",
-			"contentFile": "projects.md",
-			"children": []
-		},
-		"/php/custom-exceptions-with-context.html": {
+		"/php/traitful-configs.html": {
 			"pageLevel": 3,
-			"navName": "Custom exceptions with context",
-			"pageTitle": "Custom exceptions with context",
-			"description": "You're tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information.",
+			"navName": "'Traitful' configs",
+			"pageTitle": "'Traitful' configs",
+			"description": "An application specifies requirements for its configuration and subdivedes them into MUST haves and COULD haves. The concept of 'Traitful' configs shows how you can force the user of the application to implement the MUST haves and individually use the default implementations of the COULD haves.",
 			"language": "en",
 			"imageUrl": "/images/Profile.png",
 			"tags": [
 				"PHP",
-				"exception",
-				"context",
-				"custom",
-				"with",
-				"inline construction"
+				"configuration",
+				"traits",
+				"partial implementation",
+				"defaults"
 			],
 			"contentType": "markdown",
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
-			"contentFile": "php/CustomExceptionsWithContextPost.md",
+			"contentFile": "php/TraitfulConfigsPost.md",
 			"children": []
 		},
 		"/php/fluent-validation-with-ease.html": {
@@ -136,24 +100,25 @@
 			"contentFile": "php/FluentValidationWithEasePost.md",
 			"children": []
 		},
-		"/php/traitful-configs.html": {
+		"/php/custom-exceptions-with-context.html": {
 			"pageLevel": 3,
-			"navName": "'Traitful' configs",
-			"pageTitle": "'Traitful' configs",
-			"description": "An application specifies requirements for its configuration and subdivedes them into MUST haves and COULD haves. The concept of 'Traitful' configs shows how you can force the user of the application to implement the MUST haves and individually use the default implementations of the COULD haves.",
+			"navName": "Custom exceptions with context",
+			"pageTitle": "Custom exceptions with context",
+			"description": "You're tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information.",
 			"language": "en",
 			"imageUrl": "/images/Profile.png",
 			"tags": [
 				"PHP",
-				"configuration",
-				"traits",
-				"partial implementation",
-				"defaults"
+				"exception",
+				"context",
+				"custom",
+				"with",
+				"inline construction"
 			],
 			"contentType": "markdown",
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
-			"contentFile": "php/TraitfulConfigsPost.md",
+			"contentFile": "php/CustomExceptionsWithContextPost.md",
 			"children": []
 		},
 		"/talks.html": {
@@ -244,6 +209,26 @@
 			"contentFile": "talks/PracticalCqrsNewsletterDoubleOptInTalk.md",
 			"children": []
 		},
+		"/projects.html": {
+			"pageLevel": 2,
+			"navName": "Projects",
+			"pageTitle": "Projects",
+			"description": "Software projects I maintain or I am involved in",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"Open Source",
+				"Project",
+				"Involved",
+				"GitHub",
+				"Software"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "projects.md",
+			"children": []
+		},
 		"/devops.html": {
 			"pageLevel": 2,
 			"navName": "DevOps",
@@ -264,8 +249,8 @@
 		"/devops/self-hosted-vagrant-cloud.html": {
 			"pageLevel": 3,
 			"navName": "Self-hosted 'vagrant cloud'",
-			"pageTitle": "How to set up a self-hosted 'vagrant cloud' with versioned, self-packaged vagrant boxes",
-			"description": "",
+			"pageTitle": "Self-hosted 'vagrant cloud'",
+			"description": "A tutorial on how to set up a self-hosted 'vagrant cloud' with versioned, self-packaged vagrant boxes",
 			"language": "en",
 			"imageUrl": "/images/Profile.png",
 			"tags": [],
@@ -278,8 +263,8 @@
 		"/devops/install-xmpp-server-prosody.html": {
 			"pageLevel": 3,
 			"navName": "Install XMPP server prosody",
-			"pageTitle": "How to install XMPP server prosody with mysql auth backend on Ubuntu",
-			"description": "",
+			"pageTitle": "Install XMPP server prosody",
+			"description": "A tutorial on how to install XMPP server prosody with mysql auth backend on Ubuntu",
 			"language": "en",
 			"imageUrl": "/images/Profile.png",
 			"tags": [],
@@ -293,7 +278,7 @@
 			"pageLevel": 2,
 			"navName": "Reading list",
 			"pageTitle": "Reading list",
-			"description": "",
+			"description": "(e)Books, blogs and other resources I use(d) to read",
 			"language": "en",
 			"imageUrl": "/images/Profile.png",
 			"tags": [],
@@ -315,6 +300,20 @@
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
 			"contentFile": "Imprint.md",
+			"children": []
+		},
+		"/404.html": {
+			"pageLevel": 1,
+			"navName": "Not Found",
+			"pageTitle": "404 - Not Found",
+			"description": "The page you requested was not found.",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "404.md",
 			"children": []
 		}
 	}
