@@ -9,6 +9,9 @@
 			"email": "hw@hollo.me"
 		}
 	],
+	"require": {
+		"hollodotme/treemdown-multi": "~1.0"
+	},
 	"require-dev": {
 		"tm/tooly-composer-script": "^1.0"
 	},

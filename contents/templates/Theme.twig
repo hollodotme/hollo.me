@@ -91,6 +91,9 @@
 </head>
 <body>
 <div class="themewrapper">
+
+	<a href="#" id="sidebar-toggle"><i class="fa fa-close genericon"></i></a>
+
 	<div id="sidebar">
 		<div class="brand-well">
 			<a href="@baseUrl@">
@@ -137,7 +140,9 @@
 		<hr>
 
 		<div class="text-center">
-			<p><small>Co-Founder of</small></p>
+			<p>
+				<small>Co-Founder of</small>
+			</p>
 			<a href="http://phpug-dresden.org" target="_blank">
 				<img src="{{ project.getUrl('/img/php-usergroup-dresden.png') }}" alt="PHP USERGROUP DRESDEN e.V." class="img img-50">
 			</a>
@@ -156,14 +161,12 @@
 			{% for url, title in breadCrumb %}
 				{% if loop.last %}
 					<li class="active">
-						{% if loop.first %}<i class="fa fa-map-marker"></i>{% endif %}
-						{{ title }}
+						{% if loop.first %}<i class="fa fa-map-marker"></i>{% endif %} {{ title }}
 					</li>
 				{% else %}
 					<li>
 						<a href="@baseUrl@{{ url }}">
-							{% if loop.first %}<i class="fa fa-map-marker"></i>{% endif %}
-							{{ title }}
+							{% if loop.first %}<i class="fa fa-map-marker"></i>{% endif %} {{ title }}
 						</a>
 					</li>
 				{% endif %}
@@ -181,7 +184,7 @@
 		{{ content|raw }}
 	</div>
 </div>
-
+<script src="{{ project.getUrl('/js/theme.js') }}"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
 <script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>

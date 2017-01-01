@@ -263,6 +263,7 @@ sup {
 
 #breadcrumbs ul > li {
 	display: inline-block;
+	white-space: nowrap;
 }
 
 #breadcrumbs ul > li:before {
@@ -295,9 +296,103 @@ sup {
 	top: 40px;
 	bottom: 5px;
 	left: 320px;
-	right: 12%;
-	overflow: auto;
+	right: 50px;
+	overflow-y: auto;
 	padding: 25px;
+}
+
+#sidebar-toggle {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	top: -15px;
+	left: 0;
+	height: 40px;
+	width: 40px;
+	background: #82b4c4;
+	color: #ffffff;
+	line-height: 80px;
+	text-align: center;
+}
+
+#sidebar-toggle:before, #sidebar-toggle:after {
+	content: '';
+	display: block;
+	position: absolute;
+	border-top: 40px solid #82b4c4;
+	border-right: 40px solid transparent;
+}
+
+#sidebar-toggle:before {
+	top: 40px
+}
+
+#sidebar-toggle:after {
+	top: 0;
+	left: 40px
+}
+
+#sidebar-toggle .fa {
+	height: 40px;
+	width: 40px;
+	font-size: 25px;
+	line-height: 40px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg)
+}
+
+#sidebar-toggle.open .fa {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg)
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+	#sidebar {
+		margin-left: -500px;
+	}
+
+	#sidebar.open {
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 250px;
+		margin: 0;
+	}
+
+	#main {
+		left: 5px;
+		right: 5px;
+	}
+
+	#breadcrumbs {
+		left: 50px;
+		right: 5px;
+		overflow-y: auto;
+		font-size: smaller;
+	}
+
+	code {
+		font-size: small;
+		line-height: 12pt;
+	}
+
+	#sidebar-toggle {
+		display: block
+	}
+}
+
+@media only screen and (min-width: 1500px) {
+	#main {
+		right: 10%;
+	}
 }
 
 ul.sidebar-nav {
