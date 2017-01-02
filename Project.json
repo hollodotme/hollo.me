@@ -53,10 +53,35 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/experimental-async-php-volume-1.html",
 				"/php/traitful-configs.html",
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/php/experimental-async-php-volume-1.html": {
+			"pageLevel": 3,
+			"navName": "Experimental async PHP - VOL. 1",
+			"pageTitle": "Experimental async PHP - Volume 1",
+			"description": "First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket",
+			"language": "en",
+			"imageUrl": "/images/Profile.png",
+			"tags": [
+				"PHP",
+				"event loop",
+				"async",
+				"php-fpm",
+				"redis",
+				"publish",
+				"subscribe",
+				"pubsub",
+				"experimental"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/ExperimentalAsyncPhpVolume1.md",
+			"children": []
 		},
 		"/php/traitful-configs.html": {
 			"pageLevel": 3,

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Experimental async PHP - Volume 1 | Holger Woltersdorf&#039;s blog</title>
+	<meta name="description" content="Coming Soon">
+	<meta name="keywords" content="PHP, event loop, async, php-fpm, redis, publish, subscribe, pubsub, experimental">
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="geo.region" content="DE-SN"/>
+	<meta name="geo.placename" content="Dresden"/>
+	<meta name="geo.position" content="51.052088;13.741672"/>
+	<meta name="ICBM" content="51.052088, 13.741672"/>
+	<meta name="twitter:site" content="@hollodotme">
+	<meta name="twitter:creator" content="@hollodotme">
+	<script type="application/ld+json">{
+  "@context" : "http://schema.org",
+  "@type": "Person",
+  "name": "Holger Woltersdorf&#039;s blog",
+  "image": "http://127.0.0.1:8080/images/Profile.png",
+  "url": "http://127.0.0.1:8080",
+  "sameAs" : [
+      "https://twitter.com/hollodotme",
+      "https://www.xing.com/profile/HolgerWoltersdorf"
+    ]
+  }
+}</script>
+	<meta property="article:author" content="https://www.xing.com/profile/HolgerWoltersdorf"/>
+	<meta property="article:publisher" content="https://www.xing.com/profile/HolgerWoltersdorf"/>
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="canonical" href="http://127.0.0.1:8080/php/experimental-async-php-volume-1.html"/>
+	<meta name="referrer" content="origin"/>
+
+	<meta property="og:site_name" content="Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="Experimental async PHP - Volume 1 | Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:description" content="First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket"/>
+	<meta property="og:url" content="http://127.0.0.1:8080"/>
+	<meta property="og:image" content="http://127.0.0.1:8080/images/Profile.png"/>
+	<meta property="article:published_time" content="2017-01-02T01:32:35+01:00"/>
+	<meta property="article:modified_time" content="2017-01-02T01:32:35+01:00"/>
+			<meta property="article:tag" content="PHP"/>
+			<meta property="article:tag" content="event loop"/>
+			<meta property="article:tag" content="async"/>
+			<meta property="article:tag" content="php-fpm"/>
+			<meta property="article:tag" content="redis"/>
+			<meta property="article:tag" content="publish"/>
+			<meta property="article:tag" content="subscribe"/>
+			<meta property="article:tag" content="pubsub"/>
+			<meta property="article:tag" content="experimental"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="Experimental async PHP - Volume 1 | Holger Woltersdorf&#039;s blog"/>
+	<meta name="twitter:description" content="First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket"/>
+	<meta name="twitter:url" content="http://127.0.0.1:8080/php/experimental-async-php-volume-1.html"/>
+	<meta name="twitter:image:src" content="http://127.0.0.1:8080/images/Profile.png"/>
+
+	<meta name="generator" content="IceHawk Static Page Generator"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://127.0.0.1:8080/css/theme.css">
+	<script src="https://use.fontawesome.com/3513f09ab7.js"></script>
+	</head>
+<body>
+<div class="themewrapper">
+
+	<a href="#" id="sidebar-toggle"><i class="fa fa-close genericon"></i></a>
+
+	<div id="sidebar">
+		<div class="brand-well">
+			<a href="http://127.0.0.1:8080">
+				<img src="http://127.0.0.1:8080/img/Profile.png" alt="Holger Woltersdorf">
+			</a>
+		</div>
+
+		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
+		<p class="text-center text-uppercase subline">
+			CIO &middot; Developer &middot; Speaker<br>
+			PHP &middot; WEB &middot; Markdown lover
+		</p>
+
+		<hr>
+
+		<ul class="sociallinks">
+			<li>
+				<a href="https://twitter.com/hollodotme" title="Holger Woltersdorf on twitter (@hollodotme)" target="_blank"><i class="fa fa-twitter"></i></a>
+			</li>
+			<li>
+				<a href="https://www.xing.com/profile/HolgerWoltersdorf" title="Holger Woltersdorf on Xing" target="_blank"><i class="fa fa-xing"></i></a>
+			</li>
+			<li>
+				<a href="https://github.com/hollodotme" title="Holger Woltersdorf on GitHub" target="_blank"><i class="fa fa-github"></i></a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/holgerwoltersdorf" title="Holger Woltersdorf on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<ul class="sidebar-nav">
+			<li class="hidden-sm hidden-md hidden-lg">
+				<a href="http://127.0.0.1:8080/" title="Home">Home</a>
+			</li>
+			
+						<li class="active">
+		<a href="http://127.0.0.1:8080/php.html">PHP</a>
+					<ul class="nav">
+															<li class="active">
+		<a href="http://127.0.0.1:8080/php/experimental-async-php-volume-1.html">Experimental async PHP - VOL. 1</a>
+			</li>
+
+											<li>
+		<a href="http://127.0.0.1:8080/php/traitful-configs.html">&#039;Traitful&#039; configs</a>
+			</li>
+
+											<li>
+		<a href="http://127.0.0.1:8080/php/fluent-validation-with-ease.html">Fluent validation with ease</a>
+			</li>
+
+											<li>
+		<a href="http://127.0.0.1:8080/php/custom-exceptions-with-context.html">Custom exceptions with context</a>
+			</li>
+
+							</ul>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/talks.html">Talks</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/projects.html">Projects</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/devops.html">DevOps</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/reading-list.html">Reading list</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/imprint.html">Imprint</a>
+			</li>
+
+
+					</ul>
+
+		<hr>
+
+		<div class="text-center">
+			<p>
+				<small>Co-Founder of</small>
+			</p>
+			<a href="http://phpug-dresden.org" target="_blank">
+				<img src="http://127.0.0.1:8080/img/php-usergroup-dresden.png" alt="PHP USERGROUP DRESDEN e.V." class="img img-50">
+			</a>
+		</div>
+
+		<hr>
+
+		<p class="text-center website-version">
+			<small>v1.0.0</small>
+		</p>
+
+	</div>
+
+	<div id="breadcrumbs">
+		<ul>
+												<li>
+						<a href="http://127.0.0.1:8080/index.html">
+							<i class="fa fa-map-marker"></i> Home
+						</a>
+					</li>
+																<li>
+						<a href="http://127.0.0.1:8080/php.html">
+							 PHP
+						</a>
+					</li>
+																<li class="active">
+						 Experimental async PHP - VOL. 1
+					</li>
+									</ul>
+	</div>
+
+	<div id="main">
+
+		
+			<h1>Experimental async PHP - Volume 1</h1>
+			<h5>First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket</h5>
+
+			<hr>
+
+			<h2>Preamble</h2>
+<p>I recently read a lot about <a href="https://medium.com/async-php">async PHP</a> and started to do some experiments on my own.
+At the <a href="http://phpconference.com">IPC 2016 (Spring Edition)</a> in Berlin I attended a talk by <a href="https://twitter.con/arneblankerts">Arne Blankerts</a> about
+the marriage of PHP and Node.js using the redis pubsub system and web sockets to communicate between server (PHP script), client (JS in Browser)
+and a daemonized application (Node.js app). You can find his <a href="https://thephp.cc/dates/2016/02/confoo/just-married-node-js-and-php">slides here</a>.</p>
+<p>This is my first experiment to do something similar with PHP only.</p>
+<h2>Goal</h2>
+<ul>
+<li>A PHP script (&quot;Caller&quot;) publishing messages via <a href="https://redis.io/topics/pubsub">Redis PubSub</a> system</li>
+<li>A PHP script (&quot;Daemon&quot;) running as a proper daemon on a unix system with an event loop</li>
+<li>&quot;Daemon&quot; is listening to channels of the Redis PubSub system</li>
+<li>On receiving a message the &quot;Daemon&quot; starts a new request to the php-fpm socket (&quot;Worker&quot;)</li>
+</ul>
+<h2>Used environment</h2>
+<ul>
+<li>OS: Ubuntu Xenial 16.04.1 LTS</li>
+<li>PHP 7.1.0-3+deb.sury.org~xenial+1 with <i class="fa fa-github"></i> <a href="https://github.com/phpredis/phpredis/tree/3.0.0">phpredis 3.0.0</a></li>
+<li><a href="https://redis.io/download">Redis Server 3.2.6</a></li>
+<li><a href="https://getcomposer.org">composer PHP dependency manager</a></li>
+<li><i class="fa fa-github"></i> <a href="https://github.com/adoy/PHP-FastCGI-Client">adoy/PHP-FastCGI-Client</a></li>
+</ul>
+<hr />
+<h2>The &quot;Caller&quot;</h2>
+<p><i class="fa fa-file-o"></i> <code>caller.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+$redis = new \Redis();
+$redis-&gt;connect( 'localhost', 6379, 2.0 );
+
+$message = [
+    'timestamp' =&gt; date( 'c' ),
+];
+
+$redis-&gt;publish( 'commands', json_encode( $message, JSON_PRETTY_PRINT ) );</code></pre>
+<p>This script creates a redis client and publishes a message containing the current timestamp to the channel &quot;commands&quot;.</p>
+<hr />
+<h2>The &quot;Daemon&quot; Version #1</h2>
+<p><i class="fa fa-file-o"></i> <code>daemon.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+$redisHost = '127.0.0.1';
+$redisPort = 6379;
+
+$redis     = new \Redis();
+$connected = $redis-&gt;connect( $redisHost, $redisPort );
+
+if ( $connected )
+{
+    echo "Connected to redis on {$redisHost}:{$redisPort}\n";
+
+    $redis-&gt;subscribe(
+        [ 'commands' ],
+        function ( \Redis $redis, string $channel, string $message )
+        {
+            echo "Channel: $channel\n";
+            echo "Payload: $message\n";
+        }
+    );
+}
+else
+{
+    echo "Could not connect to redis.\n";
+}</code></pre>
+<p>This script creates a redis client and subscribes to the channel &quot;commands&quot; if the connection was successful.
+If a message was published to the &quot;commands&quot; channel the defined callback function will receive that message alongside with the name of the channel
+and the current redis client instance. As you can see the script simply prints the channel name and the message payload to stdout.
+We will change this later, but for checking the basic setup this is sufficient.</p>
+<p>You may wonder why there is nothing like a <code>while (true)</code> loop in this script that makes it run infinitely. This is because the <code>$redis-&gt;subscribe()</code>
+statement already contains such a loop behaviour since it opens a socket to the redis server and listens for incoming messages.</p>
+<p>To have an infinite listening on the channel it is important not to set a timeout when connecting to redis (3rd parameter in <code>$redis-&gt;connect()</code>) and to
+disable the <code>php.ini</code>'s <code>default_socket_timeout</code> with the value <code>-1</code>. The next paragraph will describe how we can achieve that without disabling it
+globally in the <code>php.ini</code>.   </p>
+<hr />
+<h2>Daemonize the &quot;Daemon&quot;</h2>
+<p>The following <code>systemd</code> service script will let our &quot;Daemon&quot; run as a linux service with start/stop function and auto-respawn.</p>
+<p><i class="fa fa-file-o"></i> <code>/etc/systemd/system/php-daemon.service</code></p>
+<pre><code>[Unit]
+Description=PHP Daemon
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/php7.1 -d "default_socket_timeout=-1" -f /path/to/daemon.php
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+<p>Enable the service with: </p>
+<ul>
+<li><code>sudo systemctl enable php-daemon.service</code></li>
+</ul>
+<p>Now you can start/stop the &quot;Daemon&quot; with:</p>
+<ul>
+<li><code>sudo service php-daemon start</code></li>
+<li><code>sudo service php-daemon stop</code></li>
+<li><code>sudo service php-daemon restart</code></li>
+</ul>
+<p>... and see its current status and latest output with:</p>
+<ul>
+<li><code>sudo service php-daemon status</code></li>
+</ul>
+<p>As you can see there is an option <code>-d "default_socket_timeout=-1"</code> in the command to execute (line 7). This option overwrites the earlier mentioned
+<code>php.ini</code> setting <code>default_socket_timeout</code> with the value <code>-1</code> only for this particular process. So we completely disabled the default socket timeout.</p>
+<p>The <code>Restart=always</code> directive will let our &quot;Daemon&quot; restart automatically if it crashes or its process was manually killed.</p>
+<hr />
+<h2>First test</h2>
+<pre><code class="language-bash"># Start the daemon
+$ sudo service php-daemon start
+
+# Check if daemon is running properly 
+$ sudo service php-daemon status
+● php-daemon.service - PHP Daemon
+   Loaded: loaded (/etc/systemd/system/php-daemon.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sun 2017-01-01 23:53:09 CET; 3s ago
+ Main PID: 4081 (php7.1)
+    Tasks: 1
+   Memory: 9.7M
+      CPU: 39ms
+   CGroup: /system.slice/php-daemon.service
+           └─4081 /usr/bin/php7.1 -d default_socket_timeout=-1 -f /vagrant/src/daemon.php
+
+Jan 01 23:53:09 www systemd[1]: Started PHP Daemon.
+Jan 01 23:53:09 www php7.1[4081]: Connected to redis on 127.0.0.1:6379
+
+# Send a message
+$ /usr/bin/php7.1 /path/to/caller.php
+
+# Check if message was received
+$ sudo service php-daemon status
+● php-daemon.service - PHP Daemon
+   Loaded: loaded (/etc/systemd/system/php-daemon.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sun 2017-01-01 23:53:09 CET; 40min ago
+ Main PID: 4081 (php7.1)
+    Tasks: 1
+   Memory: 9.7M
+      CPU: 39ms
+   CGroup: /system.slice/php-daemon.service
+           └─4081 /usr/bin/php7.1 -d default_socket_timeout=-1 -f /vagrant/src/daemon.php
+
+Jan 01 23:53:09 www systemd[1]: Started PHP Daemon.
+Jan 01 23:53:09 www php7.1[4081]: Connected to redis on 127.0.0.1:6379
+Jan 02 00:33:28 www php7.1[4081]: Channel: commands
+Jan 02 00:33:28 www php7.1[4081]: Payload: {
+Jan 02 00:33:28 www php7.1[4081]:     "timestamp": "2017-01-02T00:33:28+01:00"
+Jan 02 00:33:28 www php7.1[4081]: }
+
+# Looks good! :)</code></pre>
+<hr />
+<h2>The &quot;Worker&quot;</h2>
+<p>Now we want to spawn a worker and hand over the message from the &quot;Caller&quot; to it. For starters the &quot;Worker&quot; will simply log the received timestamp from
+the message to a log file and than sleep 1 second before it dies.</p>
+<p><i class="fa fa-file-o"></i> <code>worker.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+error_log( $_POST['timestamp'] . "\n", 3, __DIR__ . '/../logs/workers.log' );
+
+sleep( 1 );</code></pre>
+<hr />
+<h2>The &quot;Daemon&quot; version #2</h2>
+<p>To hand over the message to the worker, we will let the &quot;Daemon&quot; send a request to the PHP-FPM socket using
+<i class="fa fa-github"></i> <a href="https://github.com/adoy/PHP-FastCGI-Client">adoy/PHP-FastCGI-Client</a>.</p>
+<p><i class="fa fa-file-o"></i> <code>daemon.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+use Adoy\FastCGI\Client;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+$redisHost = '127.0.0.1';
+$redisPort = 6379;
+
+$redis     = new \Redis();
+$connected = $redis-&gt;connect( $redisHost, $redisPort );
+
+if ( $connected )
+{
+    echo "Connected to redis on {$redisHost}:{$redisPort}\n";
+
+    $redis-&gt;subscribe(
+        [ 'commands' ],
+        function ( \Redis $redis, string $channel, string $message )
+        {
+            $messageArray = json_decode( $message );
+            $body         = http_build_query( $messageArray );
+
+            $fpmClient = new Client( 'unix:///var/run/php/php7.1-fpm.sock', -1 );
+            $processId = $fpmClient-&gt;async_request(
+                [
+                    'GATEWAY_INTERFACE' =&gt; 'FastCGI/1.0',
+                    'REQUEST_METHOD'    =&gt; 'POST',
+                    'SCRIPT_FILENAME'   =&gt; '/vagrant/src/worker.php',
+                    'SERVER_SOFTWARE'   =&gt; 'php/fcgiclient',
+                    'REMOTE_ADDR'       =&gt; '127.0.0.1',
+                    'REMOTE_PORT'       =&gt; '9985',
+                    'SERVER_ADDR'       =&gt; '127.0.0.1',
+                    'SERVER_PORT'       =&gt; '80',
+                    'SERVER_NAME'       =&gt; 'myServer',
+                    'SERVER_PROTOCOL'   =&gt; 'HTTP/1.1',
+                    'CONTENT_TYPE'      =&gt; 'application/x-www-form-urlencoded',
+                    'CONTENT_LENGTH'    =&gt; mb_strlen( $body ),
+                ],
+                $body
+            );
+
+            echo "Spawned process with ID: {$processId}\n";
+        }
+    );
+}
+else
+{
+    echo "Could not connect to redis.\n";
+}</code></pre>
+
+		
+	</div>
+</div>
+<script src="http://127.0.0.1:8080/js/theme.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
