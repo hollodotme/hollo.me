@@ -65,7 +65,7 @@
 			"pageTitle": "Experimental async PHP - Volume 1",
 			"description": "First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket",
 			"language": "en",
-			"imageUrl": "/images/Profile.png",
+			"imageUrl": "/images/posts/caller-redis-daemon-socket-worker.png",
 			"tags": [
 				"PHP",
 				"event loop",
@@ -75,7 +75,10 @@
 				"publish",
 				"subscribe",
 				"pubsub",
-				"experimental"
+				"experimental",
+				"daemon",
+				"worker",
+				"socket"
 			],
 			"contentType": "markdown",
 			"renderer": "twig",
