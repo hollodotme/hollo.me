@@ -17,6 +17,15 @@ A web interface to read data from redis server(s)
 
 ---
 
+### Fast CGI Client
+
+A PHP fast CGI client for sending requests (a)synchronously to PHP-FPM
+
+* <i class="fa fa-github"></i> [Fast CGI Client on GitHub](https://github.com/hollodotme/fast-cgi-client)
+* <i class="fa fa-globe"></i> [Related blog post](@baseUrl@/php/experimental-async-php-volume-1.html)
+
+---
+
 ### FluidValidator
 
 Validating data with a fluent interfaced class
