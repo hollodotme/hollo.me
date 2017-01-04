@@ -50,6 +50,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/open-source-software-get-involved.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/Profile.png</image:loc>
+      <image:caption>Open Source Software - Get Involved</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/divide-and-conquer-2-years-of-cqrs-in-production.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/Profile.png</image:loc>

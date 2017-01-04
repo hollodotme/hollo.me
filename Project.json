@@ -168,10 +168,32 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/open-source-software-get-involved.html",
 				"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html",
 				"/talks/phar-better-tools.html",
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
+		},
+		"/talks/open-source-software-get-involved.html": {
+			"pageLevel": 3,
+			"navName": "Open Source Software - Get Involved",
+			"pageTitle": "Open Source Software - Get Involved",
+			"description": "A basic overview on resources and best practices to get involved in open source software projects. A talk at the 'X-Mas Issue Bash 2016' at PHP USERGROUP DRESDEN e.V.",
+			"language": "en",
+			"imageUrl": "/img/Profile.png",
+			"tags": [
+				"OSS",
+				"open source",
+				"software",
+				"projects",
+				"best practices",
+				"GitHub"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/OpenSourceSoftwareGetInvolved.md",
+			"children": []
 		},
 		"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html": {
 			"pageLevel": 3,
