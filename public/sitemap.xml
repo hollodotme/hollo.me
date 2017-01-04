@@ -15,6 +15,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/php/experimental-async-php-volume-1.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/images/Profile.png</image:loc>
+      <image:caption>Experimental async PHP - Volume 1</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/php/traitful-configs.html</loc>
     <image:image>
       <image:loc>https://hollo.me/images/Profile.png</image:loc>

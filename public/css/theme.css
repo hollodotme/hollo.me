@@ -457,15 +457,22 @@ ul.sidebar-nav > li > ul {
 	float: left;
 }
 
+.img img {
+	border: 1px solid #c4c4c4;
+}
+
+.img.center img {
+	display: block;
+	margin: 0 auto;
+}
+
 .img.pull-right {
 	margin: 0 0 15px 15px;
-	border: 1px solid #c4c4c4;
 	padding: 0;
 }
 
 .img.pull-left {
 	margin: 0 15px 15px 0;
-	border: 1px solid #c4c4c4;
 	padding: 0;
 }
 
