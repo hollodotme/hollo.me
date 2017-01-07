@@ -53,11 +53,38 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/experimental-async-php-volume-2.html",
 				"/php/experimental-async-php-volume-1.html",
 				"/php/traitful-configs.html",
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/php/experimental-async-php-volume-2.html": {
+			"pageLevel": 3,
+			"navName": "Experimental async PHP - VOL. 2",
+			"pageTitle": "Experimental async PHP - Volume 2",
+			"description": "Second try to run a PHP daemon receiving messages from RabbtiMQ and executing commands async on the php-fpm socket",
+			"language": "en",
+			"imageUrl": "/img/posts/caller-redis-daemon-socket-worker.png",
+			"tags": [
+				"PHP",
+				"async",
+				"php-fpm",
+				"RabbitMQ",
+				"send",
+				"receive",
+				"producer",
+				"experimental",
+				"daemon",
+				"worker",
+				"socket"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/ExperimentalAsyncPhpVolume2.md",
+			"children": []
 		},
 		"/php/experimental-async-php-volume-1.html": {
 			"pageLevel": 3,
@@ -68,7 +95,6 @@
 			"imageUrl": "/img/posts/caller-redis-daemon-socket-worker.png",
 			"tags": [
 				"PHP",
-				"event loop",
 				"async",
 				"php-fpm",
 				"redis",
