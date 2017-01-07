@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03eea34b748dd5ec84acbe15e6a38cea",
+    "content-hash": "056a2f7bdf47c5e3a7908d5604ae8896",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -193,16 +193,16 @@
     "packages-dev": [
         {
             "name": "tm/tooly-composer-script",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tommy-muehle/tooly-composer-script.git",
-                "reference": "cecd4a394022836fa58aef0ba980dc426d9b6460"
+                "reference": "3bf74f7df02a9e2c92bd9d7355015fd48814cbf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/cecd4a394022836fa58aef0ba980dc426d9b6460",
-                "reference": "cecd4a394022836fa58aef0ba980dc426d9b6460",
+                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/3bf74f7df02a9e2c92bd9d7355015fd48814cbf4",
+                "reference": "3bf74f7df02a9e2c92bd9d7355015fd48814cbf4",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +268,7 @@
                 "phar-handling",
                 "phar-management"
             ],
-            "time": "2016-11-28T21:33:06+00:00"
+            "time": "2017-01-06T13:12:13+00:00"
         }
     ],
     "aliases": [],
