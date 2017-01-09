@@ -31,7 +31,7 @@ So let's change the goal a bit and replace Redis with a real message broker: [Ra
 ---
 
 
-## The "Caller"
+## The "Caller" version #1
 
 Again, the "Caller" is a simple script, that sends a message to the "Broker", to a queue named "commands".
 To be a little more verbose we'll provide a counter as an argument to the script that will be the content of the message.
@@ -68,7 +68,7 @@ $connection->close();
 
 ---
 
-## The "Daemon"
+## The "Daemon" version #1
 
 Also in the "Daemon" we replace the Redis subscription with a basic consumption of messages sent to the "commands" queue of the "Broker".
 
@@ -141,7 +141,7 @@ while ( count( $channel->callbacks ) )
 
 **Note:** You should not a use a persistent socket connection to php-fpm here, since you'll receive notices like this once in a while:
 `PHP Notice:  fwrite(): send of 399 bytes failed with errno=11 Resource temporarily unavailable ...`. And a persistent connection will also cause the 
-php-fpm pool to spawn only one child worker, instead of 5. 
+php-fpm pool to spawn only one child worker, instead of as much as needed. 
 
 ---
 
@@ -194,3 +194,159 @@ sleep( 1 );
   <source src="@baseUrl@/video/php/ExperimentalAsyncPHPvol2-1.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+---
+
+This result is already pretty much what we want, but there are still some "hidden" drawbacks:
+
+1. **The message queue consumption**  
+	While the test above runs a glimpse at the RabbitMQ queue list (`rabbitmqctl list_queues`) shows that there is a queue named "commands" with "0" outstanding messages.
+	This is because our messages are not persistent and are immediately delivered to the consumer, that connects first. 
+	This is not what we want if we want to scale to multiple "Daemons". Currently there is no "distribution plan" for messages for multiple "Daemons".  
+	 
+2. **"Daemons" gonna die!**  
+	Occasionally consumers of messages happen to die for whatever reason. Since our messages are not persistent yet, they will be deleted from the 
+	queue as soon as they were sent to the "Daemon", regardless if they were fully processed or not.
+
+---
+	
+## Persist and acknowledge
+
+To eliminate the before mentioned drawbacks we should slightly change the usage of RabbitMQ to have work queues (task queues) with persistent messages
+instead of volatile messages. So if messages are persistent, we also need to tell the channel when a message (task) was fully processed and can be deleted from the queue. 
+Thus we'll send an acknowledgement back to the channel.
+   
+### The "Caller" version #2
+
+<i class="fa fa-file-o"></i> `src/caller.php`
+
+```php
+<?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+# Connect and retrieve a channel
+$connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
+$channel    = $connection->channel();
+
+# Make sure the queue 'commands' exist
+$channel->queue_declare( 'commands' );
+
+# Create and send the message
+$message = new AMQPMessage(
+	json_encode( [ 'number' => $argv[1] ], JSON_PRETTY_PRINT ),
+	
+	# Make the messages persistent
+	[
+		'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT,
+	]
+);
+$channel->basic_publish( $message, '', 'commands' );
+
+echo " [x] Message sent: {$argv[1]}\n";
+
+# Close channel and connection
+$channel->close();
+$connection->close();
+```
+
+As you can see, we added an options array telling the message to be in persistent delivery mode.
+ 
+---
+
+### The "Daemon" version #2
+
+<i class="fa fa-file-o"></i> `src/daemon.php`
+
+```php
+<?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+# Connect to the same RabbitMP instance and get a channel
+$connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
+$channel    = $connection->channel();
+
+# Make sure the queue "commands" exists
+$channel->queue_declare( 'commands' );
+
+# Prepare the Fast CGI Client
+$unixDomainSocket = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm-commands.sock' );
+
+# Define a callback function that is invoked whenever a message is consumed
+$callback = function ( AMQPMessage $message ) use ( $unixDomainSocket )
+{
+	# Decode the json message and encode it for sending to php-fpm
+	$messageArray = json_decode( $message->getBody(), true );
+	$messageArray['daemon'] = mt_rand( 1, 100);
+	$body         = http_build_query( $messageArray );
+
+	# Send an async request to php-fpm pool and receive a process ID
+	$fpmClient = new Client( $unixDomainSocket );
+	$processId = $fpmClient->sendAsyncRequest(
+		[
+			'GATEWAY_INTERFACE' => 'FastCGI/1.0',
+			'REQUEST_METHOD'    => 'POST',
+			'SCRIPT_FILENAME'   => '/vagrant/src/worker.php',
+			'SERVER_SOFTWARE'   => 'php/fcgiclient',
+			'REMOTE_ADDR'       => '127.0.0.1',
+			'REMOTE_PORT'       => '9985',
+			'SERVER_ADDR'       => '127.0.0.1',
+			'SERVER_PORT'       => '80',
+			'SERVER_NAME'       => 'myServer',
+			'SERVER_PROTOCOL'   => 'HTTP/1.1',
+			'CONTENT_TYPE'      => 'application/x-www-form-urlencoded',
+			'CONTENT_LENGTH'    => mb_strlen( $body ),
+		],
+		$body
+	);
+
+	echo " [x] Spawned process with ID {$processId} for message number {$messageArray['number']}\n";
+
+	# Send the ACK(nowledgement) back to the channel for this particular message
+	$message->get( 'channel' )->basic_ack( $message->get( 'delivery_tag' ) );
+};
+
+# Set the prefetch count to 1 for this consumer
+$channel->basic_qos( null, 1, null );
+
+# Request consumption for queue "commands" using the defined callback function
+# Enable message acknowledgement (set 4th parameter to false)
+$channel->basic_consume( 'commands', '', false, false, false, false, $callback );
+
+# Wait to finish execution as long as the channel has callbacks
+while ( count( $channel->callbacks ) )
+{
+	$channel->wait();
+}
+```
+
+What has changed?
+
+ * We set the [prefetch count](http://www.rabbitmq.com/consumer-prefetch.html) for this consumer to `1`:
+	```php
+	$channel->basic_qos( null, 1, null );
+	```
+
+ * We enabled message acknowledgement:
+	```php
+	# 4th parameter set to false
+	$channel->basic_consume( 'commands', '', false, false, false, false, $callback );
+	```
+
+ * We send an ACK(nowledge) back to the channel as soon as we spawned our "Worker":
+	```php
+	$message->get( 'channel' )->basic_ack( $message->get( 'delivery_tag' ) );
+	```
