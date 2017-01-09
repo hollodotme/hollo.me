@@ -205,6 +205,11 @@ ol {
 	margin: 15px 0;
 }
 
+ul > li pre,
+ol > li pre {
+	margin-bottom: 10px;
+}
+
 img {
 	vertical-align: middle;
 }

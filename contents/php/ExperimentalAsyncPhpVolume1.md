@@ -235,7 +235,7 @@ if ( $connected )
 		[ 'commands' ],
 		function ( \Redis $redis, string $channel, string $message )
 		{
-			$messageArray = json_decode( $message );
+			$messageArray = json_decode( $message, true );
 			$body         = http_build_query( $messageArray );
 
 			$connection = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm.sock' );
@@ -411,7 +411,7 @@ if ( $connected )
 		[ 'commands' ],
 		function ( \Redis $redis, string $channel, string $message )
 		{
-			$messageArray = json_decode( $message );
+			$messageArray = json_decode( $message, true );
 			$body         = http_build_query( $messageArray );
 
 			# Use new socket at /var/run/php/php7.1-fpm-commands.sock now!
@@ -539,13 +539,16 @@ vagrant   5084  0.0  0.0  14524  1048 pts/1    S+   21:34   0:00 grep php-fpm
 
  * We used the redis pub/sub system to decouple our application ("Caller") from the background processing system ("Daemon" & "Workers").
    	Note that "Daemon" + "Workers" could run on a completely separate system, as long as "Daemon" is connected to the same redis instance. 
-   	This makes scaling easy. You could even run multiple daemons on multiple systems, each processing individual redis-channels.
+   	You could even run multiple daemons on multiple systems, each processing individual redis-channels.
    	Redis can surely be replaced by another pub/sub system or a message queue. I chose redis, because of its simplicity.
 
  * We isolated the workload of the background processing ("Workers") by setting up a separate php-fpm pool.
  	That pool could now be fine-tuned to fit the needs of your background processes, without effecting other applications using php-fpm.
 
 You can find the example code of this blog post here <i class="fa fa-github"></i> [hollodotme/experimental-async-php-vol1](https://github.com/hollodotme/experimental-async-php-vol1)
+
+Well, you may noticed there are some drawbacks with scaling when using Redis. I'll try to eliminate them in my next post:
+**[Experimental async PHP volume 2](@baseUrl@/php/experimental-async-php-volume-2.html)**
 
 I hope you liked that post. 
 If you're in the mood to give me feedback, [tweet me a tweet](https://twitter.com/hollodotme) 

@@ -55,8 +55,8 @@
 	<meta property="og:description" content="Second try to run a PHP daemon receiving messages from RabbtiMQ and executing commands async on the php-fpm socket"/>
 	<meta property="og:url" content="http://127.0.0.1:8080"/>
 	<meta property="og:image" content="http://127.0.0.1:8080/img/posts/caller-redis-daemon-socket-worker.png"/>
-	<meta property="article:published_time" content="2017-01-07T22:42:54+01:00"/>
-	<meta property="article:modified_time" content="2017-01-07T22:42:54+01:00"/>
+	<meta property="article:published_time" content="2017-01-09T01:00:45+01:00"/>
+	<meta property="article:modified_time" content="2017-01-09T01:00:45+01:00"/>
 			<meta property="article:tag" content="PHP"/>
 			<meta property="article:tag" content="async"/>
 			<meta property="article:tag" content="php-fpm"/>
@@ -234,14 +234,14 @@ that came along in the first try, such as:</p>
 <li>Redis has a <a href="https://redis.io/commands/publish">publishing complexity</a> of &quot;<code>O(N+M)</code> where N is the number of clients subscribed to the receiving channel and M is the total number of subscribed patterns (by any client).&quot;
 So all &quot;Daemons&quot; (if multiple) would get the same messages and trigger the same &quot;Workers&quot;. </li>
 </ul>
-<p>So let's change the goal a bit and bring in a real message broker: <a href="https://www.rabbitmq.com">RabbitMQ</a>.</p>
+<p>So let's change the goal a bit and replace Redis with a real message broker: <a href="https://www.rabbitmq.com">RabbitMQ</a>.</p>
 <h2>Goal</h2>
 <ul>
-<li>A PHP script (&quot;Caller&quot;) sending messages to the RabbitMQ message queue system</li>
-<li>A PHP script (&quot;Daemon&quot;) running as a proper daemon receiving messages from the queue </li>
-<li>On receiving a message the &quot;Daemon&quot; sends a new async request to a php-fpm socket</li>
+<li>A PHP script (&quot;Caller&quot;) sending messages to the RabbitMQ message queue system (&quot;Broker&quot;)</li>
+<li>A PHP script (&quot;Daemon&quot;) running as a proper daemon consuming messages from the queue </li>
+<li>On consuming a message the &quot;Daemon&quot; sends a new async request through php-fpm socket to the &quot;Worker&quot;</li>
 <li>The php-fpm socket serves as an &quot;isolated&quot; pool and spawns child processes</li>
-<li>The children process the requests in background </li>
+<li>The &quot;Workers&quot; process the requests in background </li>
 </ul>
 <hr />
 <h2>Used environment</h2>
@@ -254,6 +254,134 @@ So all &quot;Daemons&quot; (if multiple) would get the same messages and trigger
 <li><i class="fa fa-github"></i> <a href="https://github.com/php-amqplib/php-amqplib">php-amqplib/php-amqplib</a></li>
 </ul>
 <hr />
+<h2>The &quot;Caller&quot;</h2>
+<p>Again, the &quot;Caller&quot; is a simple script, that sends a message to the &quot;Broker&quot;, to a queue named &quot;commands&quot;.
+To be a little more verbose we'll provide a counter as an argument to the script that will be the content of the message.</p>
+<p><i class="fa fa-file-o"></i> <code>src/caller.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+# Connect and retrieve a channel
+$connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
+$channel    = $connection-&gt;channel();
+
+# Make sure the queue 'commands' exist
+$channel-&gt;queue_declare( 'commands' );
+
+# Create and send the message
+$message = new AMQPMessage( json_encode( [ 'number' =&gt; $argv[1] ], JSON_PRETTY_PRINT ) );
+$channel-&gt;basic_publish( $message, '', 'commands' );
+
+echo " [x] Message sent: {$argv[1]}\n";
+
+# Close channel and connection
+$channel-&gt;close();
+$connection-&gt;close();</code></pre>
+<hr />
+<h2>The &quot;Daemon&quot;</h2>
+<p>Also in the &quot;Daemon&quot; we replace the Redis subscription with a basic consumption of messages sent to the &quot;commands&quot; queue of the &quot;Broker&quot;.</p>
+<p>When a message is consumed a callback function (Closure) will be invoked.
+This Closure will again send a request to our previously set up php-fpm pool, thus to our &quot;Workers&quot;.</p>
+<p><i class="fa fa-file-o"></i> <code>src/daemon.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+# Connect to the same RabbitMP instance and get a channel
+$connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
+$channel    = $connection-&gt;channel();
+
+# Make sure the queue "commands" exists
+$channel-&gt;queue_declare( 'commands' );
+
+# Prepare the Fast CGI Client
+$unixDomainSocket = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm-commands.sock' );
+
+# Define a callback function that is invoked whenever a message is consumed
+$callback = function ( AMQPMessage $message ) use ( $unixDomainSocket )
+{
+    # Decode the json message and encode it for sending to php-fpm
+    $messageArray = json_decode( $message-&gt;getBody(), true );
+    $body         = http_build_query( $messageArray );
+
+    # Send an async request to php-fpm pool and receive a process ID
+    $fpmClient = new Client( $unixDomainSocket );
+    $processId = $fpmClient-&gt;sendAsyncRequest(
+        [
+            'GATEWAY_INTERFACE' =&gt; 'FastCGI/1.0',
+            'REQUEST_METHOD'    =&gt; 'POST',
+            'SCRIPT_FILENAME'   =&gt; '/vagrant/src/worker.php',
+            'SERVER_SOFTWARE'   =&gt; 'php/fcgiclient',
+            'REMOTE_ADDR'       =&gt; '127.0.0.1',
+            'REMOTE_PORT'       =&gt; '9985',
+            'SERVER_ADDR'       =&gt; '127.0.0.1',
+            'SERVER_PORT'       =&gt; '80',
+            'SERVER_NAME'       =&gt; 'myServer',
+            'SERVER_PROTOCOL'   =&gt; 'HTTP/1.1',
+            'CONTENT_TYPE'      =&gt; 'application/x-www-form-urlencoded',
+            'CONTENT_LENGTH'    =&gt; mb_strlen( $body ),
+        ],
+        $body
+    );
+
+    echo " [x] Spawned process with ID {$processId} for message number {$messageArray['number']}\n";
+};
+
+# Request consumption for queue "commands" using the defined callback function
+$channel-&gt;basic_consume( 'commands', '', false, true, false, false, $callback );
+
+# Wait to finish execution as long as the channel has callbacks
+while ( count( $channel-&gt;callbacks ) )
+{
+    $channel-&gt;wait();
+}</code></pre>
+<p><strong>Note:</strong> You should not a use a persistent socket connection to php-fpm here, since you'll receive notices like this once in a while:
+<code>PHP Notice:  fwrite(): send of 399 bytes failed with errno=11 Resource temporarily unavailable ...</code>. And a persistent connection will also cause the
+php-fpm pool to spawn only one child worker, instead of 5. </p>
+<hr />
+<h2>The &quot;Worker&quot;</h2>
+<p>The worker remains the same for now. It simply logs the received number to a log file and sleeps for one second.</p>
+<p><i class="fa fa-file-o"></i> <code>src/worker.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+error_log( "Processing {$_POST['number']}\n", 3, sys_get_temp_dir() . '/workers.log' );
+
+sleep( 1 );</code></pre>
+<hr />
+<h2>First test</h2>
+<ol>
+<li>(Re)start the &quot;Daemon&quot; and check if it's running properly:
+<pre><code class="language-bash">sudo service php-daemon restart &amp;&amp; sudo service php-daemon status</code></pre></li>
+<li>Watch the process list for spawning <code>php-fpm pool commands</code> (in a new terminal tab):
+<pre><code class="language-bash">watch -n1 "sudo ps aux | grep 'php-fpm: pool commands' | grep -v grep"</code></pre></li>
+<li>Watch the <code>logs/worker.log</code> (in a new terminal tab):
+<pre><code class="language-bash">tailf "cat /tmp/workers.log"</code></pre></li>
+<li>Watch the syslog for spawned process by &quot;Daemon&quot; (in a new terminal tab):
+<pre><code class="language-bash">tailf /var/log/syslog | grep '\[x\]'</code></pre></li>
+<li>Execute the &quot;Caller&quot; 100 times:
+<pre><code class="language-bash">for i in $(seq 1 100); do php7.1 src/caller.php $i; done</code></pre></li>
+</ol>
+<p><strong>Results:</strong></p>
+<video width="100%" controls><source src="http://127.0.0.1:8080/video/php/ExperimentalAsyncPHPvol2-1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</source></video>
 
 		
 	</div>
