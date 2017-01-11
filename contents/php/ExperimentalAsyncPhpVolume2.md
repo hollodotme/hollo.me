@@ -17,6 +17,10 @@ So let's change the goal a bit and replace Redis with a real message broker: [Ra
 * The php-fpm socket serves as an "isolated" pool and spawns child processes
 * The "Workers" process the requests in background 
 
+<span class="img center">
+[![Caller-RabbitMQ-Daemon-Socket-Worker](@baseUrl@/img/posts/caller-rabbitmq-daemon-socket-worker.png)](@baseUrl@/img/posts/caller-rabbitmq-daemon-socket-worker.png)
+</span>
+
 ---
 
 ## Used environment
@@ -141,7 +145,7 @@ while ( count( $channel->callbacks ) )
 
 **Note:** You should not a use a persistent socket connection to php-fpm here, since you'll receive notices like this once in a while:
 `PHP Notice:  fwrite(): send of 399 bytes failed with errno=11 Resource temporarily unavailable ...`. And a persistent connection will also cause the 
-php-fpm pool to spawn only one child worker, instead of as much as needed. 
+php-fpm pool to spawn only one child worker, instead of as much as needed / configured. 
 
 ---
 
@@ -190,6 +194,11 @@ sleep( 1 );
 
 **Results:**
 
+* Top-left: Loop sending 100 messages sequentially (via `src/caller.php`)
+* Top-right: Current process list showing the spawning and dying children in php-fpm pool "commands"
+* Bottom-left: The log file all "Workers" write their received requests to (`src/worker.php`)
+* Bottom-right: Syslog showing all async requests to php-fpm (via `src/daemon.php`)
+
 <video width="100%" controls>
   <source src="@baseUrl@/video/php/ExperimentalAsyncPHPvol2-1.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -200,7 +209,7 @@ Your browser does not support the video tag.
 This result is already pretty much what we want, but there are still some "hidden" drawbacks:
 
 1. **The message queue consumption**  
-	While the test above runs a glimpse at the RabbitMQ queue list (`rabbitmqctl list_queues`) shows that there is a queue named "commands" with "0" outstanding messages.
+	While the test above runs, a glimpse at the RabbitMQ queue list (`rabbitmqctl list_queues`) shows that there is a queue named "commands" with "0" outstanding messages.
 	This is because our messages are not persistent and are immediately delivered to the consumer, that connects first. 
 	This is not what we want if we want to scale to multiple "Daemons". Currently there is no "distribution plan" for messages for multiple "Daemons".  
 	 
@@ -235,17 +244,20 @@ $connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
 $channel    = $connection->channel();
 
 # Make sure the queue 'commands' exist
-$channel->queue_declare( 'commands' );
+# Make the queue persistent (set 3rd parameter to true)
+$channel->queue_declare( 'commands', false, true );
+
+$payload = json_encode( [ 'number' => $argv[1] ], JSON_PRETTY_PRINT );
 
 # Create and send the message
 $message = new AMQPMessage(
-	json_encode( [ 'number' => $argv[1] ], JSON_PRETTY_PRINT ),
-	
-	# Make the messages persistent
+	$payload,
 	[
+		# Make message persistent
 		'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT,
 	]
 );
+
 $channel->basic_publish( $message, '', 'commands' );
 
 echo " [x] Message sent: {$argv[1]}\n";
@@ -255,7 +267,24 @@ $channel->close();
 $connection->close();
 ```
 
-As you can see, we added an options array telling the message to be in persistent delivery mode.
+**What has changed?**
+
+ *  The "commands" queue was declared to be persistent (durable). This ensures that even if the RabbitMQ server dies the messages won't be lost.  
+ 	```php
+ 	$channel->queue_declare( 'commands', false, true ); # Third parameter set to true
+ 	```
+
+ *  The message was declared to be persistent (durable). This gives us the ability to acknowledge when a message was processed and if it was not fully 
+processed it enables RabbitMQ to re-route the message to another consumer, if there is one.  
+ 	```php
+ 	$message = new AMQPMessage(
+    	$payload,
+    	[
+    		# Make message persistent
+    		'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT,
+    	]
+    );
+ 	```
  
 ---
 
@@ -280,18 +309,21 @@ $connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
 $channel    = $connection->channel();
 
 # Make sure the queue "commands" exists
-$channel->queue_declare( 'commands' );
+# Make the queue persistent (set 3rd parameter to true)
+$channel->queue_declare( 'commands', false, true );
 
 # Prepare the Fast CGI Client
 $unixDomainSocket = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm-commands.sock' );
 
+$daemonId = sprintf( 'D-%03d', mt_rand( 1, 100 ) );
+
 # Define a callback function that is invoked whenever a message is consumed
-$callback = function ( AMQPMessage $message ) use ( $unixDomainSocket )
+$callback = function ( AMQPMessage $message ) use ( $unixDomainSocket, $daemonId )
 {
 	# Decode the json message and encode it for sending to php-fpm
-	$messageArray = json_decode( $message->getBody(), true );
-	$messageArray['daemon'] = mt_rand( 1, 100);
-	$body         = http_build_query( $messageArray );
+	$messageArray             = json_decode( $message->getBody(), true );
+	$messageArray['daemonId'] = $daemonId;
+	$body                     = http_build_query( $messageArray );
 
 	# Send an async request to php-fpm pool and receive a process ID
 	$fpmClient = new Client( $unixDomainSocket );
@@ -333,9 +365,24 @@ while ( count( $channel->callbacks ) )
 }
 ```
 
-What has changed?
+**What has changed?**
 
- * We set the [prefetch count](http://www.rabbitmq.com/consumer-prefetch.html) for this consumer to `1`:
+ * Just like in the "Caller", the "commands" queue was declared to be persistent (durable). This ensures that even if the RabbitMQ server dies the messages won't be lost.  
+ 	```php
+ 	$channel->queue_declare( 'commands', false, true ); # Third parameter set to true
+ 	```
+
+ * For the next test, where we will simulate a second "Daemon", a random `$daemonId` was added and set in the request array. So we later can see which "Daemon" processed which messages.  
+    ```php
+    $daemonId = sprintf( 'D-%03d', mt_rand( 1, 100 ) );
+ 	# ...
+ 	$callback = function ( AMQPMessage $message ) use ( $unixDomainSocket, $daemonId )
+ 	# ...
+ 	$messageArray['daemonId'] = $daemonId;
+    ```
+
+ * We set the [prefetch count](http://www.rabbitmq.com/consumer-prefetch.html) for this consumer to `1`. That means the "Daemon" will only accept one 
+message at a time and leave the rest in the queue until the message was processed and acknowledged. So RabbitMQ can distribute the remained messages to another "Daemon", if there is one.
 	```php
 	$channel->basic_qos( null, 1, null );
 	```
@@ -350,3 +397,105 @@ What has changed?
 	```php
 	$message->get( 'channel' )->basic_ack( $message->get( 'delivery_tag' ) );
 	```
+
+Make sure to restart the "Daemon" after these changes, otherwise the queue won't be persistent.
+
+---
+
+### The "Worker" version #2
+
+<i class="fa fa-file-o"></i> `src/worker.php`
+
+```php
+<?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+error_log(
+	" [x] Processing {$_POST['number']} from daemon {$_POST['daemonId']}\n",
+	3,
+	sys_get_temp_dir() . '/workers.log'
+);
+
+sleep( 1 );
+```
+
+**What has changed?**
+
+ * The log message was extended with the daemon ID.  
+	```php
+	" [x] Processing {$_POST['number']} from daemon {$_POST['daemonId']}\n",
+	```
+
+---
+
+## Second test
+
+In this test we will...
+
+ * start the previous loop that executes `src/caller.php` 3 times in parallel, just to simulate some traffic.  
+	```bash
+	for i in 1 2 3; do for j in $(seq 1 100); do php7.1 src/caller.php $j; done & done
+	```
+	
+ * increase the count of max children in php-fpm pool "commands" to 25 (`/etc/php/7.1/fpm/pool.d/commands.conf`):
+	```ini
+	pm.max_children = 25
+	```
+	
+ * manually start a second "Daemon" to test if messages will be distributed to both running daemons.
+
+**Results:**
+
+* Top-left: Loops sending messages to RabbtMQ (`src/caller.php`)
+* Top-middle: Output of our first "Daemon" running via `systemd` 
+* Top-right: The second "Daemon" that is started during the test (`src/daemon.php`)
+* Bottom-left: The current process list for php-fpm children in pool "commands"
+* Bottom-middle: Output of the `/tmp/workers.log` written by all async workers (`src/worker.php`)  
+	**NOTE:** After the second daemon was started you can see a second daemon ID in the logs. 
+* Bottom-right: Queue list of RabbitMQ incl. count for messages ready and messages unacknowledged  
+	```bash
+	sudo rabbitmqctl list_queues name messages_ready messages_unacknowledged
+	```
+	
+<video width="100%" controls>
+  <source src="@baseUrl@/video/php/ExperimentalAsyncPHPvol2-2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+---
+
+## Summary
+
+ * We replaced the mostly synchronous Redis PubSub system with the real async message broker RabbitMQ and established a persistent work queue able 
+to distribute messages to multiple consumers.
+
+ * We simulated a little scaling by switching a second daemon (consumer) on and off. You can play with variants and settings of the test described above. 
+I did and it simply worked in all cases with of course differing performance, but no messages were lost during the tests and that is what matters.
+
+ * This is by far a way better solution than the first try and it seems quite stable. But...  
+	Doing the code was a bit messy, because the `php-amqplib` is poorly documented and the object API is not very self-explanatory with a lot of boolean flags. 
+	The [official RabbitMQ PHP tutorials](https://www.rabbitmq.com/tutorials/tutorial-one-php.html) helped, but are a little outdated too.
+
+ * In the end, I think it is a slim setup with a lot of potential.
+   * 127 lines of PHP code
+   * 2 composer dependencies (no subsequent dependencies)
+   * 2 config files (for systemd and php-fpm)
+   * 1 deb install (rabbitmq-server)
+ 
+The next step will be a real-world implementation and further testing.
+ 
+You can find the example code of this blog post here <i class="fa fa-github"></i> [hollodotme/experimental-async-php-vol2](https://github.com/hollodotme/experimental-async-php-vol2)
+ 
+I hope you liked that post. 
+If you're in the mood to give me feedback, [tweet me a tweet](https://twitter.com/hollodotme) 
+or [open a discussion on GitHub](https://github.com/hollodotme/experimental-async-php-vol2/issues). 
+
+Thank you.
+
+---
+
+[<i class="fa fa-coffee"></i><i class="fa fa-coffee"></i><i class="fa fa-coffee"></i><i class="fa fa-coffee"></i><i class="fa fa-coffee"></i>░░░░░░░░░░░░░░░░░░<i class="fa fa-beer"></i>] 2 days | <small>01/11/2017</small>
+

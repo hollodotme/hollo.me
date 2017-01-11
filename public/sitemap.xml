@@ -17,7 +17,7 @@
   <url>
     <loc>https://hollo.me/php/experimental-async-php-volume-2.html</loc>
     <image:image>
-      <image:loc>https://hollo.me/img/posts/caller-redis-daemon-socket-worker.png</image:loc>
+      <image:loc>https://hollo.me/img/posts/caller-rabbitmq-daemon-socket-worker.png</image:loc>
       <image:caption>Experimental async PHP - Volume 2</image:caption>
     </image:image>
   </url>
