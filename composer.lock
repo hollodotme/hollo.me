@@ -193,16 +193,16 @@
     "packages-dev": [
         {
             "name": "tm/tooly-composer-script",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tommy-muehle/tooly-composer-script.git",
-                "reference": "3bf74f7df02a9e2c92bd9d7355015fd48814cbf4"
+                "reference": "f6aeb39bb2212c5ddac494c9bb780b0171e90297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/3bf74f7df02a9e2c92bd9d7355015fd48814cbf4",
-                "reference": "3bf74f7df02a9e2c92bd9d7355015fd48814cbf4",
+                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/f6aeb39bb2212c5ddac494c9bb780b0171e90297",
+                "reference": "f6aeb39bb2212c5ddac494c9bb780b0171e90297",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +268,7 @@
                 "phar-handling",
                 "phar-management"
             ],
-            "time": "2017-01-06T13:12:13+00:00"
+            "time": "2017-01-07T12:16:24+00:00"
         }
     ],
     "aliases": [],

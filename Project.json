@@ -16,7 +16,7 @@
 			"pageLevel": 1,
 			"navName": "Home",
 			"pageTitle": "Home",
-			"description": "Holger Woltersdorf's blog",
+			"description": "Web technology - mostly PHP and DevOps - blog posts, tutorials, talks and slides",
 			"language": "en",
 			"imageUrl": "/img/Profile.png",
 			"tags": [
@@ -368,7 +368,7 @@
 			"pageLevel": 2,
 			"navName": "Imprint",
 			"pageTitle": "Imprint",
-			"description": "",
+			"description": "Imprint and legal notice",
 			"language": "en",
 			"imageUrl": "/img/Profile.png",
 			"tags": [],
