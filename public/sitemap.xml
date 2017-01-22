@@ -57,6 +57,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/icehawk-framework-an-introduction.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/icehawk-framework.png</image:loc>
+      <image:caption>IceHawk framework - An introduction</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/open-source-software-get-involved.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/Profile.png</image:loc>

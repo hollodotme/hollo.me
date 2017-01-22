@@ -194,11 +194,38 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/icehawk-framework-an-introduction.html",
 				"/talks/open-source-software-get-involved.html",
 				"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html",
 				"/talks/phar-better-tools.html",
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
+		},
+		"/talks/icehawk-framework-an-introduction.html": {
+			"pageLevel": 3,
+			"navName": "IceHawk framework - An introduction",
+			"pageTitle": "IceHawk framework - An introduction",
+			"description": "An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Frankfurt am Main (PHPUGFFM)",
+			"language": "en",
+			"imageUrl": "/img/talks/icehawk-framework.png",
+			"tags": [
+				"OSS",
+				"IceHawk",
+				"framework",
+				"history",
+				"features",
+				"code",
+				"components",
+				"Usergroup",
+				"Frankfurt am Main",
+				"PHPUGFFM",
+				"GitHub"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/IceHawkFrameworkAnIntroduction.md",
+			"children": []
 		},
 		"/talks/open-source-software-get-involved.html": {
 			"pageLevel": 3,
