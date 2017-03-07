@@ -55,8 +55,8 @@
 	<meta property="og:description" content="Second try to run a PHP daemon receiving messages from RabbtiMQ and executing commands async on the php-fpm socket"/>
 	<meta property="og:url" content="https://hollo.me"/>
 	<meta property="og:image" content="https://hollo.me/img/posts/caller-rabbitmq-daemon-socket-worker.png"/>
-	<meta property="article:published_time" content="2017-01-22T21:15:30+01:00"/>
-	<meta property="article:modified_time" content="2017-01-22T21:15:30+01:00"/>
+	<meta property="article:published_time" content="2017-03-07T23:07:37+01:00"/>
+	<meta property="article:modified_time" content="2017-03-07T23:07:37+01:00"/>
 			<meta property="article:tag" content="PHP"/>
 			<meta property="article:tag" content="async"/>
 			<meta property="article:tag" content="php-fpm"/>
@@ -226,7 +226,11 @@
 
 			<hr>
 
-			<h2>Preamble</h2>
+			<h2>Updates</h2>
+<ul>
+<li>2017-03-07: Code updated for <a href="https://github.com/hollodotme/fast-cgi-client/tree/v2.1.0">v2.1.0 of hollodotme/fast-cgi-client</a>.</li>
+</ul>
+<h2>Preamble</h2>
 <p>Taking the topic of my <a href="https://hollo.me/php/experimental-async-php-volume-1.html">previous post</a> further, it is time to (hopefully) eliminate some drawbacks
 that came along in the first try, such as:</p>
 <ul>
@@ -297,6 +301,7 @@ This Closure will again send a request to our previously set up php-fpm pool, th
 namespace hollodotme\AsyncPhp;
 
 use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\PostRequest;
 use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -322,23 +327,10 @@ $callback = function ( AMQPMessage $message ) use ( $unixDomainSocket )
 
     # Send an async request to php-fpm pool and receive a process ID
     $fpmClient = new Client( $unixDomainSocket );
-    $processId = $fpmClient-&gt;sendAsyncRequest(
-        [
-            'GATEWAY_INTERFACE' =&gt; 'FastCGI/1.0',
-            'REQUEST_METHOD'    =&gt; 'POST',
-            'SCRIPT_FILENAME'   =&gt; '/vagrant/src/worker.php',
-            'SERVER_SOFTWARE'   =&gt; 'php/fcgiclient',
-            'REMOTE_ADDR'       =&gt; '127.0.0.1',
-            'REMOTE_PORT'       =&gt; '9985',
-            'SERVER_ADDR'       =&gt; '127.0.0.1',
-            'SERVER_PORT'       =&gt; '80',
-            'SERVER_NAME'       =&gt; 'myServer',
-            'SERVER_PROTOCOL'   =&gt; 'HTTP/1.1',
-            'CONTENT_TYPE'      =&gt; 'application/x-www-form-urlencoded',
-            'CONTENT_LENGTH'    =&gt; mb_strlen( $body ),
-        ],
-        $body
-    );
+
+    $request = new PostRequest( '/vagrant/src/worker.php', $body );
+
+    $processId = $fpmClient-&gt;sendAsyncRequest( $request );
 
     echo " [x] Spawned process with ID {$processId} for message number {$messageArray['number']}\n";
 };
@@ -470,6 +462,7 @@ processed it enables RabbitMQ to re-route the message to another consumer, if th
 namespace hollodotme\AsyncPhp;
 
 use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\PostRequest;
 use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -499,23 +492,10 @@ $callback = function ( AMQPMessage $message ) use ( $unixDomainSocket, $daemonId
 
     # Send an async request to php-fpm pool and receive a process ID
     $fpmClient = new Client( $unixDomainSocket );
-    $processId = $fpmClient-&gt;sendAsyncRequest(
-        [
-            'GATEWAY_INTERFACE' =&gt; 'FastCGI/1.0',
-            'REQUEST_METHOD'    =&gt; 'POST',
-            'SCRIPT_FILENAME'   =&gt; '/vagrant/src/worker.php',
-            'SERVER_SOFTWARE'   =&gt; 'php/fcgiclient',
-            'REMOTE_ADDR'       =&gt; '127.0.0.1',
-            'REMOTE_PORT'       =&gt; '9985',
-            'SERVER_ADDR'       =&gt; '127.0.0.1',
-            'SERVER_PORT'       =&gt; '80',
-            'SERVER_NAME'       =&gt; 'myServer',
-            'SERVER_PROTOCOL'   =&gt; 'HTTP/1.1',
-            'CONTENT_TYPE'      =&gt; 'application/x-www-form-urlencoded',
-            'CONTENT_LENGTH'    =&gt; mb_strlen( $body ),
-        ],
-        $body
-    );
+
+    $request = new PostRequest( '/vagrant/src/worker.php', $body );
+
+    $processId = $fpmClient-&gt;sendAsyncRequest($request);
 
     echo " [x] Spawned process with ID {$processId} for message number {$messageArray['number']}\n";
 

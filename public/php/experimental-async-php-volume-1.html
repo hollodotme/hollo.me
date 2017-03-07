@@ -55,8 +55,8 @@
 	<meta property="og:description" content="First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket"/>
 	<meta property="og:url" content="https://hollo.me"/>
 	<meta property="og:image" content="https://hollo.me/img/posts/caller-redis-daemon-socket-worker.png"/>
-	<meta property="article:published_time" content="2017-01-22T21:15:30+01:00"/>
-	<meta property="article:modified_time" content="2017-01-22T21:15:30+01:00"/>
+	<meta property="article:published_time" content="2017-03-07T23:07:37+01:00"/>
+	<meta property="article:modified_time" content="2017-03-07T23:07:37+01:00"/>
 			<meta property="article:tag" content="PHP"/>
 			<meta property="article:tag" content="async"/>
 			<meta property="article:tag" content="php-fpm"/>
@@ -226,7 +226,11 @@
 
 			<hr>
 
-			<h2>Preamble</h2>
+			<h2>Updates</h2>
+<ul>
+<li>2017-03-07: Code updated for <a href="https://github.com/hollodotme/fast-cgi-client/tree/v2.1.0">v2.1.0 of hollodotme/fast-cgi-client</a>.</li>
+</ul>
+<h2>Preamble</h2>
 <p>I recently read a lot about <a href="https://medium.com/async-php">async PHP</a> and started to do some experiments on my own.
 At the <a href="http://phpconference.com">IPC 2016 (Spring Edition)</a> in Berlin I attended a talk by <a href="https://twitter.con/arneblankerts">Arne Blankerts</a> about
 the marriage of PHP and Node.js using the redis pubsub system and web sockets to communicate between server (PHP script), client (JS in Browser)
@@ -398,6 +402,7 @@ sleep( 1 );</code></pre>
 namespace hollodotme\AsyncPhp;
 
 use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\PostRequest;
 use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
 
 require(__DIR__ . '/../vendor/autoload.php');
@@ -421,23 +426,10 @@ if ( $connected )
 
             $connection = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm.sock' );
             $fpmClient  = new Client( $connection );
-            $processId  = $fpmClient-&gt;sendAsyncRequest(
-                [
-                    'GATEWAY_INTERFACE' =&gt; 'FastCGI/1.0',
-                    'REQUEST_METHOD'    =&gt; 'POST',
-                    'SCRIPT_FILENAME'   =&gt; '/fullpath/to/worker.php',
-                    'SERVER_SOFTWARE'   =&gt; 'php/fcgiclient',
-                    'REMOTE_ADDR'       =&gt; '127.0.0.1',
-                    'REMOTE_PORT'       =&gt; '9985',
-                    'SERVER_ADDR'       =&gt; '127.0.0.1',
-                    'SERVER_PORT'       =&gt; '80',
-                    'SERVER_NAME'       =&gt; 'myServer',
-                    'SERVER_PROTOCOL'   =&gt; 'HTTP/1.1',
-                    'CONTENT_TYPE'      =&gt; 'application/x-www-form-urlencoded',
-                    'CONTENT_LENGTH'    =&gt; mb_strlen( $body ),
-                ],
-                $body
-            );
+
+            $request    = new PostRequest( '/fullpath/to/worker.php', $body );
+
+            $processId  = $fpmClient-&gt;sendAsyncRequest( $request );
 
             echo "Spawned process with ID: {$processId}\n";
         }
@@ -544,6 +536,7 @@ $ sudo touch /var/log/php/php7.1-fpm-commands.access.log</code></pre>
 namespace hollodotme\AsyncPhp;
 
 use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\PostRequest;
 use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
 
 require(__DIR__ . '/../vendor/autoload.php');
@@ -568,23 +561,10 @@ if ( $connected )
             # Use new socket at /var/run/php/php7.1-fpm-commands.sock now!
             $connection = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm-commands.sock' );
             $fpmClient  = new Client( $connection );
-            $processId  = $fpmClient-&gt;sendAsyncRequest(
-                [
-                    'GATEWAY_INTERFACE' =&gt; 'FastCGI/1.0',
-                    'REQUEST_METHOD'    =&gt; 'POST',
-                    'SCRIPT_FILENAME'   =&gt; '/fullpath/to/worker.php',
-                    'SERVER_SOFTWARE'   =&gt; 'php/fcgiclient',
-                    'REMOTE_ADDR'       =&gt; '127.0.0.1',
-                    'REMOTE_PORT'       =&gt; '9985',
-                    'SERVER_ADDR'       =&gt; '127.0.0.1',
-                    'SERVER_PORT'       =&gt; '80',
-                    'SERVER_NAME'       =&gt; 'myServer',
-                    'SERVER_PROTOCOL'   =&gt; 'HTTP/1.1',
-                    'CONTENT_TYPE'      =&gt; 'application/x-www-form-urlencoded',
-                    'CONTENT_LENGTH'    =&gt; mb_strlen( $body ),
-                ],
-                $body
-            );
+
+            $request    = new PostRequest( '/fullpath/to/worker.php', $body );
+
+            $processId  = $fpmClient-&gt;sendAsyncRequest( $request );
 
             echo "Spawned process with ID: {$processId}\n";
         }
