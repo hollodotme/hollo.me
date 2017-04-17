@@ -4,7 +4,7 @@
 	"outputDir": "./public",
 	"contentsDir": "./contents/",
 	"replacements": {
-		"@website_version@": "v1.0.0",
+		"@website_version@": "v1.1.0",
 		"@github_url@": "https://github.com/hollodotme",
 		"@twitter_url@": "https://twitter.com/hollodotme",
 		"@xing_url@": "https://www.xing.com/profile/Holger_Woltersdorf",
@@ -194,12 +194,40 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/icehawk-framework-a-short-introduction.html",
 				"/talks/icehawk-framework-an-introduction.html",
 				"/talks/open-source-software-get-involved.html",
 				"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html",
 				"/talks/phar-better-tools.html",
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
+		},
+		"/talks/icehawk-framework-a-short-introduction.html": {
+			"pageLevel": 3,
+			"navName": "IceHawk framework - A short introduction",
+			"pageTitle": "IceHawk framework - A short introduction",
+			"description": "A short introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Berlin (BEPHPUG)",
+			"language": "en",
+			"imageUrl": "/img/talks/icehawk-framework.png",
+			"tags": [
+				"OSS",
+				"IceHawk",
+				"framework",
+				"history",
+				"features",
+				"code",
+				"components",
+				"PHP",
+				"Usergroup",
+				"Berlin",
+				"BEPHPUG",
+				"GitHub"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/IceHawkFrameworkAShortIntroduction.md",
+			"children": []
 		},
 		"/talks/icehawk-framework-an-introduction.html": {
 			"pageLevel": 3,
@@ -216,6 +244,7 @@
 				"features",
 				"code",
 				"components",
+				"PHP",
 				"Usergroup",
 				"Frankfurt am Main",
 				"PHPUGFFM",

@@ -481,6 +481,10 @@ ul.sidebar-nav > li > ul {
 	padding: 0;
 }
 
+.img-10 {
+	max-width: 10%;
+}
+
 .img-25 {
 	max-width: 25%;
 }
@@ -493,9 +497,10 @@ ul.sidebar-nav > li > ul {
 	max-width: 100%;
 }
 
-.img-25 > img,
-.img-50 > img,
-.img-100 > img {
+.img-10 img,
+.img-25 img,
+.img-50 img,
+.img-100 img {
 	max-width: 100%;
 }
 
