@@ -1,3 +1,4 @@
+* 01/11/2017 - [Experimental async PHP vol. 2](@baseUrl@/php/experimental-async-php-volume-2.html)
 * 01/03/2017 - [Experimental async PHP vol. 1](@baseUrl@/php/experimental-async-php-volume-1.html)
 * 04/03/2016 - [Fluent validation with ease](@baseUrl@/php/fluent-validation-with-ease.html)
 * 03/12/2016 - ["Traitful" configs](@baseUrl@/php/traitful-configs.html)
