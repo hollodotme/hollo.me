@@ -194,6 +194,8 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/async-php-request-and-reactive-responses.html",
+				"/talks/total-recall-the-application-that-never-forgets.html",
 				"/talks/icehawk-framework-a-short-introduction.html",
 				"/talks/icehawk-framework-an-introduction.html",
 				"/talks/open-source-software-get-involved.html",
@@ -201,6 +203,58 @@
 				"/talks/phar-better-tools.html",
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
+		},
+		"/talks/async-php-request-and-reactive-responses.html": {
+			"pageLevel": 3,
+			"navName": "Async PHP Request and Reactive Responses",
+			"pageTitle": "Async PHP Request and Reactive Responses",
+			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their respones. Péhápkaři 2017, Prague, Czech Republic",
+			"language": "en",
+			"imageUrl": "/img/talks/pehapkari-logo.png",
+			"tags": [
+				"Async",
+				"requests",
+				"reactive",
+				"responses",
+				"php-fpm",
+				"FastCGI",
+				"Client",
+				"GitHub Repository",
+				"OSS",
+				"Slides",
+				"Czech Republic"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/AsyncPhpRequestsAndReactiveResponsesPrague.md",
+			"children": []
+		},
+		"/talks/total-recall-the-application-that-never-forgets.html": {
+			"pageLevel": 3,
+			"navName": "Total Recall - The application that never forgets",
+			"pageTitle": "Total Recall - The application that never forgets",
+			"description": "A talk about CQRS applied to several application layers and the benefit of adding Event Sourcing for more business intelligence. PHPkonf 2017 in Istanbul, Turkey",
+			"language": "en",
+			"imageUrl": "/img/talks/phpkonf-logo.png",
+			"tags": [
+				"CQRS",
+				"Event Sourcing",
+				"Application Layers",
+				"Read side",
+				"Write side",
+				"Business Intelligence",
+				"Newsletter Subscription",
+				"PHPkonf",
+				"Istanbul",
+				"Slides",
+				"Turkey"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/TotalRecallIstanbul.md",
+			"children": []
 		},
 		"/talks/icehawk-framework-a-short-introduction.html": {
 			"pageLevel": 3,

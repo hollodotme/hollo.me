@@ -57,6 +57,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/async-php-request-and-reactive-responses.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/pehapkari-logo.png</image:loc>
+      <image:caption>Async PHP Request and Reactive Responses</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/total-recall-the-application-that-never-forgets.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/phpkonf-logo.png</image:loc>
+      <image:caption>Total Recall - The application that never forgets</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/icehawk-framework-a-short-introduction.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/talks/icehawk-framework.png</image:loc>

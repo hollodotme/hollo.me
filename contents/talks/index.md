@@ -1,3 +1,5 @@
+* 05/31/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses.html)
+* 05/20/2017 - [Total Recall - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets.html)
 * 04/04/2017 - [IceHawk Framework - A short introduction](@baseUrl@/talks/icehawk-framework-a-short-introduction.html)
 * 01/19/2017 - [IceHawk Framework - An introduction](@baseUrl@/talks/icehawk-framework-an-introduction.html)
 * 12/09/2016 - [Open Source Software - Get Involved](@baseUrl@/talks/open-source-software-get-involved.html)
