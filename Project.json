@@ -208,7 +208,7 @@
 			"pageLevel": 3,
 			"navName": "Async PHP Request and Reactive Responses",
 			"pageTitle": "Async PHP Request and Reactive Responses",
-			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their respones. Péhápkaři 2017, Prague, Czech Republic",
+			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. Péhápkaři 2017, Prague, Czech Republic",
 			"language": "en",
 			"imageUrl": "/img/talks/pehapkari-logo.png",
 			"tags": [
