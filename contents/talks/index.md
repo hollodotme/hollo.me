@@ -1,8 +1,8 @@
-* 05/31/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses.html)
-* 05/20/2017 - [Total Recall - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets.html)
-* 04/04/2017 - [IceHawk Framework - A short introduction](@baseUrl@/talks/icehawk-framework-a-short-introduction.html)
-* 01/19/2017 - [IceHawk Framework - An introduction](@baseUrl@/talks/icehawk-framework-an-introduction.html)
-* 12/09/2016 - [Open Source Software - Get Involved](@baseUrl@/talks/open-source-software-get-involved.html)
-* 09/30/2016 - [Divide and Conquer - 2 Years of CQRS in Production](@baseUrl@/talks/divide-and-conquer-2-years-of-cqrs-in-production.html)
-* 06/29/2016 - [PHAR better tools](@baseUrl@/talks/phar-better-tools.html)
-* 09/23/2015 - [Practical CQRS - Newsletter Double Opt-In](@baseUrl@/talks/practical-cqrs-newsletter-double-opt-in.html)
+* 05/31/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses.html) at [Péhápkaři](https://pehapkari.cz) (Sinner Schrader), Prague, Czech Republic
+* 05/20/2017 - [Total Recall - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets.html) at [PHPkonf 2017](http://phpkonf.org) Istanbul, Turkey
+* 04/04/2017 - [IceHawk Framework - A short introduction](@baseUrl@/talks/icehawk-framework-a-short-introduction.html) at [PHP Usergroup Berlin](http://www.bephpug.de/2017/04/04/april.html) (Co-Up), Berlin, Germany
+* 01/19/2017 - [IceHawk Framework - An introduction](@baseUrl@/talks/icehawk-framework-an-introduction.html) at [PHP Usergroup Frankfurt am Main](http://www.phpugffm.de) (Check24), Frankfurt am Main, Germany
+* 12/09/2016 - [Open Source Software - Get Involved](@baseUrl@/talks/open-source-software-get-involved.html) at [XMAS Issue Bash 2016](http://phpug-dresden.org/events/2016/x-mas-issue-bash.html) (Cloudsters) Dresden, Germany
+* 09/30/2016 - [Divide and Conquer - 2 Years of CQRS in Production](@baseUrl@/talks/divide-and-conquer-2-years-of-cqrs-in-production.html) at [Code.Talks 2016](https://www.codetalks.de) Hamburg, Germany
+* 06/29/2016 - [PHAR better tools](@baseUrl@/talks/phar-better-tools.html) at [PHP USERGROUP DRESDEN](http://phpug-dresden.org) Meetup (Collab & Couch), Dresden, Germany
+* 09/23/2015 - [Practical CQRS - Newsletter Double Opt-In](@baseUrl@/talks/practical-cqrs-newsletter-double-opt-in.html) at [PHP USERGROUP DRESDEN](http://phpug-dresden.org) Meetup (move:elevator), Dresden, Germany
