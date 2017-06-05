@@ -1,6 +1,7 @@
 ### Async PHP Requests & Reactive Responses
  
  * Talk at [Péhápkaři, Prague, Czech Republic](https://pehapkari.cz)
+ * [Watch the facebook stream of this talk.](https://www.facebook.com/pehapkari/videos/vl.283102815484240/1352878634761943/) 
   
 ### Slides on [Speaker Deck](https://speakerdeck.com/hollodotme)
 
