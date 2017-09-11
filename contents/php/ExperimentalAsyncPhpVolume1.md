@@ -110,6 +110,7 @@ globally in the `php.ini`.
 
 ---
 
+<a name="daemonize-the-daemon"></a>
 ## Daemonize the "Daemon" 
 
 The following `systemd` service script will let our "Daemon" run as a linux service with start/stop function and auto-restart.

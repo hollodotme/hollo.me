@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "erusev/parsedown",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "1bf24f7334fe16c88bf9d467863309ceaf285b01"
+                "reference": "728952b90a333b5c6f77f06ea9422b94b585878d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/1bf24f7334fe16c88bf9d467863309ceaf285b01",
-                "reference": "1bf24f7334fe16c88bf9d467863309ceaf285b01",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/728952b90a333b5c6f77f06ea9422b94b585878d",
+                "reference": "728952b90a333b5c6f77f06ea9422b94b585878d",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-03-29T16:04:15+00:00"
+            "time": "2017-05-14T14:47:48+00:00"
         },
         {
             "name": "erusev/parsedown-extra",
@@ -193,16 +193,16 @@
     "packages-dev": [
         {
             "name": "tm/tooly-composer-script",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tommy-muehle/tooly-composer-script.git",
-                "reference": "f6aeb39bb2212c5ddac494c9bb780b0171e90297"
+                "reference": "d75cf732edc3a807df47b0c16cb34ca993b420c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/f6aeb39bb2212c5ddac494c9bb780b0171e90297",
-                "reference": "f6aeb39bb2212c5ddac494c9bb780b0171e90297",
+                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/d75cf732edc3a807df47b0c16cb34ca993b420c8",
+                "reference": "d75cf732edc3a807df47b0c16cb34ca993b420c8",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +268,7 @@
                 "phar-handling",
                 "phar-management"
             ],
-            "time": "2017-01-07T12:16:24+00:00"
+            "time": "2017-07-21T20:16:48+00:00"
         }
     ],
     "aliases": [],

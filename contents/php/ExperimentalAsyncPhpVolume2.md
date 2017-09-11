@@ -1,6 +1,14 @@
 ## Updates
 
-* 2017-03-07: Code updated for [v2.1.0 of hollodotme/fast-cgi-client](https://github.com/hollodotme/fast-cgi-client/tree/v2.1.0).
+### 2017-03-07: 
+
+* Code updated for [v2.1.0 of hollodotme/fast-cgi-client](https://github.com/hollodotme/fast-cgi-client/tree/v2.1.0).
+
+### 2017-09-11: 
+
+* Q&A: [Error handling and retry](@baseUrl@/php/experimental-async-php-volume-2-error-handling.html)
+
+---
 
 ## Preamble
 
@@ -280,6 +288,7 @@ processed it enables RabbitMQ to re-route the message to another consumer, if th
  
 ---
 
+<a name="daemon-version-2"></a>
 ### The "Daemon" version #2
 
 <i class="fa fa-file-o"></i> `src/daemon.php`

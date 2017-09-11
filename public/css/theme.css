@@ -435,7 +435,7 @@ ul.sidebar-nav li.active > a:before {
 	padding-right: 5px;
 }
 
-ul.sidebar-nav > li > ul {
+ul.sidebar-nav > li ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0 0 15px 15px;

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Q/A: Error handling, Retry, Experimental async PHP - VOL. 2 | Holger Woltersdorf&#039;s blog</title>
+	<meta name="description" content="Some thoughts about error handling and retry in the system shown in Experimental async PHP - VOL. 2.">
+	<meta name="keywords" content="Q&amp;A, question, answer, PHP, async, php-fpm, redis, publish, subscribe, pubsub, experimental, daemon, worker, socket">
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="geo.region" content="DE-SN"/>
+	<meta name="geo.placename" content="Dresden"/>
+	<meta name="geo.position" content="51.052088;13.741672"/>
+	<meta name="ICBM" content="51.052088, 13.741672"/>
+	<meta name="twitter:site" content="@hollodotme">
+	<meta name="twitter:creator" content="@hollodotme">
+	<script type="application/ld+json">{
+  "@context" : "http://schema.org",
+  "@type": "Person",
+  "name": "Holger Woltersdorf&#039;s blog",
+  "image": "https://hollo.me/img/posts/caller-rabbitmq-daemon-socket-worker.png",
+  "url": "https://hollo.me",
+  "sameAs" : [
+      "https://twitter.com/hollodotme",
+      "https://www.xing.com/profile/Holger_Woltersdorf"
+    ]
+  }
+}</script>
+	<meta property="article:author" content="https://www.xing.com/profile/Holger_Woltersdorf"/>
+	<meta property="article:publisher" content="https://www.xing.com/profile/Holger_Woltersdorf"/>
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="canonical" href="https://hollo.me/php/experimental-async-php-volume-2-error-handling.html"/>
+	<meta name="referrer" content="origin"/>
+
+	<meta property="og:site_name" content="Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="Q/A: Error handling, Retry, Experimental async PHP - VOL. 2 | Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:description" content="Some thoughts about error handling and retry in the system shown in Experimental async PHP - VOL. 2."/>
+	<meta property="og:url" content="https://hollo.me"/>
+	<meta property="og:image" content="https://hollo.me/img/posts/caller-rabbitmq-daemon-socket-worker.png"/>
+	<meta property="article:published_time" content="2017-09-11T23:39:04+02:00"/>
+	<meta property="article:modified_time" content="2017-09-11T23:39:04+02:00"/>
+			<meta property="article:tag" content="Q&amp;A"/>
+			<meta property="article:tag" content="question"/>
+			<meta property="article:tag" content="answer"/>
+			<meta property="article:tag" content="PHP"/>
+			<meta property="article:tag" content="async"/>
+			<meta property="article:tag" content="php-fpm"/>
+			<meta property="article:tag" content="redis"/>
+			<meta property="article:tag" content="publish"/>
+			<meta property="article:tag" content="subscribe"/>
+			<meta property="article:tag" content="pubsub"/>
+			<meta property="article:tag" content="experimental"/>
+			<meta property="article:tag" content="daemon"/>
+			<meta property="article:tag" content="worker"/>
+			<meta property="article:tag" content="socket"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="Q/A: Error handling, Retry, Experimental async PHP - VOL. 2 | Holger Woltersdorf&#039;s blog"/>
+	<meta name="twitter:description" content="Some thoughts about error handling and retry in the system shown in Experimental async PHP - VOL. 2."/>
+	<meta name="twitter:url" content="https://hollo.me/php/experimental-async-php-volume-2-error-handling.html"/>
+	<meta name="twitter:image:src" content="https://hollo.me/img/posts/caller-rabbitmq-daemon-socket-worker.png"/>
+
+	<meta name="generator" content="IceHawk Static Page Generator"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://hollo.me/css/theme.css">
+	<script src="https://use.fontawesome.com/3513f09ab7.js"></script>
+	</head>
+<body>
+<div class="themewrapper">
+
+	<a href="#" id="sidebar-toggle"><i class="fa fa-close genericon"></i></a>
+
+	<div id="sidebar">
+		<div class="brand-well">
+			<a href="https://hollo.me">
+				<img src="https://hollo.me/img/Profile.png" alt="Holger Woltersdorf">
+			</a>
+		</div>
+
+		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
+		<p class="text-center text-uppercase subline">
+			CIO &middot; Developer &middot; Speaker<br>
+			PHP &middot; WEB &middot; Markdown lover
+		</p>
+
+		<hr>
+
+		<ul class="sociallinks">
+			<li>
+				<a href="https://twitter.com/hollodotme" title="Holger Woltersdorf on twitter (@hollodotme)" target="_blank"><i class="fa fa-twitter"></i></a>
+			</li>
+			<li>
+				<a href="https://www.xing.com/profile/Holger_Woltersdorf" title="Holger Woltersdorf on Xing" target="_blank"><i class="fa fa-xing"></i></a>
+			</li>
+			<li>
+				<a href="https://github.com/hollodotme" title="Holger Woltersdorf on GitHub" target="_blank"><i class="fa fa-github"></i></a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/holgerwoltersdorf" title="Holger Woltersdorf on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<ul class="sidebar-nav">
+			<li class="hidden-sm hidden-md hidden-lg">
+				<a href="https://hollo.me/" title="Home">Home</a>
+			</li>
+			
+						<li class="active">
+		<a href="https://hollo.me/php.html">PHP</a>
+					<ul class="nav">
+															<li class="active">
+		<a href="https://hollo.me/php/experimental-async-php-volume-2.html">Experimental async PHP - VOL. 2</a>
+					<ul class="nav">
+															<li class="active">
+		<a href="https://hollo.me/php/experimental-async-php-volume-2-error-handling.html">Q/A: Error handling &amp; retry</a>
+			</li>
+
+							</ul>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/experimental-async-php-volume-1.html">Experimental async PHP - VOL. 1</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/traitful-configs.html">&#039;Traitful&#039; configs</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/fluent-validation-with-ease.html">Fluent validation with ease</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/php/custom-exceptions-with-context.html">Custom exceptions with context</a>
+			</li>
+
+							</ul>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/talks.html">Talks</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/projects.html">Projects</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/devops.html">DevOps</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/reading-list.html">Reading list</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/imprint.html">Imprint</a>
+			</li>
+
+
+					</ul>
+
+		<hr>
+
+		<div class="text-center">
+			<p>
+				<small>Co-Founder of</small>
+			</p>
+			<a href="http://phpug-dresden.org" target="_blank">
+				<img src="https://hollo.me/img/php-usergroup-dresden.png" alt="PHP USERGROUP DRESDEN e.V." class="img img-50">
+			</a>
+		</div>
+
+		<hr>
+
+		<p class="text-center website-version">
+			<small>v1.1.0</small>
+		</p>
+
+	</div>
+
+	<div id="breadcrumbs">
+		<ul>
+												<li>
+						<a href="https://hollo.me/index.html">
+							<i class="fa fa-map-marker"></i> Home
+						</a>
+					</li>
+																<li>
+						<a href="https://hollo.me/php.html">
+							 PHP
+						</a>
+					</li>
+																<li>
+						<a href="https://hollo.me/php/experimental-async-php-volume-2.html">
+							 Experimental async PHP - VOL. 2
+						</a>
+					</li>
+																<li class="active">
+						 Q/A: Error handling &amp; retry
+					</li>
+									</ul>
+	</div>
+
+	<div id="main">
+
+		
+			<h1>Q/A: Error handling, Retry, Experimental async PHP - VOL. 2</h1>
+			<h5>Some thoughts about error handling and retry in the system shown in Experimental async PHP - VOL. 2.</h5>
+
+			<hr>
+
+			<h2>Question</h2>
+<p>Today <i class="fa fa-twitter"></i> <a href="https://twitter.com/yourithielen">Youri Thielen</a> came up with the following question regarding my post on <a href="https://hollo.me/php/experimental-async-php-volume-2.html">Experimental async PHP - VOL. 2</a>:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/hollodotme">@hollodotme</a> Hi, quick question on <a href="https://t.co/GAPnipHclr">https://t.co/GAPnipHclr</a>. How do you handle error cases in the worker and retries?</p>— Youri Thielen (@yourithielen) <a href="https://twitter.com/yourithielen/status/907266443259121665">September 11, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<hr />
+<h2>Answers</h2>
+<p>Please be aware that the following are only thoughts about possibly valid answers to Youri's question. None of this is practically approved or implemented in any way.</p>
+<h3>Retry</h3>
+<p>The first thing I would do is trying to benefit from the redistribution feature of the message broker (RabbitMQ).
+Therefor I would change the code of the <a href="https://hollo.me/php/experimental-async-php-volume-2.html#daemon-version-2">Daemon version 2</a> and add a response callback which was introduced in <a href="https://github.com/hollodotme/fast-cgi-client/blob/master/CHANGELOG.md#220---2017-04-15">hollodotme/fast-cgi-client v2.2.0</a>.
+This callback can be used to evaluate the worker's response and let you decide either you want to acknowledge (<em>ack</em>) the message on success or <a href="https://www.rabbitmq.com/nack.html">negative-acknowledge</a> (<em>nack</em>) it on error for redistribution.
+In case of a <strong><em>nack</em></strong> the broker will send the message (preferably) to another daemon.</p>
+<p>In order to do so it would be a good idea to define responses for the worker. To keep it simple, I assume the worker can have only one of these 3 responses:</p>
+<ul>
+<li>SUCCEEDED (worker successfully executed)</li>
+<li>REJECTED (worker cannot execute at the moment, try again)</li>
+<li>FAILED (worker failed to execute, don't try again)</li>
+</ul>
+<p>The change could look like this:</p>
+<p><i class="fa fa-file-o"></i> <code>src/daemon.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\PostRequest;
+use hollodotme\FastCGI\Interfaces\ProvidesResponseData;
+use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+# Connect to the same RabbitMP instance and get a channel
+$connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
+$channel    = $connection-&gt;channel();
+
+# Make sure the queue "commands" exists
+# Make the queue persistent (set 3rd parameter to true)
+$channel-&gt;queue_declare( 'commands', false, true );
+
+# Prepare the Fast CGI Client
+$unixDomainSocket = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm-commands.sock' );
+
+$daemonId = sprintf( 'D-%03d', random_int( 1, 100 ) );
+
+# Define a callback function that is invoked whenever a message is consumed
+$callback = function ( AMQPMessage $message ) use ( $unixDomainSocket, $daemonId )
+{
+    # Decode the json message and encode it for sending to php-fpm
+    $messageArray             = json_decode( $message-&gt;getBody(), true );
+    $messageArray['daemonId'] = $daemonId;
+    $body                     = http_build_query( $messageArray );
+
+    # Send an async request to php-fpm pool and receive a process ID
+    $fpmClient = new Client( $unixDomainSocket );
+
+    $request = new PostRequest( '/vagrant/src/worker.php', $body );
+
+    $request-&gt;addResponseCallbacks(
+        function( ProvidesResponseData $response ) use ( $message )
+        {
+            # In both cases (SUCCEEDED &amp; FAILED) we want the message to be removed from the queue
+            if ( in_array($response-&gt;getBody(), ['SUCCEEDED', 'FAILED'], true) )
+            {
+                # Send the ACK(nowledgement) back to the channel for this particular message
+                $message-&gt;get( 'channel' )-&gt;basic_ack( $message-&gt;get( 'delivery_tag' ) );
+
+                return;
+            }
+
+            # In case of REJECTED we want the message to be redistributed
+
+            /**
+             * Send a N(egative)ACK(nowledgement) back to the channel for this particular message
+             * @see https://github.com/php-amqplib/php-amqplib/blob/master/demo/basic_nack.php 
+             */
+            $message-&gt;get( 'channel' )-&gt;basic_nack( $message-&gt;get( 'delivery_tag' ) );
+        }
+    );
+
+    $processId = $fpmClient-&gt;sendAsyncRequest($request);
+
+    echo " [x] Spawned process with ID {$processId} for message number {$messageArray['number']}\n";
+
+    $fpmClient-&gt;waitForResponse($processId);
+};
+
+# Set the prefetch count to 1 for this consumer
+$channel-&gt;basic_qos( null, 1, null );
+
+# Request consumption for queue "commands" using the defined callback function
+# Enable message acknowledgement (set 4th parameter to false)
+$channel-&gt;basic_consume( 'commands', '', false, false, false, false, $callback );
+
+# Wait to finish execution as long as the channel has callbacks
+while ( count( $channel-&gt;callbacks ) )
+{
+    $channel-&gt;wait();
+}</code></pre>
+<p>This is fine so far, but now we have a problem. The call of <code>$fpmClient-&gt;waitForResponse($processId)</code> will cause the consume callback to be blocking
+until the worker responded. That would be equal to putting the worker's code directly into the consumer callback. So the benefit of parallelised workers would be gone.  </p>
+<p>Fortunately the fast-cgi-client supports loop integration and we can get rid of this problem, if we slightly change the code again:</p>
+<p><i class="fa fa-file-o"></i> <code>src/daemon.php</code></p>
+<pre><code class="language-php">&lt;?php declare(strict_types = 1);
+
+namespace hollodotme\AsyncPhp;
+
+use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\PostRequest;
+use hollodotme\FastCGI\Interfaces\ProvidesResponseData;
+use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+require(__DIR__ . '/../vendor/autoload.php');
+
+# Connect to the same RabbitMP instance and get a channel
+$connection = new AMQPStreamConnection( 'localhost', 5672, 'guest', 'guest' );
+$channel    = $connection-&gt;channel();
+
+# Make sure the queue "commands" exists
+# Make the queue persistent (set 3rd parameter to true)
+$channel-&gt;queue_declare( 'commands', false, true );
+
+# Prepare the Fast CGI Client
+$unixDomainSocket = new UnixDomainSocket( 'unix:///var/run/php/php7.1-fpm-commands.sock' );
+
+$daemonId = sprintf( 'D-%03d', random_int( 1, 100 ) );
+
+# Use only one instance for all requests
+$fpmClient = new Client( $unixDomainSocket );
+
+# Define a callback function that is invoked whenever a message is consumed
+$callback = function ( AMQPMessage $message ) use ( $fpmClient, $daemonId )
+{
+    # Decode the json message and encode it for sending to php-fpm
+    $messageArray             = json_decode( $message-&gt;getBody(), true );
+    $messageArray['daemonId'] = $daemonId;
+    $body                     = http_build_query( $messageArray );
+
+    # Send an async request to php-fpm pool and receive a process ID
+    $request = new PostRequest( '/vagrant/src/worker.php', $body );
+
+    $request-&gt;addResponseCallbacks(
+        function( ProvidesResponseData $response ) use ( $message )
+        {
+            # In both cases (SUCCEEDED &amp; FAILED) we want the message to be removed from the queue
+            if ( in_array($response-&gt;getBody(), ['SUCCEEDED', 'FAILED'], true) )
+            {
+                # Send the ACK(nowledgement) back to the channel for this particular message
+                $message-&gt;get( 'channel' )-&gt;basic_ack( $message-&gt;get( 'delivery_tag' ) );
+
+                return;
+            }
+
+            # In case of REJECTED we want the message to be redistributed
+
+            /**
+             * Send a N(egative)ACK(nowledgement) back to the channel for this particular message
+             * @see https://github.com/php-amqplib/php-amqplib/blob/master/demo/basic_nack.php 
+             */
+            $message-&gt;get( 'channel' )-&gt;basic_nack( $message-&gt;get( 'delivery_tag' ) );
+        }
+    );
+
+    $processId = $fpmClient-&gt;sendAsyncRequest($request);
+
+    echo " [x] Spawned process with ID {$processId} for message number {$messageArray['number']}\n";
+};
+
+# Set the prefetch count to 5 for this consumer
+$channel-&gt;basic_qos( null, 5, null );
+
+# Request consumption for queue "commands" using the defined callback function
+# Enable message acknowledgement (set 4th parameter to false)
+$channel-&gt;basic_consume( 'commands', '', false, false, false, false, $callback );
+
+# Wait to finish execution as long as the channel has callbacks
+while ( count( $channel-&gt;callbacks ) )
+{
+    # Notify all callbacks of requests which were already responded by its workers
+    $fpmClient-&gt;handleReadyResponses();
+
+    $channel-&gt;wait();
+}</code></pre>
+<p>Four things have changed now:</p>
+<ol>
+<li>The instance <code>$fpmClient</code> is now created in the global scope of the daemon script above the declaration of <code>$callback</code> and then <code>use</code>d by the consumer callback.</li>
+<li>The blocking <code>$fpmClient-&gt;waitForResponse($processId)</code> was removed from consumer callback.</li>
+<li>The reactive method <code>$fpmClient-&gt;handleReadyResponses()</code> was added in the main (endless) loop. This method calls the response callback of each request as soon as the worker responded and is only blocking for the time of executing the response callback.
+For more information, see the <a href="https://github.com/hollodotme/fast-cgi-client#sending-multiple-requests-and-notifying-callbacks-reactive">documentation</a>.</li>
+<li>The consume count of the daemon was raised to <code>5</code>, so we have at most 5 parallel running workers.</li>
+</ol>
+<p>Now we can remove or redistribute (retry) messages based on the worker's result, in a sort order based on worker's execution time with a non-blocking consumer.</p>
+<p><strong>I call that a first achievement. :D</strong></p>
+<hr />
+<h3>Error handling</h3>
+<p>General speaking, I am not a fan of complex self-healing systems whet it comes to error handling. My personal approach is: </p>
+<ol>
+<li>trying to reduce the probability of errors by writing solid and tested code in the first place,</li>
+<li>using a sane error reporting tool like e.g. <a href="https://getsentry.com">Sentry</a> with sane and precise log level setup,</li>
+<li>creating an environment that allows immediate troubleshooting e.g. by getting slack-notifications on critical incidents (only) and</li>
+<li>always asking myself about the possible frequency and consequences of a particular error.
+In most cases it's not as bad as you may think it is; and the effort of establishing a self-healing mechanism doesn't pay off very often. </li>
+</ol>
+<p>Lets get back to the topic: </p>
+<p><strong>Regarding the daemon</strong> error handling could be quite simple. I would install my favourite error handler (like Sentry) that reports errors to a log central which maybe notifies me directly.
+Since the daemon is registered as a system service (<a href="https://hollo.me/php/experimental-async-php-volume-1.html#daemonize-the-daemon">see here</a>), I don't have to care
+about restarting it in case of a crash. Additionally RabbitMQ takes also note of a crashed daemon/consumer and will automatically redistribute all un-acknowledged messages
+to other daemons or the same as soon as it has restarted. Basically there are no other important incidents that need to be covered here, once the code is tested.
+Everything else would simply be reported/logged.</p>
+<p><strong>Regarding the worker</strong> error handling should be isolated and thus separated from the daemon and message queue.
+I think of a worker as a microservice (sorry for the buzzword).
+It should be self-contained, replaceable and provide a reliable API to the outside world.
+In this case the API is quite simple, because it consists of a defined request payload [IN] and the 3 aforementioned responses
+(<strong>SUCCEEDED</strong>, <strong>REJECTED</strong> and <strong>FAILED</strong>) [OUT]. </p>
+<p>So we should try our best to make sure that this API won't break. Again I would install my favourite error handler to get errors reported/logged.
+The API could be guarded by a simple <code>try {} catch() {}</code> block for <code>\Throwable</code> in the worker script like this:</p>
+<pre><code class="language-php">&lt;?php declare(strict_types=1);
+
+namespace YourVendor\YourProject;
+
+$errorHandler = new MyFavouriteErrorHandler(); 
+$errorHandler-&gt;install(); 
+
+try 
+{
+    $result = (new MyWorker())-&gt;doStuff($_POST);
+
+    echo $result-&gt;succeeded() ? 'SUCCEEDED' : 'REJECTED';
+}
+catch (\Throwable $e)
+{
+    $errorHandler-&gt;captureException($e);
+
+    echo 'FAILED';
+}</code></pre>
+<p>I would also recommend to keep the workers as small and simple as possible and well tested of course.
+The more complex the API gets, the harder it is to guard.</p>
+<p>But I repeat, all these are my options and the presumably &quot;right approach&quot; always depends on the actual use-case.
+Even though, I hope these thoughts are helpful. </p>
+<p>[<i class="fa fa-coffee"></i><i class="fa fa-coffee"></i>░░░░░░░░░░░░░░░░░░░░░<i class="fa fa-beer"></i>] 3 hours | <small>09/11/2017</small></p>
+
+		
+	</div>
+</div>
+<script src="https://hollo.me/js/theme.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
