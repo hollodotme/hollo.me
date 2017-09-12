@@ -161,6 +161,11 @@
 
 		<hr>
 
+		<p class="text-center">
+			<strong>Found a bug or a typo?</strong><br>
+			This website is open source,<br>
+			<a href="@website_repo_url@" target="_blank" title="Website GitHub repository">please fork it and provide a PR</a>.
+		</p>
 		<p class="text-center website-version">
 			<small>@website_version@</small>
 		</p>
@@ -189,8 +194,8 @@
 
 		{% block content %}
 
-			<h1>{{ page.getPageTitle }}<span class="text-small"> | {{ page.getDescription|raw }}</span></h1>
-
+			<h1>{{ page.getPageTitle }}</h1>
+			<h5>{{ page.getDescription|raw }}</h5>
 			<hr>
 
 			{{ content|raw }}

@@ -269,6 +269,16 @@ sup {
 	text-shadow: 1px 1px 1px #2d5a2d;
 }
 
+#sidebar a {
+	color: #b3ff9d;
+	text-shadow: 1px 1px 1px #2d5a2d;
+}
+
+#sidebar b,
+#sidebar strong {
+	color: inherit;
+}
+
 #breadcrumbs {
 	position: fixed;
 	top: 5px;

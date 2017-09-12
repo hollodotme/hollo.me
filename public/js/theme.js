@@ -4,7 +4,7 @@
 	var sidebarToggle = document.getElementById( 'sidebar-toggle' );
 	sidebarToggle.addEventListener( 'click', function ( e )
 	{
-		if ( sidebarToggle.getAttribute( 'class' ) == 'open' )
+		if ( sidebarToggle.getAttribute( 'class' ) === 'open' )
 		{
 			sidebar.removeAttribute( 'class' );
 			sidebarToggle.removeAttribute( 'class' );
