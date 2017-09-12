@@ -55,8 +55,8 @@
 	<meta property="og:description" content="Web technology - mostly PHP and DevOps - blog posts, tutorials, talks and slides"/>
 	<meta property="og:url" content="https://hollo.me"/>
 	<meta property="og:image" content="https://hollo.me/img/Profile.png"/>
-	<meta property="article:published_time" content="2017-09-11T23:39:04+02:00"/>
-	<meta property="article:modified_time" content="2017-09-11T23:39:04+02:00"/>
+	<meta property="article:published_time" content="2017-09-12T22:49:04+02:00"/>
+	<meta property="article:modified_time" content="2017-09-12T22:49:04+02:00"/>
 		<meta name="twitter:card" content="summary_large_image"/>
 	<meta name="twitter:title" content="Home | Holger Woltersdorf&#039;s blog"/>
 	<meta name="twitter:description" content="Web technology - mostly PHP and DevOps - blog posts, tutorials, talks and slides"/>
@@ -66,6 +66,7 @@
 	<meta name="generator" content="IceHawk Static Page Generator"/>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
+	<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://hollo.me/css/theme.css">
 	<script src="https://use.fontawesome.com/3513f09ab7.js"></script>
 	</head>
@@ -84,7 +85,7 @@
 		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
 		<p class="text-center text-uppercase subline">
 			CIO &middot; Developer &middot; Speaker<br>
-			PHP &middot; WEB &middot; Markdown lover
+			PHP &middot; WEB &middot; Community
 		</p>
 
 		<hr>
@@ -146,7 +147,17 @@
 			</li>
 
 
-					</ul>
+						<li>
+				<a href="https://www.papercall.io/speakers/hollodotme" target="_blank" title="My profile on papercall.io">
+					PaperCall.io profile
+				</a>
+			</li>
+			<li>
+				<a href="https://speakerdeck.com/hollodotme" target="_blank" title="My profile on speakerdeck.com">
+					SpeakerDeck profile
+				</a>
+			</li>
+		</ul>
 
 		<hr>
 
@@ -179,54 +190,61 @@
 
 			<h1>Latest blog posts</h1>
 
+	<hr>
+
+	<p>
+		If you like to see me speaking at a conference or at your local user group,<br>
+		please check available talks on
+		<a href="https://www.papercall.io/speakers/hollodotme" target="_blank" title="my PaperCall.io profile">my PaperCall.io profile</a> and ping me.
+	</p>
+
 	
 		<hr>
 
 		
-			<h2>PHP</h2>
-			<p>
-				PHP related blog posts |
-				<a href="https://hollo.me/php.html" title="PHP">read more ...</a>
-			</p>
+			<h2>
+				<a href="https://hollo.me/php.html" title="PHP">PHP</a>
+				<span class="text-small"> | PHP related blog posts</span>
+			</h2>
 
 			
 				<h3>Experimental async PHP - Volume 2</h3>
-				<blockquote>
+				<p>
 					Second try to run a PHP daemon receiving messages from RabbtiMQ and executing commands async on the php-fpm socket<br>
 					<a href="https://hollo.me/php/experimental-async-php-volume-2.html" title="Experimental async PHP - Volume 2">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Experimental async PHP - Volume 1</h3>
-				<blockquote>
+				<p>
 					First try to run a PHP daemon subscribing to redis channels and executing commands async on the php-fpm socket<br>
 					<a href="https://hollo.me/php/experimental-async-php-volume-1.html" title="Experimental async PHP - Volume 1">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>&#039;Traitful&#039; configs</h3>
-				<blockquote>
+				<p>
 					An application specifies requirements for its configuration and subdivedes them into MUST haves and COULD haves. The concept of &#039;Traitful&#039; configs shows how you can force the user of the application to implement the MUST haves and individually use the default implementations of the COULD haves.<br>
 					<a href="https://hollo.me/php/traitful-configs.html" title="&#039;Traitful&#039; configs">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Fluent validation with ease</h3>
-				<blockquote>
+				<p>
 					Free yourself from consuming and redundant data validation by lining up if statements. Use the fluent interface for validating form input or other data objects. The FluidValidator makes it happen and offers flexible capabilities.<br>
 					<a href="https://hollo.me/php/fluent-validation-with-ease.html" title="Fluent validation with ease">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Custom exceptions with context</h3>
-				<blockquote>
+				<p>
 					You&#039;re tired of creating error lists or objects and return them through multiple layers of your application? Use custom exceptions with context to get rid of mixed return types in methods, handling and enriching errors multiple times on different layers and a restricted, hard to extend structure of error information.<br>
 					<a href="https://hollo.me/php/custom-exceptions-with-context.html" title="Custom exceptions with context">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
@@ -235,74 +253,89 @@
 		<hr>
 
 		
-			<h2>Talks</h2>
-			<p>
-				Talks I gave at several places |
-				<a href="https://hollo.me/talks.html" title="Talks">read more ...</a>
-			</p>
+			<h2>
+				<a href="https://hollo.me/talks.html" title="Talks">Talks</a>
+				<span class="text-small"> | Talks I gave at several places</span>
+			</h2>
+
+			
+				<h3>IceHawk - A PHP 7 micro-framework respecting CQRS</h3>
+				<p>
+					An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Frankfurt am Main (PHPUG MUNICH)<br>
+					<a href="https://hollo.me/talks/icehawk-framework-an-introduction-phpugmunich.html" title="IceHawk - A PHP 7 micro-framework respecting CQRS">read more ...</a>
+				</p>
+				<br>
 
 			
 				<h3>Async PHP Request and Reactive Responses</h3>
-				<blockquote>
+				<p>
+					A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. PHP USERGROUP DRESDEN, Dresden, Germany<br>
+					<a href="https://hollo.me/talks/async-php-request-and-reactive-responses-phpugdd.html" title="Async PHP Request and Reactive Responses">read more ...</a>
+				</p>
+				<br>
+
+			
+				<h3>Async PHP Request and Reactive Responses</h3>
+				<p>
 					A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. Péhápkaři 2017, Prague, Czech Republic<br>
 					<a href="https://hollo.me/talks/async-php-request-and-reactive-responses.html" title="Async PHP Request and Reactive Responses">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Total Recall - The application that never forgets</h3>
-				<blockquote>
+				<p>
 					A talk about CQRS applied to several application layers and the benefit of adding Event Sourcing for more business intelligence. PHPkonf 2017 in Istanbul, Turkey<br>
 					<a href="https://hollo.me/talks/total-recall-the-application-that-never-forgets.html" title="Total Recall - The application that never forgets">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>IceHawk framework - A short introduction</h3>
-				<blockquote>
+				<p>
 					A short introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Berlin (BEPHPUG)<br>
 					<a href="https://hollo.me/talks/icehawk-framework-a-short-introduction.html" title="IceHawk framework - A short introduction">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>IceHawk framework - An introduction</h3>
-				<blockquote>
+				<p>
 					An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Frankfurt am Main (PHPUGFFM)<br>
 					<a href="https://hollo.me/talks/icehawk-framework-an-introduction.html" title="IceHawk framework - An introduction">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Open Source Software - Get Involved</h3>
-				<blockquote>
+				<p>
 					A basic overview on resources and best practices to get involved in open source software projects. A talk at the &#039;X-Mas Issue Bash 2016&#039; at PHP USERGROUP DRESDEN e.V.<br>
 					<a href="https://hollo.me/talks/open-source-software-get-involved.html" title="Open Source Software - Get Involved">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Divide and Conquer - 2 years of CQRS in production</h3>
-				<blockquote>
+				<p>
 					&#039;The MVC pattern solves a problem, that does not exist in the web.&#039; - These few words and some scribbles on the whiteboard has a whole development ideology torn apart in seconds. Mhh, aha, Command Query Responsibility Segregation - Sounds good! And how does one implement this? This session tells the story about the genesis of a PHP micro-framework respecting CQRS, the rethinking of its developers, two years of production experience and the learnings on the road to version 2.0.<br>
 					<a href="https://hollo.me/talks/divide-and-conquer-2-years-of-cqrs-in-production.html" title="Divide and Conquer - 2 years of CQRS in production">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>PHAR better tools</h3>
-				<blockquote>
+				<p>
 					Introduction to PHAR tools, usage examples, how to distribute and update PHARs, PhiVE and PHAR.io<br>
 					<a href="https://hollo.me/talks/phar-better-tools.html" title="PHAR better tools">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Practical CQRS - Newsletter Double Opt-In</h3>
-				<blockquote>
+				<p>
 					Why the MVC pattern solves a problem that doesn&#039;t exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the &lt;a href=&#039;http://phpug-dresden.org&#039; target=&#039;_blank&#039;&gt;PHP USERGROUP DRESDEN&lt;/a&gt;.<br>
 					<a href="https://hollo.me/talks/practical-cqrs-newsletter-double-opt-in.html" title="Practical CQRS - Newsletter Double Opt-In">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
@@ -311,11 +344,10 @@
 		<hr>
 
 		
-			<h2>Projects</h2>
-			<p>
-				Software projects I maintain or I am involved in |
-				<a href="https://hollo.me/projects.html" title="Projects">read more ...</a>
-			</p>
+			<h2>
+				<a href="https://hollo.me/projects.html" title="Projects">Projects</a>
+				<span class="text-small"> | Software projects I maintain or I am involved in</span>
+			</h2>
 
 			
 		
@@ -323,26 +355,25 @@
 		<hr>
 
 		
-			<h2>DevOps</h2>
-			<p>
-				Unsorted stuff written down while setting up development environments or dealing with issues. |
-				<a href="https://hollo.me/devops.html" title="DevOps">read more ...</a>
-			</p>
+			<h2>
+				<a href="https://hollo.me/devops.html" title="DevOps">DevOps</a>
+				<span class="text-small"> | Unsorted stuff written down while setting up development environments or dealing with issues.</span>
+			</h2>
 
 			
 				<h3>Self-hosted &#039;vagrant cloud&#039;</h3>
-				<blockquote>
+				<p>
 					A tutorial on how to set up a self-hosted &#039;vagrant cloud&#039; with versioned, self-packaged vagrant boxes<br>
 					<a href="https://hollo.me/devops/self-hosted-vagrant-cloud.html" title="Self-hosted &#039;vagrant cloud&#039;">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
 				<h3>Install XMPP server prosody</h3>
-				<blockquote>
+				<p>
 					A tutorial on how to install XMPP server prosody with mysql auth backend on Ubuntu<br>
 					<a href="https://hollo.me/devops/install-xmpp-server-prosody.html" title="Install XMPP server prosody">read more ...</a>
-				</blockquote>
+				</p>
 				<br>
 
 			
@@ -351,11 +382,10 @@
 		<hr>
 
 		
-			<h2>Reading list</h2>
-			<p>
-				(e)Books, blogs and other resources I use(d) to read |
-				<a href="https://hollo.me/reading-list.html" title="Reading list">read more ...</a>
-			</p>
+			<h2>
+				<a href="https://hollo.me/reading-list.html" title="Reading list">Reading list</a>
+				<span class="text-small"> | (e)Books, blogs and other resources I use(d) to read</span>
+			</h2>
 
 			
 		
@@ -368,8 +398,8 @@
 	</div>
 </div>
 <script src="https://hollo.me/js/theme.js"></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
-<script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/styles/railscasts.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

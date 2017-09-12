@@ -64,6 +64,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/icehawk-framework-an-introduction-phpugmunich.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/icehawk-framework.png</image:loc>
+      <image:caption>IceHawk - A PHP 7 micro-framework respecting CQRS</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/async-php-request-and-reactive-responses-phpugdd.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/php-usergroup-dresden.png</image:loc>
+      <image:caption>Async PHP Request and Reactive Responses</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/async-php-request-and-reactive-responses.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/talks/pehapkari-logo.png</image:loc>

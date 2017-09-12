@@ -9,7 +9,9 @@
 		"@twitter_url@": "https://twitter.com/hollodotme",
 		"@xing_url@": "https://www.xing.com/profile/Holger_Woltersdorf",
 		"@linkedin_url@": "https://www.linkedin.com/in/holgerwoltersdorf",
-		"@twitter_handle@": "@hollodotme"
+		"@twitter_handle@": "@hollodotme",
+		"@papercall_io_profile_url@": "https://www.papercall.io/speakers/hollodotme",
+		"@speakerdeck_profile_url@": "https://speakerdeck.com/hollodotme"
 	},
 	"pages": {
 		"/index.html": {
@@ -225,6 +227,8 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/icehawk-framework-an-introduction-phpugmunich.html",
+				"/talks/async-php-request-and-reactive-responses-phpugdd.html",
 				"/talks/async-php-request-and-reactive-responses.html",
 				"/talks/total-recall-the-application-that-never-forgets.html",
 				"/talks/icehawk-framework-a-short-introduction.html",
@@ -234,6 +238,58 @@
 				"/talks/phar-better-tools.html",
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
+		},
+		"/talks/icehawk-framework-an-introduction-phpugmunich.html": {
+			"pageLevel": 3,
+			"navName": "IceHawk - A PHP 7 micro-framework respecting CQRS",
+			"pageTitle": "IceHawk - A PHP 7 micro-framework respecting CQRS",
+			"description": "An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Frankfurt am Main (PHPUG MUNICH)",
+			"language": "en",
+			"imageUrl": "/img/talks/icehawk-framework.png",
+			"tags": [
+				"OSS",
+				"IceHawk",
+				"framework",
+				"history",
+				"features",
+				"code",
+				"components",
+				"PHP",
+				"Usergroup",
+				"Munich",
+				"GitHub"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/IceHawkFrameworkAnIntroductionMunich.md",
+			"children": []
+		},
+		"/talks/async-php-request-and-reactive-responses-phpugdd.html": {
+			"pageLevel": 3,
+			"navName": "Async PHP Request and Reactive Responses",
+			"pageTitle": "Async PHP Request and Reactive Responses",
+			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. PHP USERGROUP DRESDEN, Dresden, Germany",
+			"language": "en",
+			"imageUrl": "/img/php-usergroup-dresden.png",
+			"tags": [
+				"Async",
+				"requests",
+				"reactive",
+				"responses",
+				"php-fpm",
+				"FastCGI",
+				"Client",
+				"GitHub Repository",
+				"OSS",
+				"Slides",
+				"Germany"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/AsyncPhpRequestsAndReactiveResponsesDresden.md",
+			"children": []
 		},
 		"/talks/async-php-request-and-reactive-responses.html": {
 			"pageLevel": 3,

@@ -1,3 +1,11 @@
+
+If you like to see me speaking at a conference or at your local user group,  
+please check available talks on [my PaperCall.io profile](@papercall_io_profile_url@) and ping me.
+
+---
+
+* 07/26/2017 - [IceHawk - A PHP 7 micro-framework respecting CQRS](@baseUrl@/talks/icehawk-framework-an-introduction-phpugmunich.html) at [PHP Usergroup Munich](https://www.meetup.com/phpugmunich/) (Westwing), Munich, Germany
+* 06/08/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses-phpugdd.html) at [PHP USERGROUP DRESDEN](http://phpug-dresden.org) (Check24), Dresden, Germany
 * 05/31/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses.html) at [Péhápkaři](https://pehapkari.cz) (Sinner Schrader), Prague, Czech Republic
 * 05/20/2017 - [Total Recall - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets.html) at [PHPkonf 2017](http://phpkonf.org) Istanbul, Turkey
 * 04/04/2017 - [IceHawk Framework - A short introduction](@baseUrl@/talks/icehawk-framework-a-short-introduction.html) at [PHP Usergroup Berlin](http://www.bephpug.de/2017/04/04/april.html) (Co-Up), Berlin, Germany
