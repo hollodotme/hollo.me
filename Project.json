@@ -4,7 +4,7 @@
 	"outputDir": "./public",
 	"contentsDir": "./contents/",
 	"replacements": {
-		"@website_version@": "v1.2.0",
+		"@website_version@": "v1.2.1",
 		"@website_repo_url@": "https://github.com/hollodotme/hollo.me",
 		"@github_url@": "https://github.com/hollodotme",
 		"@twitter_url@": "https://twitter.com/hollodotme",
