@@ -159,6 +159,8 @@ pre > code {
 	font-size: 15px;
 	white-space: pre;
 	line-height: 1.5em;
+	border: 0;
+	padding: 0;
 }
 
 hr {
