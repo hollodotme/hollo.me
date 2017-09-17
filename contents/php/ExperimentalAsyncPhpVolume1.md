@@ -330,7 +330,7 @@ Create a new pool config file:
 
 <i class="fa fa-file-o"></i> `/etc/php/7.1/fpm/pool.d/commands.conf`
 
-```
+```ini
 ; Pool name
 [commands]
 

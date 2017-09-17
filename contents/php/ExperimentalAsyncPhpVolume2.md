@@ -1,12 +1,8 @@
 ## Updates
 
-### 2017-03-07: 
-
-* Code updated for [v2.1.0 of hollodotme/fast-cgi-client](https://github.com/hollodotme/fast-cgi-client/tree/v2.1.0).
-
-### 2017-09-11: 
-
-* Q&A: [Error handling and retry](@baseUrl@/php/experimental-async-php-volume-2-error-handling.html)
+* 2017-03-07: Code updated for [v2.1.0 of hollodotme/fast-cgi-client](https://github.com/hollodotme/fast-cgi-client/tree/v2.1.0).
+* 2017-09-11: Q&A: [Error handling and retry](@baseUrl@/php/experimental-async-php-volume-2-error-handling.html)
+* 2017-09-17: Q&A: [Parallelism](@baseUrl@/php/experimental-async-php-volume-2-parallelism.html)
 
 ---
 

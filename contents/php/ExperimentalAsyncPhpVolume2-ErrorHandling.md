@@ -273,5 +273,6 @@ The more complex the API gets, the harder it is to guard.
 But I repeat, all these are my options and the presumably "right approach" always depends on the actual use-case.
 Even though, I hope these thoughts are helpful. 
    
+---
 
 [<i class="fa fa-coffee"></i><i class="fa fa-coffee"></i>░░░░░░░░░░░░░░░░░░░░░<i class="fa fa-beer"></i>] 3 hours | <small>09/11/2017</small>

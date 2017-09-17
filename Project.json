@@ -88,7 +88,8 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/ExperimentalAsyncPhpVolume2.md",
 			"children": [
-				"/php/experimental-async-php-volume-2-error-handling.html"
+				"/php/experimental-async-php-volume-2-error-handling.html",
+				"/php/experimental-async-php-volume-2-parallelism.html"
 			]
 		},
 		"/php/experimental-async-php-volume-2-error-handling.html": {
@@ -118,6 +119,36 @@
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
 			"contentFile": "php/ExperimentalAsyncPhpVolume2-ErrorHandling.md",
+			"children": []
+		},
+		"/php/experimental-async-php-volume-2-parallelism.html": {
+			"pageLevel": 4,
+			"navName": "Q/A: Parallelism",
+			"pageTitle": "Q/A: Parallelism, Experimental async PHP - VOL. 2",
+			"description": "Why is execution of workers parallelised in the system shown in Experimental async PHP - VOL. 2.?",
+			"language": "en",
+			"imageUrl": "/img/posts/caller-rabbitmq-daemon-socket-worker.png",
+			"tags": [
+				"Q&A",
+				"question",
+				"answer",
+				"PHP",
+				"async",
+				"php-fpm",
+				"redis",
+				"publish",
+				"subscribe",
+				"pubsub",
+				"experimental",
+				"daemon",
+				"worker",
+				"socket",
+				"parallelism"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/ExperimentalAsyncPhpVolume2-Parallelism.md",
 			"children": []
 		},
 		"/php/experimental-async-php-volume-1.html": {
