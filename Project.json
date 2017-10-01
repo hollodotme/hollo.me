@@ -56,11 +56,33 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/event-sourcing-large-file-projections.html",
 				"/php/experimental-async-php-volume-2.html",
 				"/php/experimental-async-php-volume-1.html",
 				"/php/traitful-configs.html",
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
+			]
+		},
+		"/php/event-sourcing-large-file-projections.html": {
+			"pageLevel": 3,
+			"navName": "Event Sourcing - Large file projections",
+			"pageTitle": "Event Sourcing - Large file projections",
+			"description": "Event Sourcing allows you to keep track of every change of state in your application by recording change payload. But what if your payload is a large file. These thoughts try to show you a solution on how to extend your Event Sourcing system to record changes in such large files and how to project them.",
+			"language": "en",
+			"imageUrl": "/img/hwoltersdorf_blue_500x500.png",
+			"tags": [
+				"PHP",
+				"Event Sourcing",
+				"Files",
+				"Versioning",
+				"Projection"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/event-sourcing/2017-09-29-LargeFileProjections.md",
+			"children": [
 			]
 		},
 		"/php/experimental-async-php-volume-2.html": {
