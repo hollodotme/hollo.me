@@ -31,21 +31,21 @@ to get access to previous versions on demand.
 
 I discussed about storing files in an event-sourced application in 
 [this google group](https://groups.google.com/forum/#!topic/dddinphp/5DYL9T9vwmU) with a couple of people.
-Please keep in mind that this discussion was about 3 years ago, I was not as open-minded as I am today and some parts may 
-be offending from a current point of view.
+Please keep in mind that this discussion was about 3 years ago, that I was not as educated and open-minded as I am today 
+and some parts of the discussion may be incorrect, ignorant or event offending from a current point of view.
 
 Based on the use-case I decided to model an own aggregate for attachments, to keep track of its state (acceptance) 
-and version.
+, its version and comments attached to each version.
 
-I decided to see the actual file the customer/designer will see and the file system it is stored in to 
-be a projection.
+I decided to see the actual file the customer/designer will see to be a projection and the file system it is stored in to 
+be a projection infrastructure.
 
 I also decided to store the binary data of the PDF version beside the actual event store table in another table containing 
-a BLOB column. 
+a BLOB column and an ID column, which is a foreign key to the actual event store table. 
 
+---
 
-
-
+## Big picture
 
 
  
