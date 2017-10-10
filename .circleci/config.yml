@@ -8,8 +8,11 @@ jobs:
         - test/circleci
     steps:
       - checkout
+      - run: apt-get install rssh -y
       - run:
           name: Greeting
           command: echo "Hello, world."
+      - add_ssh_keys
       - deploy:
-          command: scp -r circle-pushing/* deploy@hollo.me:/var/www/deploy-test/
+          command: |
+            scp -oStrictHostKeyChecking=no -r ~/project/* deploy@hollo.me:/var/www/deploy-test/
