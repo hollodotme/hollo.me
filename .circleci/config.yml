@@ -8,6 +8,9 @@ jobs:
       - run:
           name: Greeting
           command: echo "Hello, world."
-      - run:
-          name: Print the current time
-          command: date
+  deployment:
+    dev:
+      branch: test/circleci
+      commands:
+        - scp -r circle-pushing/* deploy@hollo.me:/var/www/deploy-test/
+
