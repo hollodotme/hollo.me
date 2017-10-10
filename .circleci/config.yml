@@ -3,14 +3,13 @@ jobs:
   build:
     docker:
       - image: debian:stretch
+    branches:
+      only:
+        - test/circleci
     steps:
       - checkout
       - run:
           name: Greeting
           command: echo "Hello, world."
-  deployment:
-    dev:
-      branch: test/circleci
-      commands:
-        - scp -r circle-pushing/* deploy@hollo.me:/var/www/deploy-test/
-
+      - deploy:
+          command: scp -r circle-pushing/* deploy@hollo.me:/var/www/deploy-test/
