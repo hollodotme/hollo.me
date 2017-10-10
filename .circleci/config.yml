@@ -8,7 +8,7 @@ jobs:
         - test/circleci
     steps:
       - checkout
-      - run: apt-get install rssh -y
+      - run: apt-get update && apt-get install rssh -y
       - run:
           name: Greeting
           command: echo "Hello, world."
