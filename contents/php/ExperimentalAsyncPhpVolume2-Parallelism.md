@@ -3,7 +3,7 @@
 Today <i class="fa fa-twitter"></i> [Youri Thielen](https://twitter.com/yourithielen) came up with the following question regarding my post on [Experimental async PHP - VOL. 2](@baseUrl@/php/experimental-async-php-volume-2.html):
 
 > Awesome, looks pretty workable, will probably run some experiments with this! Just out of interest, how do you achieve the parallel
-> 2/2 streams? I see stream_socket_client but no stream_set_blocking. I see you use PHPs yield, that's how you achieve 'parallelism' right?
+> streams? I see stream_socket_client but no stream_set_blocking. I see you use PHPs yield, that's how you achieve 'parallelism' right?
 
 ---
 
@@ -24,7 +24,7 @@ To understand why the workers are executed in parallel, you first need to unders
 
 PHP-FPM organizes it's processes in so-called pools, which can be easily configured and added. [See example below.](#adding-php-fpm-pools) 
 Each pool is represented by a master process that is listening on a particular socket (network or unix domain socket). 
-This master process queues incoming request, spawns child processes in background, distributes the workload to its child processes 
+This master process queues incoming requests, spawns child processes in background, distributes the workload to its child processes 
 and writes the responses back to the socket/stream as soon as the child processes finished and handed over their results. 
 
 A pool defines how child-processes are spawned, how much of them can be alive at the same time, and how/when they die.
@@ -98,7 +98,7 @@ pm.max_spare_servers = 3
 This setting implies that PHP-FPM is a request queue.
 
 **Please also note** there are more configuration options for PHP-FPM. This post only shows the essential ones. For more
-information, [please checkout the official documentation](http://php.net/manual/en/install.fpm.configuration.php).
+information, [please check out the official documentation](http://php.net/manual/en/install.fpm.configuration.php).
 
 ---
 
@@ -107,7 +107,7 @@ PHP-FPM knows three different types for the process management (config value for
 1. _**dynamic**_ (as shown above)  
    You can configure how many child processes are always alive to immediately handle requests without an upstart time.
    This should be used when performance and quick responses are the focus of the application. That's why it is commonly 
-   in combination with a webserver like nginx.  
+   used in combination with a webserver like nginx.  
    
 2. _**ondemand**_ (see example below)  
    The configured amount of child processes will be started (only) as soon as the master process gets requests. After a certain amount of time
@@ -164,7 +164,7 @@ What did I do:
   When using a network socket, make sure to use at least another port, e.g. `127.0.0.1:9001`.
 * I set the process management mode to "ondemand".
 * I allow a maximum of 5 child processes.  
-  *So we can have at most 5 requests beeing executed in parallel.*
+  _So we can have at most 5 requests being executed in parallel._
 * I defined that child processes should die 10 seconds after they went idle.
 * I defined a separate log file for all requests to this pool.  
 
@@ -190,7 +190,7 @@ $ sudo service php7.1-fpm restart
 ### Back to the question: How is parallelism achieved?
 
 Now that you learned how PHP-FPM queues and handles requests in child processes, 
-it should clear that the communication with PHP-FPM always consists of to actions:
+it should be clear that the communication with PHP-FPM always consists of to actions:
 
 1. **Write request to the PHP-FPM socket**, which will be queued and eventually executed in a child process.  
    As soon as PHP-FPM accepted the request and read its data, this action is finished and you can return to your code execution.  
