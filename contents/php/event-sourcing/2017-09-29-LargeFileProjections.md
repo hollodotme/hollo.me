@@ -16,6 +16,8 @@ between the company's art directors (designer) and the customer's e-commerce (cu
    **_Repeating points 3 to 5 until the design is accepted._**  
    
 7. Customer and designer agree on the final design by explicitly accepting a particular version.  
+
+
    They must not agree on the last version!
 
 Obviously, in this case the content of the design PDFs is essential to understand comments from customer/designer and
@@ -47,5 +49,13 @@ a BLOB column and an ID column, which is a foreign key to the actual event store
 
 ## Big picture
 
+[![Event Sourcing: Large file projection big picture](@baseUrl@/img/posts/es-large-file-projection-big-picture.svg)](@baseUrl@/img/posts/es-large-file-projection-big-picture.svg)
 
- 
+**Please note:** Some parts of this illustration are simplified for better comprehension. For example the IDs in the 
+event store and file store tables are not auto-increment integers as this picture implies.
+
+---
+
+## Consequences in implementation
+
+
