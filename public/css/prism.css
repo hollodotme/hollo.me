@@ -8,7 +8,7 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: white;
 	background: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	/*font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
 	text-align: left;
 	text-shadow: 0 -.1em .2em black;
 	white-space: pre;
@@ -91,6 +91,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 .token.tag,
 .token.boolean,
 .token.number,
+.token.string,
 .token.deleted {
 	color: hsl(14, 58%, 55%); /* #CF6A4C */
 }
@@ -106,12 +107,9 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 .token.attr-name,
 .token.attr-value,
-.token.string,
 .token.char,
 .token.entity,
 .token.url,
-.language-css .token.string,
-.style .token.string,
 .token.variable,
 .token.inserted {
 	color: hsl(107, 51%, 70%);
