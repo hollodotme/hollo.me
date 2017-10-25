@@ -1,13 +1,79 @@
 <?php declare(strict_types=1);
 
+abstract class StringType
+{
+	/** @var string */
+	private $value;
+
+	public function __construct( string $value )
+	{
+		$this->value = $value;
+	}
+
+	public function toString() : string
+	{
+		return $this->value;
+	}
+}
+
+abstract class IntType
+{
+	/** @var int */
+	private $value;
+
+	public function __construct( int $value )
+	{
+		$this->value = $value;
+	}
+
+	public function toInt() : int
+	{
+		return $this->value;
+	}
+}
+
+abstract class ArrayType
+{
+	/** @var array */
+	private $values;
+
+	public function __construct( array $values )
+	{
+		$this->values = $values;
+	}
+
+	public function toArray() : array
+	{
+		return $this->values;
+	}
+}
+
 interface IdentifiesStream
 {
 	public function toString() : string;
 }
 
+final class AttachmentId extends StringType implements IdentifiesStream
+{
+	public static function generate() : self
+	{
+		return new self( bin2hex( random_bytes( 16 ) ) );
+	}
+}
+
 interface IdentifiesStreamType
 {
 	public function toString() : string;
+}
+
+final class AttachmentStreamType implements IdentifiesStreamType
+{
+	private const STREAM_TYPE = 'attachment';
+
+	public function toString() : string
+	{
+		return self::STREAM_TYPE;
+	}
 }
 
 interface CountsVersion
@@ -17,29 +83,28 @@ interface CountsVersion
 	public function toInt() : int;
 }
 
+final class StreamSequence extends IntType implements CountsVersion
+{
+	public function increment() : CountsVersion
+	{
+		return new self( $this->toInt() + 1 );
+	}
+}
+
 interface NamesEvent
 {
 	public function toString() : string;
 }
 
-final class StreamSequence implements CountsVersion
+final class EventName extends StringType implements NamesEvent
 {
-	/** @var int */
-	private $version;
-
-	public function __construct( int $version )
+	public static function fromClassName( string $className ) : self
 	{
-		$this->version = $version;
-	}
+		$parts     = explode( '\\', $className );
+		$baseName  = preg_replace( '#Event$#', '', end( $parts ) );
+		$eventName = ltrim( preg_replace( '#([A-Z]+)([a-z]+)#', ' $1$2', $baseName ) );
 
-	public function increment() : CountsVersion
-	{
-		return new self( $this->version + 1 );
-	}
-
-	public function toInt() : int
-	{
-		return $this->version;
+		return new self( $eventName );
 	}
 }
 
@@ -86,9 +151,45 @@ final class EventMetaData implements ProvidesEventMetaData
 	}
 }
 
+final class EventPayload extends ArrayType
+{
+}
+
 interface ProvidesEventPayload
 {
+	public function getStreamId() : IdentifiesStream;
+
 	public function getName() : NamesEvent;
+
+	public function getPayload() : EventPayload;
+
+	public static function newFromPayload( EventPayload $payload ) : ProvidesEventPayload;
+}
+
+abstract class AbstractEvent implements ProvidesEventPayload
+{
+	public function getPayload() : EventPayload
+	{
+		return new EventPayload( $this->toArray() );
+	}
+
+	abstract protected function toArray() : array;
+
+	public static function newFromPayload( EventPayload $payload ) : ProvidesEventPayload
+	{
+		/** @var \AbstractEvent $event */
+		$event = (new \ReflectionClass( static::class ))->newInstanceWithoutConstructor();
+		$event->fromArray( $payload->toArray() );
+
+		return $event;
+	}
+
+	abstract protected function fromArray( array $payload ) : void;
+
+	public function getName() : NamesEvent
+	{
+		return EventName::fromClassName( static::class );
+	}
 }
 
 interface ProvidesEventFileInformation
@@ -105,7 +206,7 @@ final class NullFileInfo implements ProvidesEventFileInformation
 		return false;
 	}
 
-	public function getStream()
+	public function getStream() : void
 	{
 		throw new \LogicException( 'Null object cannot provide a file stream.' );
 	}
@@ -113,22 +214,22 @@ final class NullFileInfo implements ProvidesEventFileInformation
 
 final class FileInfo implements ProvidesEventFileInformation
 {
-	/** @var string */
+	/** @var \FilePath */
 	private $filePath;
 
-	public function __construct( string $filePath )
+	public function __construct( FilePath $filePath )
 	{
 		$this->filePath = $filePath;
 	}
 
 	public function exists() : bool
 	{
-		return file_exists( $this->filePath );
+		return file_exists( $this->filePath->toString() );
 	}
 
 	public function getStream()
 	{
-		return fopen( $this->filePath, 'rb' );
+		return fopen( $this->filePath->toString(), 'rb' );
 	}
 }
 
@@ -180,13 +281,6 @@ interface ListsChanges extends Iterator
 	public function append( TiesEventInformation $eventEnvelope ) : void;
 }
 
-interface RecordsChanges
-{
-	public function getChanges() : ListsChanges;
-
-	public function clearChanges() : void;
-}
-
 final class EventStream implements ListsChanges
 {
 	private $eventEnvelopes = [];
@@ -222,6 +316,13 @@ final class EventStream implements ListsChanges
 	}
 }
 
+interface RecordsChanges
+{
+	public function getChanges() : ListsChanges;
+
+	public function clearChanges() : void;
+}
+
 abstract class AbstractAggregateRoot implements RecordsChanges
 {
 	/** @var \ListsChanges */
@@ -240,7 +341,7 @@ abstract class AbstractAggregateRoot implements RecordsChanges
 		 * representing all state changes that happened to this object since instantiation.
 		 * EventStream implements the ListsChanges interface, which extends Iterator interface
 		 */
-		$this->changes = new EventStream();
+		$this->clearChanges();
 
 		/**
 		 * The sequence is the internal version number of this particular aggregate instance.
@@ -267,11 +368,11 @@ abstract class AbstractAggregateRoot implements RecordsChanges
 	 * Optionally an attached file can be recorded, represented by a file path.
 	 *
 	 * @param ProvidesEventPayload $event    Data object containing the actual change payload
-	 * @param string|null          $filePath Possibly attached file represented as file path
+	 * @param FilePath|null        $filePath Possibly attached file represented as file path
 	 *
 	 * @throws \LogicException if method to apply event is not callable
 	 */
-	final protected function recordThat( ProvidesEventPayload $event, ?string $filePath = null ) : void
+	final protected function recordThat( ProvidesEventPayload $event, ?FilePath $filePath = null ) : void
 	{
 		/**
 		 * $metaData ties everything together to unique identify the change / event.
@@ -284,7 +385,7 @@ abstract class AbstractAggregateRoot implements RecordsChanges
 		 */
 		$metaData = new EventMetaData(
 			$this->getStreamType(),
-			$this->getStreamId(),
+			$event->getStreamId(),
 			$this->sequence->increment()
 		);
 
@@ -373,5 +474,146 @@ abstract class AbstractAggregateRoot implements RecordsChanges
 
 		return $aggregate;
 	}
+
+	final public function getChanges() : ListsChanges
+	{
+		return $this->changes;
+	}
+
+	final public function clearChanges() : void
+	{
+		$this->changes = new EventStream();
+	}
 }
 
+final class FileName extends StringType
+{
+}
+
+final class FilePath extends StringType
+{
+}
+
+final class MimeType extends StringType
+{
+
+}
+
+final class FileSize extends IntType
+{
+
+}
+
+final class AttachmentUploadedEvent extends AbstractEvent
+{
+	/** @var \AttachmentId */
+	private $attachmentId;
+
+	/** @var \FileName */
+	private $fileName;
+
+	/** @var \MimeType */
+	private $mimeType;
+
+	/** @var \FileSize */
+	private $fileSize;
+
+	public function __construct( \AttachmentId $attachmentId, \FileName $fileName, \MimeType $mimeType, \FileSize $fileSize )
+	{
+		$this->attachmentId = $attachmentId;
+		$this->fileName     = $fileName;
+		$this->mimeType     = $mimeType;
+		$this->fileSize     = $fileSize;
+	}
+
+	public function getAttachmentId() : \AttachmentId
+	{
+		return $this->attachmentId;
+	}
+
+	public function getFileName() : \FileName
+	{
+		return $this->fileName;
+	}
+
+	public function getMimeType() : \MimeType
+	{
+		return $this->mimeType;
+	}
+
+	public function getFileSize() : \FileSize
+	{
+		return $this->fileSize;
+	}
+
+	public function getStreamId() : IdentifiesStream
+	{
+		return $this->attachmentId;
+	}
+
+	protected function toArray() : array
+	{
+		return [
+			'attachmentId' => $this->attachmentId->toString(),
+			'fileName'     => $this->fileName->toString(),
+			'mimeType'     => $this->mimeType->toString(),
+			'fileSize'     => $this->fileSize->toInt(),
+		];
+	}
+
+	protected function fromArray( array $payload ) : void
+	{
+		$this->attachmentId = new AttachmentId( $payload['attachmentId'] );
+		$this->fileName     = new FileName( $payload['fileName'] );
+		$this->mimeType     = new MimeType( $payload['mimeType'] );
+		$this->fileSize     = new AttachmentId( $payload['fileSize'] );
+	}
+
+}
+
+final class Attachment extends AbstractAggregateRoot
+{
+	/** @var \AttachmentId */
+	private $attachmentId;
+
+	public static function upload( FileName $fileName, FilePath $filePath, MimeType $mimeType, FileSize $fileSize ) : self
+	{
+		$attachment = new self();
+
+		$attachment->recordThat(
+			new AttachmentUploadedEvent(
+				AttachmentId::generate(),
+				$fileName,
+				$mimeType,
+				$fileSize
+			),
+			$filePath
+		);
+
+		return $attachment;
+	}
+
+	protected function whenAttachmentUploaded( AttachmentUploadedEvent $event )
+	{
+		$this->attachmentId = $event->getAttachmentId();
+	}
+
+	public function getStreamType() : IdentifiesStreamType
+	{
+		return new AttachmentStreamType();
+	}
+
+	public function getStreamId() : IdentifiesStream
+	{
+		return $this->attachmentId;
+	}
+}
+
+$attachment = Attachment::upload(
+	new FileName( 'An example PDF' ),
+	new FilePath( '/tmp/example.pdf.tmp' ),
+	new MimeType( 'application/x-pdf' ),
+	new FileSize( 150000 )
+);
+
+print_r( $attachment );
