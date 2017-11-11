@@ -71,6 +71,27 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/async-php-request-and-reactive-responses-phpce.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/phpce-logo.png</image:loc>
+      <image:caption>Async PHP Request and Reactive Responses</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/async-php-request-and-reactive-responses-unkonf.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/unKonf-2017.png</image:loc>
+      <image:caption>Async PHP Request and Reactive Responses</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/async-php-request-and-reactive-responses-phpnw.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/php-north-west-2017.jpg</image:loc>
+      <image:caption>Async PHP Request and Reactive Responses</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/icehawk-framework-an-introduction-phpugmunich.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/talks/icehawk-framework.png</image:loc>

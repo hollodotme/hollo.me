@@ -259,6 +259,9 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/async-php-request-and-reactive-responses-phpce.html",
+				"/talks/async-php-request-and-reactive-responses-unkonf.html",
+				"/talks/async-php-request-and-reactive-responses-phpnw.html",
 				"/talks/icehawk-framework-an-introduction-phpugmunich.html",
 				"/talks/async-php-request-and-reactive-responses-phpugdd.html",
 				"/talks/async-php-request-and-reactive-responses.html",
@@ -271,11 +274,92 @@
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
 		},
+		"/talks/async-php-request-and-reactive-responses-phpce.html": {
+			"pageLevel": 3,
+			"navName": "phpCE 2017 Rawa Mazowiecka (PL)",
+			"pageTitle": "Async PHP Request and Reactive Responses",
+			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. PHP Central Europe, Rawa Mazowiecka, Poland",
+			"language": "en",
+			"imageUrl": "/img/talks/phpce-logo.png",
+			"tags": [
+				"Async",
+				"requests",
+				"reactive",
+				"responses",
+				"php-fpm",
+				"FastCGI",
+				"Client",
+				"GitHub Repository",
+				"OSS",
+				"Slides",
+				"Rawa Mazowiecka",
+				"Poland"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/AsyncPhpRequestsAndReactiveResponsesRawaMazowiecka.md",
+			"children": []
+		},
+		"/talks/async-php-request-and-reactive-responses-unkonf.html": {
+			"pageLevel": 3,
+			"navName": "unKonf 2017 Mannheim (DE)",
+			"pageTitle": "Async PHP Request and Reactive Responses",
+			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. unKonf, Mannheim, Germany",
+			"language": "en",
+			"imageUrl": "/img/talks/unKonf-2017.png",
+			"tags": [
+				"Async",
+				"requests",
+				"reactive",
+				"responses",
+				"php-fpm",
+				"FastCGI",
+				"Client",
+				"GitHub Repository",
+				"OSS",
+				"Slides",
+				"Mannheim",
+				"Germany"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/AsyncPhpRequestsAndReactiveResponsesMannheim.md",
+			"children": []
+		},
+		"/talks/async-php-request-and-reactive-responses-phpnw.html": {
+			"pageLevel": 3,
+			"navName": "PHP North West Manchester (UK)",
+			"pageTitle": "Async PHP Request and Reactive Responses",
+			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. PHP North West Unconference, Menchester, UK",
+			"language": "en",
+			"imageUrl": "/img/talks/php-north-west-2017.jpg",
+			"tags": [
+				"Async",
+				"requests",
+				"reactive",
+				"responses",
+				"php-fpm",
+				"FastCGI",
+				"Client",
+				"GitHub Repository",
+				"OSS",
+				"Slides",
+				"Manchester",
+				"United Kingdom"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/AsyncPhpRequestsAndReactiveResponsesManchester.md",
+			"children": []
+		},
 		"/talks/icehawk-framework-an-introduction-phpugmunich.html": {
 			"pageLevel": 3,
-			"navName": "IceHawk - A PHP 7 micro-framework respecting CQRS",
+			"navName": "PHP Usergroup Munich (DE)",
 			"pageTitle": "IceHawk - A PHP 7 micro-framework respecting CQRS",
-			"description": "An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Frankfurt am Main (PHPUG MUNICH)",
+			"description": "An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Munich (PHPUG MUNICH)",
 			"language": "en",
 			"imageUrl": "/img/talks/icehawk-framework.png",
 			"tags": [
@@ -299,7 +383,7 @@
 		},
 		"/talks/async-php-request-and-reactive-responses-phpugdd.html": {
 			"pageLevel": 3,
-			"navName": "Async PHP Request and Reactive Responses",
+			"navName": "PHP USERGROUP DRESDEN (DE)",
 			"pageTitle": "Async PHP Request and Reactive Responses",
 			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. PHP USERGROUP DRESDEN, Dresden, Germany",
 			"language": "en",
@@ -325,7 +409,7 @@
 		},
 		"/talks/async-php-request-and-reactive-responses.html": {
 			"pageLevel": 3,
-			"navName": "Async PHP Request and Reactive Responses",
+			"navName": "Péhápkaři Prague (CZ)",
 			"pageTitle": "Async PHP Request and Reactive Responses",
 			"description": "A talk about finding a way to make async PHP requests with the help of php-fpm and eventually get their responses. Péhápkaři 2017, Prague, Czech Republic",
 			"language": "en",
@@ -351,7 +435,7 @@
 		},
 		"/talks/total-recall-the-application-that-never-forgets.html": {
 			"pageLevel": 3,
-			"navName": "Total Recall - The application that never forgets",
+			"navName": "PHPkonf 2017 in Istanbul (TR)",
 			"pageTitle": "Total Recall - The application that never forgets",
 			"description": "A talk about CQRS applied to several application layers and the benefit of adding Event Sourcing for more business intelligence. PHPkonf 2017 in Istanbul, Turkey",
 			"language": "en",
@@ -377,7 +461,7 @@
 		},
 		"/talks/icehawk-framework-a-short-introduction.html": {
 			"pageLevel": 3,
-			"navName": "IceHawk framework - A short introduction",
+			"navName": "PHP Usergroup Berlin (DE)",
 			"pageTitle": "IceHawk framework - A short introduction",
 			"description": "A short introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Berlin (BEPHPUG)",
 			"language": "en",
@@ -404,7 +488,7 @@
 		},
 		"/talks/icehawk-framework-an-introduction.html": {
 			"pageLevel": 3,
-			"navName": "IceHawk framework - An introduction",
+			"navName": "PHP Usergroup Frankfurt/Main (DE)",
 			"pageTitle": "IceHawk framework - An introduction",
 			"description": "An introduction to the history, features, code and components of the IceHawk framework at PHP Usergroup Frankfurt am Main (PHPUGFFM)",
 			"language": "en",
@@ -431,7 +515,7 @@
 		},
 		"/talks/open-source-software-get-involved.html": {
 			"pageLevel": 3,
-			"navName": "Open Source Software - Get Involved",
+			"navName": "PHP USERGROUP DRESDEN (DE)",
 			"pageTitle": "Open Source Software - Get Involved",
 			"description": "A basic overview on resources and best practices to get involved in open source software projects. A talk at the 'X-Mas Issue Bash 2016' at PHP USERGROUP DRESDEN e.V.",
 			"language": "en",
@@ -452,7 +536,7 @@
 		},
 		"/talks/divide-and-conquer-2-years-of-cqrs-in-production.html": {
 			"pageLevel": 3,
-			"navName": "Divide and Conquer",
+			"navName": "Code.Talks 2016 Hamburg (DE)",
 			"pageTitle": "Divide and Conquer - 2 years of CQRS in production",
 			"description": "'The MVC pattern solves a problem, that does not exist in the web.' - These few words and some scribbles on the whiteboard has a whole development ideology torn apart in seconds. Mhh, aha, Command Query Responsibility Segregation - Sounds good! And how does one implement this? This session tells the story about the genesis of a PHP micro-framework respecting CQRS, the rethinking of its developers, two years of production experience and the learnings on the road to version 2.0.",
 			"language": "en",
@@ -474,7 +558,7 @@
 		},
 		"/talks/phar-better-tools.html": {
 			"pageLevel": 3,
-			"navName": "PHAR better tools",
+			"navName": "PHP USERGROUP DRESDEN (DE)",
 			"pageTitle": "PHAR better tools",
 			"description": "Introduction to PHAR tools, usage examples, how to distribute and update PHARs, PhiVE and PHAR.io",
 			"language": "en",
@@ -497,7 +581,7 @@
 		},
 		"/talks/practical-cqrs-newsletter-double-opt-in.html": {
 			"pageLevel": 3,
-			"navName": "CQRS - Newsletter Double Opt-In",
+			"navName": "PHP USERGROUP DRESDEN (DE)",
 			"pageTitle": "Practical CQRS - Newsletter Double Opt-In",
 			"description": "Why the MVC pattern solves a problem that doesn't exist in the web, how Command Query Responsibility Segregation (CQRS) can reduce the complexity of request handling and offers you chances for performance optimizations. A talk at the <a href='http://phpug-dresden.org' target='_blank'>PHP USERGROUP DRESDEN</a>.",
 			"language": "en",
