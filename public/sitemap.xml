@@ -15,6 +15,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/php/my-year-in-the-php-community-2017.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/posts/we-camp-2017.jpg</image:loc>
+      <image:caption>My year in the PHP community - 2017</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/php/experimental-async-php-volume-2.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/posts/caller-rabbitmq-daemon-socket-worker.png</image:loc>
@@ -71,6 +78,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/whats-new-in-php72-phpugdd.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/php-usergroup-dresden.png</image:loc>
+      <image:caption>What's new in PHP 7.2</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/async-php-request-and-reactive-responses-phpce.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/talks/phpce-logo.png</image:loc>
@@ -89,6 +103,13 @@
     <image:image>
       <image:loc>https://hollo.me/img/talks/php-north-west-2017.jpg</image:loc>
       <image:caption>Async PHP Request and Reactive Responses</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hollo.me/talks/welcome-keynote-php-developer-day-2017.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/talks/phpdd17-logo.png</image:loc>
+      <image:caption>Welcome Keynote - PHP Developer Day 2017</image:caption>
     </image:image>
   </url>
   <url>

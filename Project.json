@@ -56,12 +56,33 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/my-year-in-the-php-community-2017.html",
 				"/php/experimental-async-php-volume-2.html",
 				"/php/experimental-async-php-volume-1.html",
 				"/php/traitful-configs.html",
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/php/my-year-in-the-php-community-2017.html": {
+			"pageLevel": 3,
+			"navName": "My year in the PHP community - 2017",
+			"pageTitle": "My year in the PHP community - 2017",
+			"description": "This is a personal recap of my path to become part of the PHP community in 2017.",
+			"language": "en",
+			"imageUrl": "/img/posts/we-camp-2017.jpg",
+			"tags": [
+				"PHP",
+				"Community",
+				"Review",
+				"Recap",
+				"2017"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/MyYearInThePHPCommunity2017.md",
+			"children": []
 		},
 		"/php/experimental-async-php-volume-2.html": {
 			"pageLevel": 3,
@@ -259,9 +280,11 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/index.md",
 			"children": [
+				"/talks/whats-new-in-php72-phpugdd.html",
 				"/talks/async-php-request-and-reactive-responses-phpce.html",
 				"/talks/async-php-request-and-reactive-responses-unkonf.html",
 				"/talks/async-php-request-and-reactive-responses-phpnw.html",
+				"/talks/welcome-keynote-php-developer-day-2017.html",
 				"/talks/icehawk-framework-an-introduction-phpugmunich.html",
 				"/talks/async-php-request-and-reactive-responses-phpugdd.html",
 				"/talks/async-php-request-and-reactive-responses.html",
@@ -273,6 +296,30 @@
 				"/talks/phar-better-tools.html",
 				"/talks/practical-cqrs-newsletter-double-opt-in.html"
 			]
+		},
+		"/talks/whats-new-in-php72-phpugdd.html": {
+			"pageLevel": 3,
+			"navName": "PHP USERGROUP DRESDEN (DE)",
+			"pageTitle": "What's new in PHP 7.2",
+			"description": "New features, new functions, new constants, deprecations, other changes and optimizations coming with the new PHP 7.2 release. This talk should give a brief overview of what has changed, what has improved and what you should fix to be able to upgrade to future versions of PHP. PHP USERGROUP DRESDEN e.V., Dresden, Germany",
+			"language": "en",
+			"imageUrl": "/img/php-usergroup-dresden.png",
+			"tags": [
+				"PHP 7.2",
+				"News",
+				"Features",
+				"Functions",
+				"Deprecations",
+				"Optimizations",
+				"Slides",
+				"Dresden",
+				"Germany"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/WhatsNewInPHP72PHPUGDD.md",
+			"children": []
 		},
 		"/talks/async-php-request-and-reactive-responses-phpce.html": {
 			"pageLevel": 3,
@@ -353,6 +400,30 @@
 			"renderer": "twig",
 			"template": "templates/Theme.twig",
 			"contentFile": "talks/AsyncPhpRequestsAndReactiveResponsesManchester.md",
+			"children": []
+		},
+		"/talks/welcome-keynote-php-developer-day-2017.html": {
+			"pageLevel": 3,
+			"navName": "PHP Developer Day 2017 Dresden (DE)",
+			"pageTitle": "Welcome Keynote - PHP Developer Day 2017",
+			"description": "Kickoff keynote for the 3rd annual PHP Developer Day 2017 in Dresden at September 22nd. Dresden, Germany",
+			"language": "en",
+			"imageUrl": "/img/talks/phpdd17-logo.png",
+			"tags": [
+				"Welcome",
+				"Keynote",
+				"Kickoff",
+				"Community",
+				"Developer Day",
+				"BEPHPRIENDS",
+				"Slides",
+				"Dresden",
+				"Germany"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "talks/WelcomeKeynotePHPDD17.md",
 			"children": []
 		},
 		"/talks/icehawk-framework-an-introduction-phpugmunich.html": {
