@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>What&#039;s new in PHP 7.2 | Holger Woltersdorf&#039;s blog</title>
+	<meta name="description" content="New features, new functions, new constants, deprecations, other changes and optimizations coming with the new PHP 7.2 release. This talk should give a brief overview of what has changed, what has improved and what you should fix to be able to upgrade to future versions of PHP. PHP USERGROUP DRESDEN e.V., Dresden, Germany">
+	<meta name="keywords" content="PHP 7.2, News, Features, Functions, Deprecations, Optimizations, Slides, Dresden, Germany">
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="geo.region" content="DE-SN"/>
+	<meta name="geo.placename" content="Dresden"/>
+	<meta name="geo.position" content="51.052088;13.741672"/>
+	<meta name="ICBM" content="51.052088, 13.741672"/>
+	<meta name="twitter:site" content="@hollodotme">
+	<meta name="twitter:creator" content="@hollodotme">
+	<script type="application/ld+json">{
+  "@context" : "http://schema.org",
+  "@type": "Person",
+  "name": "Holger Woltersdorf&#039;s blog",
+  "image": "https://hollo.me/img/php-usergroup-dresden.png",
+  "url": "https://hollo.me",
+  "sameAs" : [
+      "https://twitter.com/hollodotme",
+      "https://www.xing.com/profile/Holger_Woltersdorf"
+    ]
+  }
+}</script>
+	<meta property="article:author" content="https://www.xing.com/profile/Holger_Woltersdorf"/>
+	<meta property="article:publisher" content="https://www.xing.com/profile/Holger_Woltersdorf"/>
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="canonical" href="https://hollo.me/talks/whats-new-in-php72-phpugdd.html"/>
+	<meta name="referrer" content="origin"/>
+
+	<meta property="og:site_name" content="Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="What&#039;s new in PHP 7.2 | Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:description" content="New features, new functions, new constants, deprecations, other changes and optimizations coming with the new PHP 7.2 release. This talk should give a brief overview of what has changed, what has improved and what you should fix to be able to upgrade to future versions of PHP. PHP USERGROUP DRESDEN e.V., Dresden, Germany"/>
+	<meta property="og:url" content="https://hollo.me"/>
+	<meta property="og:image" content="https://hollo.me/img/php-usergroup-dresden.png"/>
+	<meta property="article:published_time" content="2018-01-02T20:28:14+00:00"/>
+	<meta property="article:modified_time" content="2018-01-02T20:28:14+00:00"/>
+			<meta property="article:tag" content="PHP 7.2"/>
+			<meta property="article:tag" content="News"/>
+			<meta property="article:tag" content="Features"/>
+			<meta property="article:tag" content="Functions"/>
+			<meta property="article:tag" content="Deprecations"/>
+			<meta property="article:tag" content="Optimizations"/>
+			<meta property="article:tag" content="Slides"/>
+			<meta property="article:tag" content="Dresden"/>
+			<meta property="article:tag" content="Germany"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="What&#039;s new in PHP 7.2 | Holger Woltersdorf&#039;s blog"/>
+	<meta name="twitter:description" content="New features, new functions, new constants, deprecations, other changes and optimizations coming with the new PHP 7.2 release. This talk should give a brief overview of what has changed, what has improved and what you should fix to be able to upgrade to future versions of PHP. PHP USERGROUP DRESDEN e.V., Dresden, Germany"/>
+	<meta name="twitter:url" content="https://hollo.me/talks/whats-new-in-php72-phpugdd.html"/>
+	<meta name="twitter:image:src" content="https://hollo.me/img/php-usergroup-dresden.png"/>
+
+	<meta name="generator" content="IceHawk Static Page Generator"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://hollo.me/css/theme.css">
+	<script src="https://use.fontawesome.com/3513f09ab7.js"></script>
+	</head>
+<body>
+<div class="themewrapper">
+
+	<a href="#" id="sidebar-toggle"><i class="fa fa-close genericon"></i></a>
+
+	<div id="sidebar">
+		<div class="brand-well">
+			<a href="https://hollo.me">
+				<img src="https://hollo.me/img/hwoltersdorf_blue_500x500.png" alt="Holger Woltersdorf">
+			</a>
+		</div>
+
+		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
+		<p class="text-center text-uppercase subline">
+			CIO &middot; Developer &middot; Speaker<br>
+			PHP &middot; WEB &middot; Community
+		</p>
+
+		<hr>
+
+		<ul class="sociallinks">
+			<li>
+				<a href="https://twitter.com/hollodotme" title="Holger Woltersdorf on twitter (@hollodotme)" target="_blank"><i class="fa fa-twitter"></i></a>
+			</li>
+			<li>
+				<a href="https://www.xing.com/profile/Holger_Woltersdorf" title="Holger Woltersdorf on Xing" target="_blank"><i class="fa fa-xing"></i></a>
+			</li>
+			<li>
+				<a href="https://github.com/hollodotme" title="Holger Woltersdorf on GitHub" target="_blank"><i class="fa fa-github"></i></a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/holgerwoltersdorf" title="Holger Woltersdorf on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<ul class="sidebar-nav">
+			<li class="hidden-sm hidden-md hidden-lg">
+				<a href="https://hollo.me/" title="Home">Home</a>
+			</li>
+			
+						<li>
+		<a href="https://hollo.me/php.html">PHP</a>
+			</li>
+
+
+			
+						<li class="active">
+		<a href="https://hollo.me/talks.html">Talks</a>
+					<ul class="nav">
+															<li class="active">
+		<a href="https://hollo.me/talks/whats-new-in-php72-phpugdd.html">PHP USERGROUP DRESDEN (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/async-php-request-and-reactive-responses-phpce.html">phpCE 2017 Rawa Mazowiecka (PL)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/async-php-request-and-reactive-responses-unkonf.html">unKonf 2017 Mannheim (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/async-php-request-and-reactive-responses-phpnw.html">PHP North West Manchester (UK)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/welcome-keynote-php-developer-day-2017.html">PHP Developer Day 2017 Dresden (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/icehawk-framework-an-introduction-phpugmunich.html">PHP Usergroup Munich (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/async-php-request-and-reactive-responses-phpugdd.html">PHP USERGROUP DRESDEN (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/async-php-request-and-reactive-responses.html">Péhápkaři Prague (CZ)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/total-recall-the-application-that-never-forgets.html">PHPkonf 2017 in Istanbul (TR)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/icehawk-framework-a-short-introduction.html">PHP Usergroup Berlin (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/icehawk-framework-an-introduction.html">PHP Usergroup Frankfurt/Main (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/open-source-software-get-involved.html">PHP USERGROUP DRESDEN (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/divide-and-conquer-2-years-of-cqrs-in-production.html">Code.Talks 2016 Hamburg (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/phar-better-tools.html">PHP USERGROUP DRESDEN (DE)</a>
+			</li>
+
+											<li>
+		<a href="https://hollo.me/talks/practical-cqrs-newsletter-double-opt-in.html">PHP USERGROUP DRESDEN (DE)</a>
+			</li>
+
+							</ul>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/projects.html">Projects</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/devops.html">DevOps</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/reading-list.html">Reading list</a>
+			</li>
+
+
+			
+						<li>
+		<a href="https://hollo.me/imprint.html">Imprint</a>
+			</li>
+
+
+						<li>
+				<a href="https://www.papercall.io/speakers/hollodotme" target="_blank" title="My profile on papercall.io">
+					PaperCall.io profile
+				</a>
+			</li>
+			<li>
+				<a href="https://speakerdeck.com/hollodotme" target="_blank" title="My profile on speakerdeck.com">
+					SpeakerDeck profile
+				</a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<div class="text-center">
+			<p>
+				<small>Co-Founder of</small>
+			</p>
+			<a href="http://phpug-dresden.org" target="_blank">
+				<img src="https://hollo.me/img/php-usergroup-dresden.png" alt="PHP USERGROUP DRESDEN e.V." class="img img-50">
+			</a>
+		</div>
+
+		<hr>
+
+		<p class="text-center">
+			<strong>Found a bug or a typo?</strong><br>
+			This website is open source,<br>
+			<a href="https://github.com/hollodotme/hollo.me" target="_blank" title="Website GitHub repository">please fork it and provide a PR</a>.
+		</p>
+		<p class="text-center website-version">
+			<small>v1.2.1</small>
+		</p>
+
+	</div>
+
+	<div id="breadcrumbs">
+		<ul>
+												<li>
+						<a href="https://hollo.me/index.html">
+							<i class="fa fa-map-marker"></i> Home
+						</a>
+					</li>
+																<li>
+						<a href="https://hollo.me/talks.html">
+							 Talks
+						</a>
+					</li>
+																<li class="active">
+						 PHP USERGROUP DRESDEN (DE)
+					</li>
+									</ul>
+	</div>
+
+	<div id="main">
+
+		
+			<h1>What&#039;s new in PHP 7.2</h1>
+			<h5>New features, new functions, new constants, deprecations, other changes and optimizations coming with the new PHP 7.2 release. This talk should give a brief overview of what has changed, what has improved and what you should fix to be able to upgrade to future versions of PHP. PHP USERGROUP DRESDEN e.V., Dresden, Germany</h5>
+			<hr>
+
+			<h3>What's new in PHP 7.2</h3>
+<ul>
+<li>Talk at <a href="http://phpug-dresden.org">PHP USERGROUP DRESDEN e.V., Dresden, Germany</a> </li>
+</ul>
+<h3>Slides on <a href="https://speakerdeck.com/hollodotme">Speaker Deck</a></h3>
+<script async class="speakerdeck-embed" data-id="466e0ecc641342ea89766698c253e10f" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<hr />
+<h3>Code on <a href="https://github.com/hollodotme">GitHub</a></h3>
+<ul>
+<li><a href="https://github.com/hollodotme/talk-preps/tree/master/whats-new-in-php72">Code used in the slides</a></li>
+</ul>
+<p><small>12/19/2017</small></p>
+
+		
+	</div>
+</div>
+<script src="https://hollo.me/js/theme.js"></script>
+<script src="https://hollo.me/js/prism.js"></script>
+<link rel="stylesheet" href="https://hollo.me/css/prism.min.css">
+</body>
+</html>

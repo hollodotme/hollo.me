@@ -4,9 +4,11 @@ please check available talks on [my PaperCall.io profile](@papercall_io_profile_
 
 ---
 
+* 12/19/2017 - [What's new in PHP 7.2](@baseUrl@/talks/whats-new-in-php72-phpugdd.html) at [PHP USERGROUP DRESDEN (PHPUGDD)](http://phpug-dresden.org) Dresden, Germany
 * 11/05/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses-phpce.html) at [PHP Central Europe (phpCE)](https://phpce.eu) Rawa Mazowiecka, Poland
 * 10/28/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses-unkonf.html) at [unKonf](https://www.unkonf.de) Mannheim, Germany
 * 09/30/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses-phpnw.html) at [PHP North West Unconference](http://conference.phpnw.org.uk) Manchester, United Kingdom
+* 09/22/2017 - [Welcome Keynote - PHP Developer Day 2017](@baseUrl@/talks/welcome-keynote-php-developer-day-2017.html) at [PHP Developer Day 2017 (PHPDD17)](https://2017.phpdd.org) Dresden, Germany
 * 07/26/2017 - [IceHawk - A PHP 7 micro-framework respecting CQRS](@baseUrl@/talks/icehawk-framework-an-introduction-phpugmunich.html) at [PHP Usergroup Munich](https://www.meetup.com/phpugmunich/) (Westwing), Munich, Germany
 * 06/08/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses-phpugdd.html) at [PHP USERGROUP DRESDEN](http://phpug-dresden.org) (Check24), Dresden, Germany
 * 05/31/2017 - [Async PHP Requests & Reactive Responses](@baseUrl@/talks/async-php-request-and-reactive-responses.html) at [Péhápkaři](https://pehapkari.cz) (Sinner Schrader), Prague, Czech Republic
