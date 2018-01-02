@@ -24,7 +24,7 @@ set :keep_releases, 3
 
 
 desc "Deploys the current version to the server."
-task :deploy => :environment do
+task :deploy => :remote_environment do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
@@ -51,7 +51,7 @@ task :reload_env do
 end
 
 desc "Rolls back the latest release"
-task :rollback => :environment do
+task :rollback => :remote_environment do
   command! %[echo "-----> Rolling back to previous release for instance: #{domain}"]
 
   # Delete existing sym link and create a new symlink pointing to the previous release
