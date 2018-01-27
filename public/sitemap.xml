@@ -78,6 +78,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hollo.me/talks/total-recall-the-application-that-never-forgets-phpugdd.html</loc>
+    <image:image>
+      <image:loc>https://hollo.me/img/php-usergroup-dresden.png</image:loc>
+      <image:caption>TOTAL RECALL - The application that never forgets</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://hollo.me/talks/whats-new-in-php72-phpugdd.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/php-usergroup-dresden.png</image:loc>
@@ -137,7 +144,7 @@
     <loc>https://hollo.me/talks/total-recall-the-application-that-never-forgets.html</loc>
     <image:image>
       <image:loc>https://hollo.me/img/talks/phpkonf-logo.png</image:loc>
-      <image:caption>Total Recall - The application that never forgets</image:caption>
+      <image:caption>TOTAL RECALL - The application that never forgets</image:caption>
     </image:image>
   </url>
   <url>

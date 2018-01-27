@@ -2,7 +2,7 @@
 	{% set isActive = (loopPage.getUri in breadCrumb|keys) %}
 	<li{% if isActive %} class="active"{% endif %}>
 		<a href="{{ project.getUrl(loopPage.getUri) }}">{{ loopPage.getNavName }}</a>
-		{% if loopPage.hasChildren and isActive %}
+		{% if loopPage.hasChildren and isActive and loopPage.getNavName not in ["PHP","Talks"] %}
 			<ul class="nav">
 				{% import _self as nav %}
 				{% for child in project.getChildrenOf(loopPage) %}
