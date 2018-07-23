@@ -52,7 +52,7 @@ end
 
 desc "Check static pages"
 task :check_static_pages do
-    command 'php vendor/bin/spg.phar check:links -b https://hollo.me Project.json'
+    command 'php vendor/bin/spg.phar check:links -g -b https://hollo.me Project.json'
 end
 
 desc "Rolls back the latest release"
