@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [The Memory Illusion: Remembering, Forgetting, and the Science of False Memory by Dr. Julia Shaw](https://amzn.to/2mGeFCi)
 * [Building custom PHP extensions by Blake Schwendiman](https://www.amazon.de/gp/product/1411601882/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=1411601882&linkCode=as2&tag=hollodotme-21)
 * [Extending and Embedding PHP by Sara Goleman](https://www.amazon.de/gp/product/067232704X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=067232704X&linkCode=as2&tag=hollodotme-21)
 * [PHP Master: Write Cutting Edge Code by Davey Shafik](https://www.amazon.de/gp/product/B00TJ6UXSA/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B00TJ6UXSA&linkCode=as2&tag=hollodotme-21)
@@ -11,7 +12,7 @@
 * [career.fork() by Steve Jalim](https://leanpub.com/freelancedeveloperbook)
 * [Cognitive Productivity by Luc P. Beaudoin](https://www.amazon.de/gp/product/B00PHVISBK/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B00PHVISBK&linkCode=as2&tag=hollodotme-21)
 * [The Clean Architecture in PHP by Kristopher Wilson](https://leanpub.com/cleanphp)
-* [The Identity Project: The Atlantiv Half by Len Epp](https://leanpub.com/theatlantichalf)
+* [The Identity Project: The Atlantic Half by Len Epp](https://leanpub.com/theatlantichalf)
 * [Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett](https://www.amazon.de/gp/product/1118714709/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=1118714709&linkCode=as2&tag=hollodotme-21)
 * [Zen für Programmierer by Christian Grobmeier](https://www.amazon.de/gp/product/1533048274/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=1533048274&linkCode=as2&tag=hollodotme-21)
 * [DDD in PHP by Carlos Buenosvinos, Christian Soronellas and Keyvan Akbary](https://leanpub.com/ddd-in-php)
@@ -41,5 +42,6 @@
 
 ### Blogs / Newsletter
 
+* [Matthew Setter's Blog](https://matthewsetter.com)
 * [WDRL: Web Developer Reading List by Anselm Hannemann](https://wdrl.info)
 * [Fefes Blog](http://blog.fefe.de)
