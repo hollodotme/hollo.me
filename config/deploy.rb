@@ -21,8 +21,6 @@ set :keep_releases, 3
    set :user, 'deploy'    # Username in the server to SSH to.
    set :port, '22'     	  # SSH port number.
 
-
-
 desc "Deploys the current version to the server."
 task :deploy => :remote_environment do
   deploy do
@@ -34,6 +32,7 @@ task :deploy => :remote_environment do
 
     on :launch do
       invoke :'reload_env'
+      invoke :'check_static_pages'
       invoke :'deploy:cleanup'
     end
   end
@@ -41,13 +40,19 @@ end
 
 desc "Installing packages via composer"
 task :composer do
-    command 'composer install -a --no-dev'
+    command 'composer install -a'
 end
+
 
 desc "Reloading nginx and php-fpm"
 task :reload_env do
     command 'sudo service php7.2-fpm reload'
     command 'sudo service nginx restart'
+end
+
+desc "Check static pages"
+task :check_static_pages do
+    command 'php vendor/bin/spg.phar check:links -b https://hollo.me Project.json'
 end
 
 desc "Rolls back the latest release"
