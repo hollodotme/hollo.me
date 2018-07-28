@@ -1830,6 +1830,13 @@
                 "/devops.html": "DevOps",
                 "/devops/self-hosted-vagrant-cloud.html": "Self-hosted 'vagrant cloud'"
             }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
         }
     },
     "did": {
@@ -17891,6 +17898,13 @@
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
             }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
         }
     },
     "money": {
@@ -17900,6 +17914,13 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
+            }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
             }
         }
     },
@@ -18465,6 +18486,13 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
+            }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
             }
         }
     },
@@ -35372,6 +35400,13 @@
                 "/devops.html": "DevOps",
                 "/devops/install-xmpp-server-prosody.html": "Install XMPP server prosody"
             }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
         }
     },
     "packages": {
@@ -36220,6 +36255,78 @@
             }
         }
     },
+    "dollars": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "misthink": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "smarter": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "ariely": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "jeff": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "kreisler": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "amzn": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "2akcyxm": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
     "memory": {
         "http://127.0.0.1:8080/reading-list.html": {
             "title": "Reading list",
@@ -36275,15 +36382,6 @@
         }
     },
     "shaw": {
-        "http://127.0.0.1:8080/reading-list.html": {
-            "title": "Reading list",
-            "breadcrumb": {
-                "/index.html": "Home",
-                "/reading-list.html": "Reading list"
-            }
-        }
-    },
-    "amzn": {
         "http://127.0.0.1:8080/reading-list.html": {
             "title": "Reading list",
             "breadcrumb": {
