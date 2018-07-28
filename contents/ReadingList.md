@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [Dollars and Sense: How We Misthink Money and How to Spend Smarter by  Dr. Dan Ariely & Jeff Kreisler](https://amzn.to/2AkcyxM)
 * [The Memory Illusion: Remembering, Forgetting, and the Science of False Memory by Dr. Julia Shaw](https://amzn.to/2mGeFCi)
 * [Building custom PHP extensions by Blake Schwendiman](https://www.amazon.de/gp/product/1411601882/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=1411601882&linkCode=as2&tag=hollodotme-21)
 * [Extending and Embedding PHP by Sara Goleman](https://www.amazon.de/gp/product/067232704X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=067232704X&linkCode=as2&tag=hollodotme-21)
