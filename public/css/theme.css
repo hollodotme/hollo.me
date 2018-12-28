@@ -337,6 +337,10 @@ sup {
 	max-width: 960px;
 }
 
+#main img {
+	width: 100%;
+}
+
 #sidebar-toggle {
 	display: none;
 	position: absolute;
