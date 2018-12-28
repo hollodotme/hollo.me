@@ -15,6 +15,13 @@
     </image:image>
   </url>
   <url>
+    <loc>http://127.0.0.1:8080/php/multi-language-version-builds-on-circle-ci.html</loc>
+    <image:image>
+      <image:loc>http://127.0.0.1:8080/img/posts/icehawk-ci-build.png</image:loc>
+      <image:caption>Multi language-version builds on Circle CI</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>http://127.0.0.1:8080/php/my-year-in-the-php-community-2017.html</loc>
     <image:image>
       <image:loc>http://127.0.0.1:8080/img/posts/we-camp-2017.jpg</image:loc>

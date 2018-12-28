@@ -56,6 +56,7 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/multi-language-version-builds-on-circle-ci.html",
 				"/php/my-year-in-the-php-community-2017.html",
 				"/php/experimental-async-php-volume-2.html",
 				"/php/experimental-async-php-volume-1.html",
@@ -63,6 +64,28 @@
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/php/multi-language-version-builds-on-circle-ci.html": {
+			"pageLevel": 3,
+			"navName": "Multi language-version builds on Circle CI",
+			"pageTitle": "Multi language-version builds on Circle CI",
+			"description": "How to configure a kind of build matrix on Circle CI - CAUTION: YAML!",
+			"language": "en",
+			"imageUrl": "/img/posts/icehawk-ci-build.png",
+			"tags": [
+				"PHP",
+				"Continuous Integration",
+				"Docker",
+				"Yaml",
+				"Versions",
+				"Build matrix",
+				"Build jobs"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/MultiLanguageVersionBuildsOnCircleCI.md",
+			"children": []
 		},
 		"/php/my-year-in-the-php-community-2017.html": {
 			"pageLevel": 3,
