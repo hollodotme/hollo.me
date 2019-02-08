@@ -85,6 +85,41 @@
     </image:image>
   </url>
   <url>
+    <loc>http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html</loc>
+    <image:image>
+      <image:loc>http://127.0.0.1:8080/img/talks/fosdem2018.jpg</image:loc>
+      <image:caption>Async PHP Request and Reactive Responses with php-fpm</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html</loc>
+    <image:image>
+      <image:loc>http://127.0.0.1:8080/img/phpce-logo.png</image:loc>
+      <image:caption>TOTAL RECALL - The application that never forgets</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html</loc>
+    <image:image>
+      <image:loc>http://127.0.0.1:8080/img/froscon.jpg</image:loc>
+      <image:caption>Marvelous Agents of Yield</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html</loc>
+    <image:image>
+      <image:loc>http://127.0.0.1:8080/img/php-usergroup-dresden.png</image:loc>
+      <image:caption>Marvelous Agents of Yield</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html</loc>
+    <image:image>
+      <image:loc>http://127.0.0.1:8080/img/php-prague.jpg</image:loc>
+      <image:caption>TOTAL RECALL - The application that never forgets</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html</loc>
     <image:image>
       <image:loc>http://127.0.0.1:8080/img/php-usergroup-dresden.png</image:loc>

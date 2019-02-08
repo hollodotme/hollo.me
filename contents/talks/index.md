@@ -4,8 +4,16 @@ please check available talks on [my PaperCall.io profile](@papercall_io_profile_
 
 ---
 
+## Talks in 2019
+
+* 02/03/2019 - [Async PHP Requests & Reactive Responses with php-fpm](@baseUrl@/talks/async-php-request-and-reactive-responses-fosdem.html) at [FOSDEM - PHP & Friends](https://fosdem.org/2019/) Brussels, Belgium
+
 ## Talks in 2018
 
+* 10/28/2018 - [TOTAL RECALL - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets-phpce.html) at [PHP Central Europe Conference (PHPCE)](https://2018.phpce.eu) Prague, Czech Republic
+* 08/25/2018 - [Marvelous Agents of Yield](@baseUrl@/talks/marvelous-agents-of-yield-froscon13.html) at [FrOSCon 13](https://www.froscon.de/) Bonn-Rhein-Sieg, Germany
+* 08/22/2018 - [Marvelous Agents of Yield](@baseUrl@/talks/marvelous-agents-of-yield-phpugdd.html) at [PHP USERGROUP DRESDEN (PHPUGDD)](http://phpug-dresden.org) Dresden, Germany
+* 06/23/2018 - [TOTAL RECALL - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets-php-prague.html) at PHP Prague, Prague, Czech Republic
 * 01/23/2018 - [TOTAL RECALL - The application that never forgets](@baseUrl@/talks/total-recall-the-application-that-never-forgets-phpugdd.html) at [PHP USERGROUP DRESDEN (PHPUGDD)](http://phpug-dresden.org) Dresden, Germany
 
 ## Talks in 2017

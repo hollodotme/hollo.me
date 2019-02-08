@@ -63,6 +63,38 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -380,6 +412,36 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -793,6 +855,22 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -977,6 +1055,12 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
@@ -1251,6 +1335,12 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
@@ -1530,6 +1620,19 @@
                 "/php/custom-exceptions-with-context.html": "Custom exceptions with context"
             }
         },
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/projects.html": {
             "title": "Projects",
             "breadcrumb": {
@@ -1713,6 +1816,20 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -1833,6 +1950,44 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -2062,6 +2217,44 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -3129,6 +3322,12 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         },
         "http://127.0.0.1:8080/talks/whats-new-in-php72-phpugdd.html": {
@@ -4517,6 +4716,12 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/whats-new-in-php72-phpugdd.html": {
             "title": "What's new in PHP 7.2",
             "breadcrumb": {
@@ -5056,6 +5261,14 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-unkonf.html": {
@@ -6211,6 +6424,22 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -6301,6 +6530,13 @@
                 "/index.html": "Home",
                 "/devops.html": "DevOps",
                 "/devops/install-xmpp-server-prosody.html": "Install XMPP server prosody"
+            }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
             }
         }
     },
@@ -10046,6 +10282,14 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpnw.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -10340,6 +10584,44 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -10790,6 +11072,44 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -11996,6 +12316,14 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -13087,6 +13415,44 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -14335,6 +14701,14 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -15458,6 +15832,12 @@
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -15582,6 +15962,14 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses.html": {
@@ -15827,6 +16215,19 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
+            }
+        },
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         }
     },
@@ -16579,6 +16980,14 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -18628,6 +19037,22 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -18810,6 +19235,12 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
@@ -21602,6 +22033,13 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
+            }
+        },
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
             }
         }
     },
@@ -24740,6 +25178,14 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -24763,6 +25209,14 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
@@ -25226,6 +25680,19 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/my-year-in-the-php-community-2017.html": "My year in the PHP community - 2017"
+            }
+        },
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         }
     },
@@ -27011,6 +27478,44 @@
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -27195,6 +27700,12 @@
                 "/index.html": "Home",
                 "/php.html": "PHP",
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
@@ -27630,6 +28141,22 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -28074,6 +28601,19 @@
                 "/php/experimental-async-php-volume-1.html": "Experimental async PHP - VOL. 1"
             }
         },
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/projects.html": {
             "title": "Projects",
             "breadcrumb": {
@@ -28354,6 +28894,12 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
             }
         },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
@@ -29232,6 +29778,12 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -29529,6 +30081,29 @@
                 "/php/experimental-async-php-volume-2.html": "Experimental async PHP - VOL. 2",
                 "/php/experimental-async-php-volume-2-parallelism.html": "Q/A: Parallelism"
             }
+        },
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
         }
     },
     "original": {
@@ -29643,6 +30218,14 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -30083,6 +30666,12 @@
                 "/php/experimental-async-php-volume-2-parallelism.html": "Q/A: Parallelism"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -30283,6 +30872,22 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -31885,6 +32490,12 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -33296,12 +33907,73 @@
             }
         }
     },
+    "fosdem": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        }
+    },
+    "brussels": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        }
+    },
+    "belgium": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        }
+    },
     "recall": {
         "http://127.0.0.1:8080/talks.html": {
             "title": "Talks",
             "breadcrumb": {
                 "/index.html": "Home",
                 "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
             }
         },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
@@ -33329,6 +34001,22 @@
                 "/talks.html": "Talks"
             }
         },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -33346,6 +34034,134 @@
             }
         }
     },
+    "phpce": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
+            "title": "Async PHP Request and Reactive Responses",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/async-php-request-and-reactive-responses-phpce.html": "Async PHP Request and Reactive Responses"
+            }
+        }
+    },
+    "marvelous": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        }
+    },
+    "agents": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        }
+    },
+    "froscon13": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        }
+    },
+    "froscon": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        }
+    },
+    "bonn": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        }
+    },
+    "rhein": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        }
+    },
+    "sieg": {
+        "http://127.0.0.1:8080/talks.html": {
+            "title": "Talks",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks"
+            }
+        }
+    },
     "whats": {
         "http://127.0.0.1:8080/talks.html": {
             "title": "Talks",
@@ -33360,23 +34176,6 @@
                 "/index.html": "Home",
                 "/talks.html": "Talks",
                 "/talks/whats-new-in-php72-phpugdd.html": "What's new in PHP 7.2"
-            }
-        }
-    },
-    "phpce": {
-        "http://127.0.0.1:8080/talks.html": {
-            "title": "Talks",
-            "breadcrumb": {
-                "/index.html": "Home",
-                "/talks.html": "Talks"
-            }
-        },
-        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
-            "title": "Async PHP Request and Reactive Responses",
-            "breadcrumb": {
-                "/index.html": "Home",
-                "/talks.html": "Talks",
-                "/talks/async-php-request-and-reactive-responses-phpce.html": "Async PHP Request and Reactive Responses"
             }
         }
     },
@@ -33757,6 +34556,44 @@
         }
     },
     "deck": {
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -33887,6 +34724,44 @@
         }
     },
     "speakerdeck": {
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpce.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-phpce.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-froscon13.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-froscon13.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/marvelous-agents-of-yield-phpugdd.html": {
+            "title": "Marvelous Agents of Yield",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/marvelous-agents-of-yield-phpugdd.html": "Marvelous Agents of Yield"
+            }
+        },
+        "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-php-prague.html": {
+            "title": "TOTAL RECALL - The application that never forgets",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/total-recall-the-application-that-never-forgets-php-prague.html": "TOTAL RECALL - The application that never forgets"
+            }
+        },
         "http://127.0.0.1:8080/talks/total-recall-the-application-that-never-forgets-phpugdd.html": {
             "title": "TOTAL RECALL - The application that never forgets",
             "breadcrumb": {
@@ -34016,17 +34891,13 @@
             }
         }
     },
-    "preps": {
-        "http://127.0.0.1:8080/talks/whats-new-in-php72-phpugdd.html": {
-            "title": "What's new in PHP 7.2",
-            "breadcrumb": {
-                "/index.html": "Home",
-                "/talks.html": "Talks",
-                "/talks/whats-new-in-php72-phpugdd.html": "What's new in PHP 7.2"
-            }
-        }
-    },
     "library": {
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -34037,6 +34908,12 @@
         }
     },
     "demo": {
+        "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-fosdem.html": {
+            "title": "Async PHP Request and Reactive Responses with php-fpm",
+            "breadcrumb": {
+                "/talks/async-php-request-and-reactive-responses-fosdem.html": "Async PHP Request and Reactive Responses with php-fpm"
+            }
+        },
         "http://127.0.0.1:8080/talks/async-php-request-and-reactive-responses-phpce.html": {
             "title": "Async PHP Request and Reactive Responses",
             "breadcrumb": {
@@ -34050,6 +34927,16 @@
             "breadcrumb": {
                 "/index.html": "Home",
                 "/projects.html": "Projects"
+            }
+        }
+    },
+    "preps": {
+        "http://127.0.0.1:8080/talks/whats-new-in-php72-phpugdd.html": {
+            "title": "What's new in PHP 7.2",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/talks.html": "Talks",
+                "/talks/whats-new-in-php72-phpugdd.html": "What's new in PHP 7.2"
             }
         }
     },
@@ -38942,6 +39829,132 @@
             }
         }
     },
+    "legion": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "dennis": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "taylor": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "amzn": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "2gi1tq2": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "tote": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "stadt": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "william": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "voltz": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "2i43t6m": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "waffenschmiede": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "von": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "isher": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
+    "vogt": {
+        "http://127.0.0.1:8080/reading-list.html": {
+            "title": "Reading list",
+            "breadcrumb": {
+                "/index.html": "Home",
+                "/reading-list.html": "Reading list"
+            }
+        }
+    },
     "dollars": {
         "http://127.0.0.1:8080/reading-list.html": {
             "title": "Reading list",
@@ -38988,15 +40001,6 @@
         }
     },
     "kreisler": {
-        "http://127.0.0.1:8080/reading-list.html": {
-            "title": "Reading list",
-            "breadcrumb": {
-                "/index.html": "Home",
-                "/reading-list.html": "Reading list"
-            }
-        }
-    },
-    "amzn": {
         "http://127.0.0.1:8080/reading-list.html": {
             "title": "Reading list",
             "breadcrumb": {
@@ -41112,15 +42116,6 @@
         }
     },
     "iphone": {
-        "http://127.0.0.1:8080/reading-list.html": {
-            "title": "Reading list",
-            "breadcrumb": {
-                "/index.html": "Home",
-                "/reading-list.html": "Reading list"
-            }
-        }
-    },
-    "von": {
         "http://127.0.0.1:8080/reading-list.html": {
             "title": "Reading list",
             "breadcrumb": {

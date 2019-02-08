@@ -1,6 +1,9 @@
 
 ### (e)Books
 
+* [We are legion by Dennis E. Taylor](https://amzn.to/2Gi1tQ2)
+* [Die tote Stadt by William Voltz](https://amzn.to/2I43T6m)
+* [Die Waffenschmiede von Isher by A.E. van Vogt](https://amzn.to/2I43T6m)
 * [Dollars and Sense: How We Misthink Money and How to Spend Smarter by  Dr. Dan Ariely & Jeff Kreisler](https://amzn.to/2AkcyxM)
 * [The Memory Illusion: Remembering, Forgetting, and the Science of False Memory by Dr. Julia Shaw](https://amzn.to/2mGeFCi)
 * [Building custom PHP extensions by Blake Schwendiman](https://www.amazon.de/gp/product/1411601882/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=1411601882&linkCode=as2&tag=hollodotme-21)
