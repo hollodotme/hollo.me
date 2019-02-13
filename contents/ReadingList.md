@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [Böse: Die Psychologie unserer Abgründe by Dr. Julia Shaw](https://amzn.to/2UXHDMT)
 * [We are legion by Dennis E. Taylor](https://amzn.to/2Gi1tQ2)
 * [Die tote Stadt by William Voltz](https://amzn.to/2I43T6m)
 * [Die Waffenschmiede von Isher by A.E. van Vogt](https://amzn.to/2I43T6m)
