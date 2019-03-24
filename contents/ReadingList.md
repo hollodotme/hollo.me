@@ -1,10 +1,12 @@
 
 ### (e)Books
 
+* [Verbrechen: Stories by Ferdinand von Schirach](https://amzn.to/2Ts8waW)
+* [For we are many (Bobiverse II) by Dennis E. Taylor](https://amzn.to/2HBg8WZ)
 * [The WHY café by John P. Strelecky](https://amzn.to/2GXX4lg)
 * [Das Leben des Vernon Subutex 1 by Verginie Despentes](https://amzn.to/2UhyoHF)
 * [Böse: Die Psychologie unserer Abgründe by Dr. Julia Shaw](https://amzn.to/2UXHDMT)
-* [We are legion by Dennis E. Taylor](https://amzn.to/2Gi1tQ2)
+* [We are legion (Bobiverse I) by Dennis E. Taylor](https://amzn.to/2Gi1tQ2)
 * [Die tote Stadt by William Voltz](https://amzn.to/2I43T6m)
 * [Die Waffenschmiede von Isher by A.E. van Vogt](https://amzn.to/2I43T6m)
 * [Dollars and Sense: How We Misthink Money and How to Spend Smarter by  Dr. Dan Ariely & Jeff Kreisler](https://amzn.to/2AkcyxM)
