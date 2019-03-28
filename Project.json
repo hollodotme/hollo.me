@@ -56,6 +56,7 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/background-info-fast-cgi-client-v2.6.0.html",
 				"/php/multi-language-version-builds-on-circle-ci.html",
 				"/php/my-year-in-the-php-community-2017.html",
 				"/php/experimental-async-php-volume-2.html",
@@ -64,6 +65,28 @@
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/php/background-info-fast-cgi-client-v2.6.0.html": {
+			"pageLevel": 3,
+			"navName": "Background info fast-cgi-client v2.6.0",
+			"pageTitle": "Background info fast-cgi-client v2.6.0",
+			"description": "Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of <a href='https://github.com/hollodotme/fast-cgi-client' target='_blank'>hollodotme/fast-cgi-client</a>.",
+			"language": "en",
+			"imageUrl": "/img/posts/question-mark.jpg",
+			"tags": [
+				"PHP",
+				"Fast CGI Client",
+				"Library",
+				"BC Break",
+				"Versions",
+				"Background info",
+				"Mistake"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/BackgroundInfoFastCgiClientVersion260.md",
+			"children": []
 		},
 		"/php/multi-language-version-builds-on-circle-ci.html": {
 			"pageLevel": 3,

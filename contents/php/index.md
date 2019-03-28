@@ -1,4 +1,8 @@
 
+## Posts in 2019
+
+* 03/28/2019 - [Background info Fast CGI Client v2.6.0](@baseUrl@/php/background-info-fast-cgi-client-v2.6.0.html)
+
 ## Posts in 2018
 
 * 12/28/2018 - [Multi language-version builds on Circle CI](@baseUrl@/php/multi-language-version-builds-on-circle-ci.html)
