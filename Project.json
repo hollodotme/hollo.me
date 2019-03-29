@@ -70,7 +70,7 @@
 			"pageLevel": 3,
 			"navName": "Background info fast-cgi-client v2.6.0",
 			"pageTitle": "Background info fast-cgi-client v2.6.0",
-			"description": "Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of <a href='https://github.com/hollodotme/fast-cgi-client' target='_blank'>hollodotme/fast-cgi-client</a>.",
+			"description": "Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of hollodotme/fast-cgi-client.",
 			"language": "en",
 			"imageUrl": "/img/posts/question-mark.jpg",
 			"tags": [

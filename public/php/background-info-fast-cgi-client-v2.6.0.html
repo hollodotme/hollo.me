@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Background info fast-cgi-client v2.6.0 | Holger Woltersdorf&#039;s blog</title>
+	<meta name="description" content="Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of hollodotme/fast-cgi-client.">
+	<meta name="keywords" content="PHP, Fast CGI Client, Library, BC Break, Versions, Background info, Mistake">
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="geo.region" content="DE-SN"/>
+	<meta name="geo.placename" content="Dresden"/>
+	<meta name="geo.position" content="51.052088;13.741672"/>
+	<meta name="ICBM" content="51.052088, 13.741672"/>
+	<meta name="twitter:site" content="@hollodotme">
+	<meta name="twitter:creator" content="@hollodotme">
+	<script type="application/ld+json">{
+  "@context" : "http://schema.org",
+  "@type": "Person",
+  "name": "Holger Woltersdorf&#039;s blog",
+  "image": "http://127.0.0.1:8080/img/posts/question-mark.jpg",
+  "url": "http://127.0.0.1:8080",
+  "sameAs" : [
+      "https://twitter.com/hollodotme",
+      "https://www.xing.com/profile/Holger_Woltersdorf"
+    ]
+  }
+}</script>
+	<meta property="article:author" content="https://www.xing.com/profile/Holger_Woltersdorf"/>
+	<meta property="article:publisher" content="https://www.xing.com/profile/Holger_Woltersdorf"/>
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="canonical" href="http://127.0.0.1:8080/php/background-info-fast-cgi-client-v2.6.0.html"/>
+	<meta name="referrer" content="origin"/>
+
+	<meta property="og:site_name" content="Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="Background info fast-cgi-client v2.6.0 | Holger Woltersdorf&#039;s blog"/>
+	<meta property="og:description" content="Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of hollodotme/fast-cgi-client."/>
+	<meta property="og:url" content="http://127.0.0.1:8080"/>
+	<meta property="og:image" content="http://127.0.0.1:8080/img/posts/question-mark.jpg"/>
+	<meta property="article:published_time" content="2019-03-29T09:42:25+00:00"/>
+	<meta property="article:modified_time" content="2019-03-29T09:42:25+00:00"/>
+			<meta property="article:tag" content="PHP"/>
+			<meta property="article:tag" content="Fast CGI Client"/>
+			<meta property="article:tag" content="Library"/>
+			<meta property="article:tag" content="BC Break"/>
+			<meta property="article:tag" content="Versions"/>
+			<meta property="article:tag" content="Background info"/>
+			<meta property="article:tag" content="Mistake"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="Background info fast-cgi-client v2.6.0 | Holger Woltersdorf&#039;s blog"/>
+	<meta name="twitter:description" content="Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of hollodotme/fast-cgi-client."/>
+	<meta name="twitter:url" content="http://127.0.0.1:8080/php/background-info-fast-cgi-client-v2.6.0.html"/>
+	<meta name="twitter:image:src" content="http://127.0.0.1:8080/img/posts/question-mark.jpg"/>
+
+	<meta name="generator" content="IceHawk Static Page Generator"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="http://127.0.0.1:8080/css/theme.css">
+	<script src="https://use.fontawesome.com/3513f09ab7.js"></script>
+	</head>
+<body>
+<div class="themewrapper">
+
+	<a href="#" id="sidebar-toggle"><i class="fa fa-close genericon"></i></a>
+
+	<div id="sidebar">
+		<div class="brand-well">
+			<a href="http://127.0.0.1:8080">
+				<img src="http://127.0.0.1:8080/img/hwoltersdorf_blue_500x500.png" alt="Holger Woltersdorf">
+			</a>
+		</div>
+
+		<h3 class="text-center text-uppercase">Holger Woltersdorf</h3>
+		<p class="text-center text-uppercase subline">
+			CIO &middot; Developer &middot; Speaker<br>
+			PHP &middot; WEB &middot; Community
+		</p>
+
+		<hr>
+
+		<ul class="sociallinks">
+			<li>
+				<a href="https://twitter.com/hollodotme" title="Holger Woltersdorf on twitter (@hollodotme)" target="_blank"><i class="fa fa-twitter"></i></a>
+			</li>
+			<li>
+				<a href="https://www.xing.com/profile/Holger_Woltersdorf" title="Holger Woltersdorf on Xing" target="_blank"><i class="fa fa-xing"></i></a>
+			</li>
+			<li>
+				<a href="https://github.com/hollodotme" title="Holger Woltersdorf on GitHub" target="_blank"><i class="fa fa-github"></i></a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/holgerwoltersdorf" title="Holger Woltersdorf on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<ul class="sidebar-nav">
+			<li class="hidden-sm hidden-md hidden-lg">
+				<a href="http://127.0.0.1:8080/" title="Home">Home</a>
+			</li>
+			
+						<li class="active">
+		<a href="http://127.0.0.1:8080/php.html">PHP</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/talks.html">Talks</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/projects.html">Projects</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/devops.html">DevOps</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/reading-list.html">Reading list</a>
+			</li>
+
+
+			
+						<li>
+		<a href="http://127.0.0.1:8080/imprint.html">Imprint</a>
+			</li>
+
+
+						<li>
+				<a href="https://www.papercall.io/speakers/hollodotme" target="_blank" title="My profile on papercall.io">
+					PaperCall.io profile
+				</a>
+			</li>
+			<li>
+				<a href="https://speakerdeck.com/hollodotme" target="_blank" title="My profile on speakerdeck.com">
+					SpeakerDeck profile
+				</a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<div class="text-center">
+			<p>
+				<small>Co-Founder of</small>
+			</p>
+			<a href="http://phpug-dresden.org" target="_blank">
+				<img src="http://127.0.0.1:8080/img/php-usergroup-dresden.png" alt="PHP USERGROUP DRESDEN e.V." class="img img-50">
+			</a>
+		</div>
+
+		<hr>
+
+		<p class="text-center">
+			<strong>Found a bug or a typo?</strong><br>
+			This website is open source,<br>
+			<a href="https://github.com/hollodotme/hollo.me" target="_blank" title="Website GitHub repository">please fork it and provide a PR</a>.
+		</p>
+		<p class="text-center website-version">
+			<small>v1.2.1</small>
+		</p>
+
+	</div>
+
+	<div id="breadcrumbs">
+		<ul>
+												<li>
+						<a href="http://127.0.0.1:8080/index.html">
+							<i class="fa fa-map-marker"></i> Home
+						</a>
+					</li>
+																<li>
+						<a href="http://127.0.0.1:8080/php.html">
+							 PHP
+						</a>
+					</li>
+																<li class="active">
+						 Background info fast-cgi-client v2.6.0
+					</li>
+									</ul>
+	</div>
+
+	<div id="main">
+
+		
+			<h1>Background info fast-cgi-client v2.6.0</h1>
+			<h5>Background info about a faulty change in v2.5.0 and why that caused a minor BC break in v2.6.0 of hollodotme/fast-cgi-client.</h5>
+			<hr>
+
+			<h3>Let's begin...</h3>
+<p>...with the history of the <code>v2.5.0</code> release.</p>
+<p>In February 2019 <a href="https://twitter.com/arneblankerts">Arne Blankerts</a> reached out to me via twitter DM and we
+had a discussion about the evergreen problem of the fast-cgi-client library that any relative script path or
+any script path containing path traversal characters lead to a (silent) fail of the FastCGI request. </p>
+<p>Some example paths that do not work when requesting a script on php-fpm, which is the focus FastCGI server
+that the library is developed against:</p>
+<ul>
+<li><code>./relative/path/to/script.php</code></li>
+<li><code>../relative/path/to/script.php</code></li>
+<li><code>/absolute/path/with/../to/script.php</code></li>
+</ul>
+<p>Requesting such paths will lead to a <code>File Not Found</code> response from php-fpm, even though they might exist and would
+resolve to absolute paths in the file system. However, php-fpm does not do any automatic path resolution and expects
+an absolute path to the script that shall be executed. Full stop.</p>
+<p>At that time <code>v2.4.3</code> was the most recent version of the library and there already was a hint on the trouble shooting
+section of the <a href="https://github.com/hollodotme/fast-cgi-client/blob/v2.4.3/README.md#trouble-shooting">README.md</a> regarding
+this kind of issue. Arne's primary question was:</p>
+<blockquote>
+<p><strong>From user perspective:<br />
+Shouldn't the library be responsible to handle this problem in any better way<br />
+than silently returning a supposedly successful response?</strong></p>
+</blockquote>
+<p>Well, that would be great, right?! So I agreed.</p>
+<p>I then had a look into the code because I was wondering why the response was not the original error message from php-fpm
+which is &quot;Primary script unknown&quot; in this case. After some testing and step-debugging I realized that there was
+a general bug in the response handling of the underlying Socket class. The FastCGI protocol separates <a href="http://www.mit.edu/~yandros/doc/specs/fcgi-spec.html#S5.3">STDOUT and STDERR
+byte streams</a> when sending response packets, but the handling
+of the client at that time simply concatenated both streams to compose the complete server response. This resulted in responses
+that looked like this:</p>
+<pre><code class="language-text">Primary script unknownStatus: 404 Not Found
+X-Powered-By: PHP/7.3.1
+
+File not found</code></pre>
+<p>The response object that the client provides for each request than made the error messages disappear in
+the first response header as it assumes all lines before the blank line to be a header that was sent from the server.
+So the header array of the parsed response looked like this:</p>
+<pre><code class="language-php">[
+    'Primary script unknownStatus' =&gt; '404 Not Found',
+    'X-Powered-By' =&gt; 'PHP/7.3.1'
+]</code></pre>
+<p>I slaped myself and called me names! -.-</p>
+<p>So I decided to save the STDERR stream to a separate variable and throw a newly introduced exception whenever this
+variable is not empty. That solved two problems:</p>
+<ol>
+<li>The server response that gets parsed by the response class does not contain (and therefor hide) any prepended error messages.</li>
+<li>In case the server sent an error an exception is thrown that could be gracefully handled by the library user.</li>
+</ol>
+<p>And that was basically the change that made it into the <a href="https://github.com/hollodotme/fast-cgi-client/blob/v2.5.0/CHANGELOG.md#250---2019-01-29"><code>v2.5.0</code> release</a>. </p>
+<h3>A short time later ...</h3>
+<p>... <a href="https://twitter.com/andybee">Andy Buckingham</a> opened an <a href="https://github.com/hollodotme/fast-cgi-client/issues/27">issue on GitHub</a>
+and stated that fetching custom output from e.g. <code>error_log()</code> is not acceccible on the client side anymore, because all
+output from the STDERR stream is converted into an exception.</p>
+<p>To summarize the whole discussion shortly: I tried to find a reliable way of identifying an error produced by the FastCGI server,
+so the client could be able to tell the user &quot;Hey something went wrong, please have a look!&quot;.</p>
+<p>php-fpm, which is only one FastCGI server implementation, tosses exactly 4 errors at the user in different circumstances as you can
+<a href="https://github.com/hollodotme/fast-cgi-client/issues/27#issuecomment-460990063">see here</a>. But that might be different
+for <a href="https://github.com/hollodotme/fast-cgi-client/issues/27#issuecomment-461004495">other FastCGI server implementations</a>.</p>
+<p>Arne suggested to provide the status code from the equally named response header, but unfortunately those headers are not
+part of the FastCGI protocol (but of HTTP) and php-fpm does not always set such a status header as
+<a href="https://github.com/hollodotme/fast-cgi-client/issues/27#issuecomment-461034287">explained here</a>.</p>
+<p>So in the end there was the following conclusion for the next <code>v2.6.0</code> release:</p>
+<p>First and foremost, introducing the <code>ProcessManagerException</code> was a bad idea in the first place.</p>
+<ul>
+<li>
+<p>The pass through callback function declaration will get a second argument:</p>
+<pre><code class="language-php">$callback = function( string $outputBuffer, string $errorBuffer ) {};</code></pre>
+<p>(The pass through callback can be used to pass all server-sent output packets directly to the client instead of waiting for a fully composed response.)</p>
+</li>
+<li>
+<p>The Response class will get two new methods <code>getOutput()</code> (which is identical to <code>getRawResponse()</code> and returns
+the complete output from the STDOUT stream) and <code>getError()</code> which provides the complete output from the STDERR stream.</p>
+</li>
+<li>
+<p><code>Response#getRawResponse()</code> will be deprecated in favour of consistent naming, and removed in <code>v3.0.0</code>.</p>
+</li>
+<li>The <code>ProcessManagerException</code> introduced in <code>v2.5.0</code> will be removed.</li>
+</ul>
+<p>From a strict point of view the last point is a BC break, as users may have implemented an appropriate exception handling
+after they upgraded to <code>v2.5.0</code>, but after considering all the arguments from Andy, Arne and me, it was simply a wrong move
+to introduce this exception as it leads to uninteded behaviour for another common use case (retrieval of STDERR output).   </p>
+<p>You can find the <a href="https://github.com/hollodotme/fast-cgi-client/releases/tag/v2.6.0">new <code>v2.6.0</code> release here</a>.</p>
+<h3>So how to handle server-sent errors now?</h3>
+<p>Let's stick to the initial problem of using a non-absolute script path for a request to php-fpm:</p>
+<pre><code class="language-php">&lt;php declare(strict_types=1);
+
+namespace YourVendor\YourProject;
+
+use hollodotme\FastCGI\Client;
+use hollodotme\FastCGI\Requests\GetRequest;
+use hollodotme\FastCGI\SocketConnections\NetworkSocket;
+
+$connection = new NetworkSocket('127.0.0.1', 9000);
+$client     = new Client($connection);
+$request    = new GetRequest('../relative/path/to/script.php', '');
+
+$response = $client-&gt;sendRequest($request);</code></pre>
+<p>The response can be checked as follows for the error.</p>
+<h4>1. Check the error output for specific error messages</h4>
+<pre><code class="language-php">if (preg_match("#^Primary script unknown\n?$#", $response-&gt;getError()))
+{
+    throw new LogicException('The script cannot be found on FastCGI server, please check if path is absolute.');
+}</code></pre>
+<p>Please note the optional <code>\n?</code> in the regex. In PHP versions prior to 7.3 error messages from php-fpm have a trailing
+line feed, since 7.3 they have not. (Had to find that out the hard way. -.-)</p>
+<h4>2. Check for the status header</h4>
+<pre><code class="language-php">if ('404 Not Found' === $response-&gt;getHeader('Status'))
+{
+    throw new LogicException('The script cannot be found on FastCGI server, please check if path is absolute.');
+}</code></pre>
+<p>Please note, that such a header is not always sent if an error occurrs.
+But in this error case you can rely on it with php-fpm as server.</p>
+<p>And please be also aware that all server error scenarios can be user-generated on server side, like this:</p>
+<pre><code class="language-php">&lt;?php declare(strict_types=1);
+
+error_log('Primary script unknown');
+header('Status: 404 Not Found');
+echo 'File not found.';</code></pre>
+<hr />
+<p>I hope I could clarify the library changes from <code>v2.4.3</code> to <code>v2.6.0</code> and you still enjoy using the lib.</p>
+<p>Please report any issues via GitHub at <a href="https://github.com/hollodotme/fast-cgi-client">hollodotme/fast-cgi-client</a>.</p>
+<p>Thank you!</p>
+<p><small>03/29/2019</small></p>
+
+		
+	</div>
+</div>
+<script src="http://127.0.0.1:8080/js/theme.js"></script>
+<script src="http://127.0.0.1:8080/js/prism.js"></script>
+<link rel="stylesheet" href="http://127.0.0.1:8080/css/prism.css">
+</body>
+</html>
