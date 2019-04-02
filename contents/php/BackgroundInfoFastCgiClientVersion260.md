@@ -65,7 +65,7 @@ And that was basically the change that made it into the [`v2.5.0` release](https
 ### A short time later ...
 
 ... [Andy Buckingham](https://twitter.com/andybee) opened an [issue on GitHub](https://github.com/hollodotme/fast-cgi-client/issues/27) 
-and stated that fetching custom output from e.g. `error_log()` is not acceccible on the client side anymore, because all
+and stated that fetching custom output from e.g. `error_log()` is not accessible on the client side anymore, because all
 output from the STDERR stream is converted into an exception.
 
 To summarize the whole discussion shortly: I tried to find a reliable way of identifying an error produced by the FastCGI server, 
