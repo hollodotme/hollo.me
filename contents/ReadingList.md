@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [Vincent by Joey Goebel](https://amzn.to/2CTNDQr)
 * [Verbrechen: Stories by Ferdinand von Schirach](https://amzn.to/2Ts8waW)
 * [For we are many (Bobiverse II) by Dennis E. Taylor](https://amzn.to/2HBg8WZ)
 * [The WHY café by John P. Strelecky](https://amzn.to/2GXX4lg)
