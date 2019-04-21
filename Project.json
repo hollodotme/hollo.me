@@ -1,6 +1,6 @@
 {
 	"name": "Holger Woltersdorf's blog",
-	"baseUrl": "http://127.0.0.1:8080",
+	"baseUrl": "http://127.0.0.1:8081",
 	"outputDir": "./public",
 	"contentsDir": "./contents/",
 	"replacements": {
@@ -894,8 +894,23 @@
 			"contentFile": "devops/index.md",
 			"children": [
 				"/devops/self-hosted-vagrant-cloud.html",
-				"/devops/install-xmpp-server-prosody.html"
+				"/devops/install-xmpp-server-prosody.html",
+				"/devops/routing-to-multiple-docker-compose-development-setups-with-traefik.html"
 			]
+		},
+		"/devops/routing-to-multiple-docker-compose-development-setups-with-traefik.html": {
+			"pageLevel": 3,
+			"navName": "Multi development setup routing",
+			"pageTitle": "Routing to multiple docker-compose setups using traefik",
+			"description": "A tutorial that describes the steps to setup a local reverse proxy with traefik that globally performs SSL offloading and routing to multiple docker-compose development setups.",
+			"language": "en",
+			"imageUrl": "/img/posts/traefik-routing-multi-docker-compose.png",
+			"tags": [],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "devops/RoutingToMultipleDockerComposeDevelopmentSetups.md",
+			"children": []
 		},
 		"/devops/self-hosted-vagrant-cloud.html": {
 			"pageLevel": 3,
