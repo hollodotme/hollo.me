@@ -576,3 +576,11 @@ ul.sociallinks > li {
 	font-size: x-large;
 	margin-right: 10px;
 }
+
+pre + h1,
+pre + h2,
+pre + h3,
+pre + h4,
+pre + h5 {
+	margin-top: 20px;
+}
