@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [All these worlds (Bobiverse III) by Dennis E. Taylor](https://amzn.to/2WvuCih)
 * [Der Trafikant by Robert Seethaler](https://amzn.to/2LvCDj2)
 * [The Three-Body Problem by Cixin Liu](https://amzn.to/2LqhAhR)
 * [Das Orakel vom Berge by Philip K. Dick](https://amzn.to/2Kx6rv1)
