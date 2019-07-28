@@ -46,7 +46,7 @@ services:
     volumes:
       - ./:/repo
     working_dir: /repo
-    command: "install -o --non-interaction"
+    command: "install -o --no-interaction"
     networks:
       - default
 
