@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a13329cbfa6169d4b5fbcf7eaf96fab",
+    "content-hash": "17bb15a5a7185dd35f8e96bca1f31935",
     "packages": [
         {
             "name": "erusev/parsedown",
-            "version": "1.7.1",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1"
+                "reference": "6d893938171a817f4e9bc9e86f2da1e370b7bcd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
-                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/6d893938171a817f4e9bc9e86f2da1e370b7bcd7",
+                "reference": "6d893938171a817f4e9bc9e86f2da1e370b7bcd7",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2018-03-08T01:11:30+00:00"
+            "time": "2019-03-17T18:48:37+00:00"
         },
         {
             "name": "erusev/parsedown-extra",
@@ -197,28 +197,26 @@
     "packages-dev": [
         {
             "name": "tm/tooly-composer-script",
-            "version": "1.2.6",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tommy-muehle/tooly-composer-script.git",
-                "reference": "53cc0551122145b4ae4c523e64f3628329ef8ea5"
+                "reference": "0f2d81f1051d155702229abf1c8f7a0d8bec75c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/53cc0551122145b4ae4c523e64f3628329ef8ea5",
-                "reference": "53cc0551122145b4ae4c523e64f3628329ef8ea5",
+                "url": "https://api.github.com/repos/tommy-muehle/tooly-composer-script/zipball/0f2d81f1051d155702229abf1c8f7a0d8bec75c7",
+                "reference": "0f2d81f1051d155702229abf1c8f7a0d8bec75c7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "dev-master",
                 "composer/composer": "1.*",
                 "mikey179/vfsstream": "1.6.*",
                 "php-mock/php-mock-phpunit": "1.1.*",
-                "symfony/console": "^3.0",
-                "tm/gpg-verifier": "1.*"
+                "symfony/console": "^3.0"
             },
             "suggest": {
                 "tm/gpg-verifier": "Allows verification over GPG for PHAR tools."
@@ -227,7 +225,7 @@
             "extra": {
                 "tools": {
                     "phpunit": {
-                        "url": "https://phar.phpunit.de/phpunit-5.5.0.phar"
+                        "url": "https://phar.phpunit.de/phpunit-5.7.27.phar"
                     },
                     "phpcpd": {
                         "url": "https://phar.phpunit.de/phpcpd-2.0.4.phar"
@@ -238,6 +236,7 @@
                     },
                     "phpmd": {
                         "url": "http://static.phpmd.org/php/latest/phpmd.phar",
+                        "fallback-url": "https://github.com/jakzal/phpmd/releases/download/2.6.0-jakzal-2/phpmd.phar",
                         "force-replace": true
                     },
                     "security-checker": {
@@ -268,12 +267,11 @@
                 "composer",
                 "composer-phar",
                 "composer-script",
-                "gpg-verification",
                 "phar",
                 "phar-handling",
                 "phar-management"
             ],
-            "time": "2018-03-20T21:26:34+00:00"
+            "time": "2019-06-24T20:52:52+00:00"
         }
     ],
     "aliases": [],
