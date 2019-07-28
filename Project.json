@@ -1,6 +1,6 @@
 {
 	"name": "Holger Woltersdorf's blog",
-	"baseUrl": "http://127.0.0.1:8081",
+	"baseUrl": "https://dev.hollo.me",
 	"outputDir": "./public",
 	"contentsDir": "./contents/",
 	"replacements": {
