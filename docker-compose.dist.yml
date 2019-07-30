@@ -35,7 +35,7 @@ services:
     networks:
       - default
     working_dir: /repo
-    command: "list"
+    command: "php vendor/bin/spg.phar generate:pages -b https://hollo.me"
 
   composer:
     image: composer
