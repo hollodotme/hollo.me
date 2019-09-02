@@ -1,6 +1,7 @@
 
 ## Posts in 2019
 
+* 09/02/2019 - [My take on the cancelation of the PHPCE 2019](@baseUrl@/php/the-cancelation-of-the-phpce-2019.html)
 * 03/29/2019 - [Background info Fast CGI Client v2.6.0](@baseUrl@/php/background-info-fast-cgi-client-v2.6.0.html)
 
 ## Posts in 2018

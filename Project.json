@@ -56,6 +56,7 @@
 			"template": "templates/Theme.twig",
 			"contentFile": "php/index.md",
 			"children": [
+				"/php/the-cancelation-of-the-phpce-2019.html",
 				"/php/background-info-fast-cgi-client-v2.6.0.html",
 				"/php/multi-language-version-builds-on-circle-ci.html",
 				"/php/my-year-in-the-php-community-2017.html",
@@ -65,6 +66,27 @@
 				"/php/fluent-validation-with-ease.html",
 				"/php/custom-exceptions-with-context.html"
 			]
+		},
+		"/php/the-cancelation-of-the-phpce-2019.html": {
+			"pageLevel": 3,
+			"navName": "The cancelation of PHPCE 2019",
+			"pageTitle": "The cancelation of the PHPCE 2019",
+			"description": "This is my perspective on the conference cancelation of PHPCE as a (co-)organizer.",
+			"language": "en",
+			"imageUrl": "/img/posts/phpce-2019.jpg",
+			"tags": [
+				"PHPCE",
+				"Conference",
+				"Central Europe",
+				"Cancelation",
+				"Diversity",
+				"Organizer"
+			],
+			"contentType": "markdown",
+			"renderer": "twig",
+			"template": "templates/Theme.twig",
+			"contentFile": "php/TheCancelationOfThePhpCe2019.md",
+			"children": []
 		},
 		"/php/background-info-fast-cgi-client-v2.6.0.html": {
 			"pageLevel": 3,
