@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [Spinner by Benedict Wells](https://amzn.to/2NNpmSi)
 * [Qualityland by Marc-Uwe Kling](https://amzn.to/2FdxhTR)
 * [All these worlds (Bobiverse III) by Dennis E. Taylor](https://amzn.to/2WvuCih)
 * [Der Trafikant by Robert Seethaler](https://amzn.to/2LvCDj2)
