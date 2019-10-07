@@ -1,6 +1,7 @@
 
 ### (e)Books
 
+* [GRM - Brainfuck by Sibylle Berg](https://amzn.to/2Oqb6iM)
 * [Spinner by Benedict Wells](https://amzn.to/2NNpmSi)
 * [Qualityland by Marc-Uwe Kling](https://amzn.to/2FdxhTR)
 * [All these worlds (Bobiverse III) by Dennis E. Taylor](https://amzn.to/2WvuCih)
