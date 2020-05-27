@@ -1,0 +1,8 @@
+source: ./contents
+destination: ./docs
+safe: true
+ignore_theme_config: true
+timezone: "Europe/Berlin"
+encoding: utf-8
+strict_front_matter: true
+url: "https://hollo.me"
