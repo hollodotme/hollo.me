@@ -1,3 +1,9 @@
+---
+layout: default
+title: Imprint
+tags: [responsible, content, legal]
+---
+
 ### Responsible for content on this website
 
 Holger Woltersdorf  

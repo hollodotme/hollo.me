@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+{%- include head.html %}
+<body>
+{%- include nav.html %}
+
+<div class="container-xl">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{{ '/' | append: page.slug | append: '/' | relative_url }}">{{ page.slug | upcase }}</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+		</ol>
+	</nav>
+	<h1 class="text-center pt-5{% if page.subtitle %} pb-2{% else %} pb-5{% endif %}">{{ page.title }}</h1>
+	{% if page.subtitle %}
+		<h2 class="text-center pb-5">{{ page.subtitle }}</h2>
+	{% endif %}
+	<hr>
+	<div style="margin-bottom: 100px;">
+		{{ content }}
+	</div>
+</div>
+
+{%- include footer.html %}
+
+</body>
+</html>

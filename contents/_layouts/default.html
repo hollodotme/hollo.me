@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+{%- include head.html %}
+<body>
+{%- include nav.html %}
+
+<div class="container-xl">
+	<div style="margin-bottom: 100px;">
+		<div class="row m-lg-5 m-md-3 m-sm-1">
+			<div class="col-12">
+				<h1 class="text-center pt-5{% if page.subtitle %} pb-2{% else %} pb-5{% endif %}">{{ page.title }}</h1>
+				{% if page.subtitle %}
+				<h2 class="text-center pb-5">{{ page.subtitle }}</h2>
+				{% endif %}
+				<hr>
+				{{ content }}
+			</div>
+		</div>
+	</div>
+</div>
+
+{%- include footer.html %}
+
+</body>
+</html>

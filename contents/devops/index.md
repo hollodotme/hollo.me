@@ -1,4 +1,14 @@
+---
+layout: default
+title: DEVOPS blog posts
+tags: [PHP, blog posts]
+permalink: /devops/
+---
 
-* 04/22/2019 - [Routing to multiple docker-compose setups using traefik](@baseUrl@/devops/routing-to-multiple-docker-compose-development-setups-with-traefik.html)
-* 09/27/2016 - [How to set up a self-hosted "vagrant cloud" with versioned, self-packaged vagrant boxes](@baseUrl@/devops/self-hosted-vagrant-cloud.html)
-* 08/02/2015 - [How to install XMPP server prosody with mysql auth backend on Ubuntu](@baseUrl@/devops/install-xmpp-server-prosody.html)
+{% assign year = 0 %}
+{% assign slug = 'devops' %}
+{% for post in site.posts %}{% if post.slug == slug %}{% assign post_year = post.date | date: '%Y' %}{% if post_year != year %}{% assign year = post_year %}
+
+## Posts in {{ post_year }}
+{% endif %}
+* {{ post.date | date: '%Y-%m-%d' }} &middot; [{{ post.title }}{% if post.subtitle %} - {{ post.subtitle }}{% endif %}]({{ post.url | relative_url }}){% endif %}{% endfor %}
