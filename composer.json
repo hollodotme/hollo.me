@@ -1,32 +1,19 @@
 {
-	"name": "hollodotme/hollodotme-blog",
-	"description": "Holger Woltersdorf's blog",
-	"minimum-stability": "stable",
-	"license": "proprietary",
-	"authors": [
-		{
-			"name": "Holger Woltersdorf",
-			"email": "hw@hollo.me"
-		}
-	],
-	"require": {
-		"php": ">=7.3",
-		"hollodotme/treemdown-multi": "~1.0"
-	},
-	"require-dev": {
-		"tm/tooly-composer-script": "^1.0"
-	},
-	"scripts": {
-		"post-install-cmd": "Tooly\\ScriptHandler::installPharTools",
-		"post-update-cmd": "Tooly\\ScriptHandler::installPharTools"
-	},
-	"extra": {
-		"tools": {
-			"spg": {
-				"url": "https://github.com/icehawk/static-page-generator/releases/download/v1.4.0/static-page-generator.phar",
-				"only-dev": true,
-				"replace": true
-			}
-		}
-	}
+    "name": "hollodotme/hollo.me",
+    "description": "Website of Holger Woltersdorf",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Holger Woltersdorf",
+            "email": "website@hollo.me"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "~4.5.0"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
 }
