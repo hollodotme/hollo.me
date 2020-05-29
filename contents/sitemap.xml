@@ -1,0 +1,31 @@
+---
+layout: null
+search: exclude
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  {% for page in site.pages %}{% if page.url != '/sitemap.xml' %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    <lastmod>{{site.time | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>{{ site.url }}{{ page.image | default: '/assets/img/profile.jpg' }}</image:loc>
+      <image:caption>{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}</image:caption>
+    </image:image>
+  </url>
+  {% endif %}{% endfor %}
+  {% for page in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    <lastmod>{{site.time | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>{{ site.url }}{{ page.image | default: '/assets/img/profile.jpg' }}</image:loc>
+      <image:caption>{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}</image:caption>
+    </image:image>
+  </url>
+  {% endfor %}
+</urlset>
