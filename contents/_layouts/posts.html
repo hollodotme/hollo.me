@@ -5,7 +5,7 @@
 {%- include nav.html %}
 
 <div class="container-xl">
-	<nav aria-label="breadcrumb">
+	<nav aria-label="breadcrumb" class="d-none d-md-block">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">Blog posts</li>
 			<li class="breadcrumb-item"><a href="{{ '/' | append: page.slug | append: '/' | relative_url }}">{{ page.slug | upcase }}</a></li>
@@ -16,8 +16,18 @@
 	{% if page.subtitle %}
 		<h2 class="text-center pb-5">{{ page.subtitle }}</h2>
 	{% endif %}
-	<hr>
-	<div style="margin-bottom: 100px;">
+	<div class="row justify-content-center mb-3">
+		<div class="col">
+			<hr>
+		</div>
+		<div class="col-auto">
+			<span class="text-muted small"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{ page.date | date: '%Y-%m-%d' }}</span>
+		</div>
+		<div class="col">
+			<hr>
+		</div>
+	</div>
+	<div class="mt-sm-3 mb-sm-3 mt-md-5 mb-md-5 pb-5">
 		{{ content }}
 	</div>
 </div>

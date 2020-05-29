@@ -15,8 +15,18 @@
 	{% if page.subtitle %}
 		<h2 class="text-center pb-5">{{ page.subtitle }}</h2>
 	{% endif %}
-	<hr>
-	<div style="margin-bottom: 100px;">
+	<div class="row justify-content-center mb-3">
+		<div class="col">
+			<hr>
+		</div>
+		<div class="col-auto">
+			<span class="text-muted small"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{ page.date | date: '%Y-%m-%d' }}</span>
+		</div>
+		<div class="col">
+			<hr>
+		</div>
+	</div>
+	<div class="mt-sm-3 mb-sm-3 mt-md-5 mb-md-5 pb-5">
 		{{ content }}
 	</div>
 </div>

@@ -32,7 +32,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #151515;
   text-align: left;
   background-color: #f1eee6;
 }
@@ -285,6 +285,12 @@ legend {
   line-height: inherit;
   color: inherit;
   white-space: normal;
+}
+
+@media (max-width: 1200px) {
+  legend {
+    font-size: calc(1.275rem + 0.3vw) ;
+  }
 }
 
 progress {
