@@ -32,9 +32,7 @@ So let's change the goal a bit and replace Redis with a real message broker: [Ra
 * The php-fpm socket serves as an "isolated" pool and spawns child processes
 * The "Workers" process the requests in background 
 
-<span class="img center">
-[![Caller-RabbitMQ-Daemon-Socket-Worker](@baseUrl@/img/posts/caller-rabbitmq-daemon-socket-worker.png)](@baseUrl@/img/posts/caller-rabbitmq-daemon-socket-worker.png)
-</span>
+[![Caller-RabbitMQ-Daemon-Socket-Worker](/assets/img/posts/caller-rabbitmq-daemon-socket-worker.png)](/assets/img/posts/caller-rabbitmq-daemon-socket-worker.png)
 
 ---
 

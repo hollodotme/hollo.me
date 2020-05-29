@@ -9,7 +9,7 @@ slug: php
 
 ## Question
 
-Today <i class="fa fa-twitter"></i> [Youri Thielen](https://twitter.com/yourithielen) came up with the following question regarding my post on [Experimental async PHP - VOL. 2](@baseUrl@/php/experimental-async-php-volume-2.html):
+Today <i class="fa fa-twitter"></i> [Youri Thielen](https://twitter.com/yourithielen) came up with the following question regarding my post on [Experimental async PHP - VOL. 2](/php/experimental-async-php-volume-2.html):
 
 > Awesome, looks pretty workable, will probably run some experiments with this! Just out of interest, how do you achieve the parallel
 > streams? I see stream_socket_client but no stream_set_blocking. I see you use PHPs yield, that's how you achieve 'parallelism' right?

@@ -536,7 +536,7 @@ vagrant   5084  0.0  0.0  14524  1048 pts/1    S+   21:34   0:00 grep php-fpm
 You can find the example code of this blog post here <i class="fa fa-github"></i> [hollodotme/experimental-async-php-vol1](https://github.com/hollodotme/experimental-async-php-vol1)
 
 Well, you may noticed there are some drawbacks with scaling when using Redis. I'll try to eliminate them in my next post:
-**[Experimental async PHP volume 2](@baseUrl@/php/experimental-async-php-volume-2.html)**
+**[Experimental async PHP volume 2](/php/experimental-async-php-volume-2.html)**
 
 I hope you liked that post. 
 If you're in the mood to give me feedback, [tweet me a tweet](https://twitter.com/hollodotme) 

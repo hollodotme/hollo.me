@@ -9,7 +9,7 @@ slug: php
 
 ## Question
 
-Today <i class="fa fa-twitter"></i> [Youri Thielen](https://twitter.com/yourithielen) came up with the following question regarding my post on [Experimental async PHP - VOL. 2](@baseUrl@/php/experimental-async-php-volume-2.html):
+Today <i class="fa fa-twitter"></i> [Youri Thielen](https://twitter.com/yourithielen) came up with the following question regarding my post on [Experimental async PHP - VOL. 2](/php/experimental-async-php-volume-2.html):
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/hollodotme">@hollodotme</a> Hi, quick question on <a href="https://t.co/GAPnipHclr">https://t.co/GAPnipHclr</a>. How do you handle error cases in the worker and retries?</p>&mdash; Youri Thielen (@yourithielen) <a href="https://twitter.com/yourithielen/status/907266443259121665">September 11, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -24,7 +24,7 @@ Please be aware that the following are only thoughts about possibly valid answer
 ### Retry
 
 The first thing I would do is trying to benefit from the redistribution feature of the message broker (RabbitMQ). 
-Therefor I would change the code of the [Daemon version 2](@baseUrl@/php/experimental-async-php-volume-2.html#daemon-version-2) and add a response callback which was introduced in [hollodotme/fast-cgi-client v2.2.0](https://github.com/hollodotme/fast-cgi-client/blob/master/CHANGELOG.md#220---2017-04-15).
+Therefor I would change the code of the [Daemon version 2](/php/experimental-async-php-volume-2.html#daemon-version-2) and add a response callback which was introduced in [hollodotme/fast-cgi-client v2.2.0](https://github.com/hollodotme/fast-cgi-client/blob/master/CHANGELOG.md#220---2017-04-15).
 This callback can be used to evaluate the worker's response and let you decide either you want to acknowledge (_ack_) the message on success or [negative-acknowledge](https://www.rabbitmq.com/nack.html) (_nack_) it on error for redistribution.
 In case of a **_nack_** the broker will send the message (preferably) to another daemon.
 
@@ -240,7 +240,7 @@ General speaking, I am not a fan of complex self-healing systems whet it comes t
 Lets get back to the topic: 
   
 **Regarding the daemon** error handling could be quite simple. I would install my favourite error handler (like Sentry) that reports errors to a log central which maybe notifies me directly.
-Since the daemon is registered as a system service ([see here](@baseUrl@/php/experimental-async-php-volume-1.html#daemonize-the-daemon)), I don't have to care
+Since the daemon is registered as a system service ([see here](/php/experimental-async-php-volume-1.html#daemonize-the-daemon)), I don't have to care
 about restarting it in case of a crash. Additionally RabbitMQ takes also note of a crashed daemon/consumer and will automatically redistribute all un-acknowledged messages 
 to other daemons or the same as soon as it has restarted. Basically there are no other important incidents that need to be covered here, once the code is tested. 
 Everything else would simply be reported/logged.
