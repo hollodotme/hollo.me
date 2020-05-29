@@ -18,5 +18,3 @@ Talk at [PHP Developer Day 2017, Dresden, Germany](https://2017.phpdd.org)
 ### Video on [YouTube](https://www.youtube.com/channel/UC9RvlzszDfeZ_ILq0JSNHZQ/)
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/23OSdPJECTM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
-<small>09/22/2017</small>

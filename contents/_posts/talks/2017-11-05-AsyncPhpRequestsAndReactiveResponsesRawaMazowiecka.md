@@ -19,5 +19,3 @@ Talk at [PHP Central Europe (phpCE), Rawa Mazowiecka, Poland](https://phpce.eu)
 
 * [FastCGI Client](https://github.com/hollodotme/fast-cgi-client)
 * [FastCGI Client Demo](https://github.com/hollodotme/fast-cgi-client-demo)
-
-<small>11/05/2017</small>

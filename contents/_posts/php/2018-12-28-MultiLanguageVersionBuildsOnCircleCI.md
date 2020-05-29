@@ -698,7 +698,3 @@ but it's doable and can be extended with further versions.
 Having one particular job for each version can also be a benefit when it comes to differences in commands or options for 
 that version as you don't have to add conditionals. Instead you can write a different alias and inject it or simply replace 
 the step definition alias with actual steps for that particular job.
-
----
-
-<small>12/28/2018</small>

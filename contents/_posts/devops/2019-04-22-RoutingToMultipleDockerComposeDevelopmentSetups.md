@@ -7,10 +7,6 @@ permalink: /devops/routing-to-multiple-docker-compose-development-setups-with-tr
 slug: devops
 ---
 
-[![traefik & docker-compose network schema](/assets/img/posts/traefik-routing-multi-docker-compose.svg)](/assets/img/posts/traefik-routing-multi-docker-compose.svg)
-
----
-
 ## Table of contents
 
 * [CHAPTER 1: Create valid SSL certificates](#chapter-1-create-valid-ssl-certificates)
@@ -33,6 +29,10 @@ The goals of this tutorial are:
 
 * Set up _ONE_ traefik instance that handles SSL offloading and HTTP/S routing to multiple web development environments that run in docker-compose setups.
 * Set up two web development environments with two (sub-)domains each and HTTPS support
+
+---
+
+[![traefik & docker-compose network schema](/assets/img/posts/traefik-routing-multi-docker-compose.svg)](/assets/img/posts/traefik-routing-multi-docker-compose.svg)
 
 ---
 
@@ -851,10 +851,6 @@ When starting a new project the following steps have to be taken (once):
    /path/to/new-project $ docker-compose up -d
    ```
    
----
-
-<small>04/22/2019</small>
-
 [docker]: https://www.docker.com/products/docker-desktop
 [docker-compose]: https://docs.docker.com/compose/install/
 [traefik]: https://traefik.io

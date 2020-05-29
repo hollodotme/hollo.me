@@ -288,5 +288,3 @@ Output should look like this:
 
 **Note:** By default the user's secrets are stored in plaintext. You can enable hashing in the config, see: 
 [mod_auth_internal_hashed](http://prosody.im/doc/modules/mod_auth_internal_hashed)
-
-<small>08/02/2015</small>

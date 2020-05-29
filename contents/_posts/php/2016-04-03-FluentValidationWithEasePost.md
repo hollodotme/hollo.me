@@ -944,5 +944,3 @@ Related links / references:
 * <i class="fa fa-wikipedia-w"></i> [Data Transfer Objekt (DTO)](https://en.wikipedia.org/wiki/Data_transfer_object)
 * <i class="fa fa-wikipedia-w"></i> [DRY - Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
 * [php7 - loosing reserved word restrictions](http://php.net/manual/en/migration70.other-changes.php#migration70.other-changes.loosening-reserved-words)
-
-<small>04/03/2016</small>

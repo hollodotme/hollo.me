@@ -17,5 +17,3 @@ Talk at [PHP USERGROUP DRESDEN e.V., Dresden, Germany](http://phpug-dresden.org)
 ### Code on [GitHub](https://github.com/hollodotme)
 
 * [Code used in the slides](https://github.com/hollodotme/talk-preps/tree/master/whats-new-in-php72)
-
-<small>12/19/2017</small>

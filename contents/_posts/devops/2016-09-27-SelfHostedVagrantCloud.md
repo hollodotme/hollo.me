@@ -945,6 +945,3 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ## Further reading
 
  * [Sets up a nginx server which hosts vagrant boxes](https://github.com/ebmeierj/local_vagrant_box_hosting) by [ebmeierj](https://github.com/ebmeierj)
-
-
-<small>09/27/2016</small>

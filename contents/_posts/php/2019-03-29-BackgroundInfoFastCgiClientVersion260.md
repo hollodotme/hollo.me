@@ -173,5 +173,3 @@ I hope I could clarify the library changes from `v2.4.3` to `v2.6.0` and you sti
 Please report any issues via GitHub at [hollodotme/fast-cgi-client](https://github.com/hollodotme/fast-cgi-client).
 
 Thank you!
-
-<small>04/02/2019</small>

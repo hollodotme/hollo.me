@@ -404,5 +404,3 @@ Related links / References:
 * [composer - php dependency manager](https://getcomposer.org)
 * [Namespace Standard PSR-0](http://www.php-fig.org/psr/psr-0/)
 * <i class="fa fa-github"></i> [hollodotme/traitful-configs](https://github.com/hollodotme/traitful-configs)
-
-<small>03/12/2016</small>

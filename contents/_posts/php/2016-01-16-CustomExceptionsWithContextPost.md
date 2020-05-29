@@ -840,5 +840,3 @@ More interesting than the customer ID would be e.g. the current used storage.
 With this aproach we now are able to "carry" usually hidden information from the context to the error handling part of our application.
 
 \- HaPHPy throwing!
-
-<small>01/16/2016</small>

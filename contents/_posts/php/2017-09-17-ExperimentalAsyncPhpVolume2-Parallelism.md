@@ -214,7 +214,3 @@ handling their responses.
 
 That is exactly what my [fast-cgi-client](https://github.com/hollodotme/fast-cgi-client) implementation offers when  
 ["Sending multiple requests and reading their responses (reactive)"](https://github.com/hollodotme/fast-cgi-client#sending-multiple-requests-and-reading-their-responses-reactive).  
-
----
-
-[<i class="fa fa-coffee"></i>░░░░░░░░░░░░░░░░░░░░░░<i class="fa fa-beer"></i>] 2 hours | <small>17/11/2017</small>

@@ -13,5 +13,3 @@ slug: talks
 ### Slides on [Speaker Deck](https://speakerdeck.com/hollodotme)
 
 <script async class="speakerdeck-embed" data-id="0adefe51e3af4c04bee3825ed560370c" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-<small>06/29/2016</small>

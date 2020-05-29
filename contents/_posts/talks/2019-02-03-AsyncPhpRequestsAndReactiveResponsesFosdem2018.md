@@ -19,5 +19,3 @@ Talk at [FOSDEM - PHP & Friends, Brussels, Belgium](https://fosdem.org/2019/)
 
 * [FastCGI Client](https://github.com/hollodotme/fast-cgi-client)
 * [FastCGI Client Demo](https://github.com/hollodotme/fast-cgi-client-demo)
-
-<small>02/03/2019</small>
