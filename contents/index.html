@@ -97,7 +97,7 @@ image: "/assets/img/profile.jpg"
 
 <div class="row mt-5 mb-5 justify-content-center">
 	<div class="col-lg-6 col-md-8 col-sm-10 text-center">
-		<h2>My latest blog posts / talks</h2>
+		<h2>My latest posts & talks</h2>
 		<ul class="list-unstyled">
 			{% for post in site.posts limit: 5 %}
 			<li>{{ post.date | date: '%Y-%m-%d' }} &middot;
@@ -107,8 +107,10 @@ image: "/assets/img/profile.jpg"
 			{% endfor %}
 		</ul>
 		<p>
+			<i class="fa fa-rss"></i>
 			<a href="feed://{{ site.url | remove: 'https://' | remove: 'http://' }}/feed.xml" target="_blank">
-				<i class="fa fa-rss"></i> Subscribe to my RSS feed.</a>
+				 Subscribe to my RSS feed.
+			</a>
 		</p>
 	</div>
 </div>
