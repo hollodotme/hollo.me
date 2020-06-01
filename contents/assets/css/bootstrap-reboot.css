@@ -333,4 +333,8 @@ template {
   display: none !important;
 }
 
+.fa {
+  margin-right: 6px;
+}
+
 /*# sourceMappingURL=bootstrap-reboot.css.map */
