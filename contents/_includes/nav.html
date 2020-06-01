@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
 	<div class="container-xl">
 		<a class="navbar-brand" href="/">
-			<img src="/assets/brand/logo-ws.svg" width="50" height="50" alt="" loading="lazy">
+			<img src="/assets/brand/logo-ws.svg" width="50" height="50" alt="Holger Woltersdorf Logo" loading="lazy">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,9 +14,6 @@
 				</li>
 				<li class="nav-item{% if page.url == '/work.html' %} active{% endif %}">
 					<a class="nav-link" href="/work.html">Work</a>
-				</li>
-				<li class="nav-item{% if page.url == '/projects.html' %} active{% endif %}">
-					<a class="nav-link" href="/projects.html">Projects</a>
 				</li>
 				{% assign urlPart = page.url | slice: 0, 7 %}
 				<li class="nav-item{% if urlPart == '/talks/' %} active{% endif %}">
