@@ -18,9 +18,9 @@ permalink: /talks/
 </div>
 
 {% assign year = 0 %}
-{% assign slug = 'talks' %}
-{% for post in site.posts %}{% if post.slug == slug %}{% assign post_year = post.date | date: '%Y' %}{% if post_year != year %}{% assign year = post_year %}
+{% assign posts = site.posts | where: "slug", "talks" %}
+{% for post in posts %}{% assign post_year = post.date | date: '%Y' %}{% if post_year != year %}{% assign year = post_year %}
 
 ## Talks in {{ post_year }}
 {% endif %}
-* {{ post.date | date: '%Y-%m-%d' }} &middot; [{{ post.title }}{% if post.subtitle %} - {{ post.subtitle }}{% endif %}]({{ post.url | relative_url }}){% endif %}{% endfor %}
+* {{ post.date | date: '%Y-%m-%d' }} &middot; [{{ post.title }}{% if post.subtitle %} - {{ post.subtitle }}{% endif %}]({{ post.url | relative_url }}){% endfor %}
