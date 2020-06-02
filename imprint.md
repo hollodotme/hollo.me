@@ -2,6 +2,7 @@
 layout: default
 title: Imprint
 tags: [responsible, content, legal]
+permalink: /imprint.html
 ---
 
 ### Responsible for content on this website

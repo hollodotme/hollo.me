@@ -17,7 +17,7 @@
 				</li>
 				{% assign urlPart = page.url | slice: 0, 7 %}
 				<li class="nav-item{% if urlPart == '/talks/' %} active{% endif %}">
-					<a class="nav-link" href="/talks/">Talks</a>
+					<a class="nav-link" href="/talks">Talks</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -25,8 +25,8 @@
 						Blog posts
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="/php/">PHP</a>
-						<a class="dropdown-item" href="/devops/">DEVOPS</a>
+						<a class="dropdown-item" href="/php">PHP</a>
+						<a class="dropdown-item" href="/devops">DEVOPS</a>
 					</div>
 				</li>
 				<li class="nav-item{% if page.url == '/reading-list.html' %} active{% endif %}">

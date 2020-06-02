@@ -12,7 +12,7 @@ search: exclude
     <priority>0.5</priority>
     <image:image>
       <image:loc>{{ site.url }}{{ page.image | default: '/assets/img/profile.jpg' }}</image:loc>
-      <image:caption>{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}</image:caption>
+      <image:caption>{{ page.title | escape }}{% if page.subtitle %} - {{ page.subtitle | escape }}{% endif %}</image:caption>
     </image:image>
   </url>
   {% endif %}{% endfor %}
@@ -24,7 +24,7 @@ search: exclude
     <priority>0.5</priority>
     <image:image>
       <image:loc>{{ site.url }}{{ page.image | default: '/assets/img/profile.jpg' }}</image:loc>
-      <image:caption>{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}</image:caption>
+      <image:caption>{{ page.title | escape }}{% if page.subtitle %} - {{ page.subtitle | escape }}{% endif %}</image:caption>
     </image:image>
   </url>
   {% endfor %}
