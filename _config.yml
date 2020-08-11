@@ -9,3 +9,4 @@ strict_front_matter: true
 url: "https://hollo.me"
 keep_files: [.gitkeep]
 markdown: kramdown
+exclude: [CHANGELOG.md]
