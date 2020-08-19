@@ -2,7 +2,7 @@
 layout: posts
 title: Experimental async PHP vol. 1
 tags: [async, PHP, code, OSS, fast-cgi-client]
-permalink: /php/experimatal-async-php-volume-1.html
+permalink: /php/experimental-async-php-volume-1.html
 slug: php
 ---
 ## Updates
