@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2.1.0] - 2021-04-08
+
+* Update depencencies
+* Add Makefile
+* Add GitHub workflow to test the site build
+* Add talks and update reading list
+
 ## [2.0.3] - 2021-01-18
 
 * Fix dependency security vulnerability
@@ -16,6 +23,7 @@
 
 * Move to GitHub pages using jekyll
 
+[2.1.0]: https://github.com/hollodotme/hollo.me/compare/v2.0.3..v2.1.0
 [2.0.3]: https://github.com/hollodotme/hollo.me/compare/v2.0.2..v2.0.3
 [2.0.2]: https://github.com/hollodotme/hollo.me/compare/v2.0.1..v2.0.2 
 [2.0.1]: https://github.com/hollodotme/hollo.me/compare/v2.0.0..v2.0.1 
