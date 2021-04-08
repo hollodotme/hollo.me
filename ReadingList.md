@@ -8,6 +8,9 @@ permalink: /reading-list.html
 
 ## Fiction / Philosophy
 
+* [Dr. Jekyll und Mr. Hyde by Robert Louis Stevenson](https://amzn.to/3rXtCyZ)
+* [Nerds retten die Welt: Gespräche mit denen, die es wissen by Sibylle Berg](https://amzn.to/39W9CXg)
+* [Nerds retten die Welt: Gespräche mit denen, die es wissen by Sibylle Berg](https://amzn.to/39W9CXg)
 * [GRM - Brainfuck by Sibylle Berg](https://amzn.to/2Oqb6iM)
 * [Spinner by Benedict Wells](https://amzn.to/2NNpmSi)
 * [Qualityland by Marc-Uwe Kling](https://amzn.to/2FdxhTR)
@@ -67,6 +70,7 @@ permalink: /reading-list.html
 
 ## Technical literature
 
+* [Langlebige Software-Architekturen: Technische Schulden analysieren, begrenzen und abbauen by Dr. Carola Lilienthal](https://amzn.to/3dG7p3o)
 * [Dollars and Sense: How We Misthink Money and How to Spend Smarter by  Dr. Dan Ariely & Jeff Kreisler](https://amzn.to/2AkcyxM)
 * [The Memory Illusion: Remembering, Forgetting, and the Science of False Memory by Dr. Julia Shaw](https://amzn.to/2mGeFCi)
 * [Building custom PHP extensions by Blake Schwendiman](https://www.amazon.de/gp/product/1411601882/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=1411601882&linkCode=as2&tag=hollodotme-21)
