@@ -8,8 +8,8 @@ permalink: /imprint.html
 ### Responsible for content on this website
 
 Holger Woltersdorf  
-Fetscherstr. 36  
-01307 Dresden  
+Käthe-Kollwitz-Ufer 76  
+01309 Dresden  
 Saxony, Germany
 
 E-Mail: website[at]hollo[dot]me

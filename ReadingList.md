@@ -10,7 +10,6 @@ permalink: /reading-list.html
 
 * [Dr. Jekyll und Mr. Hyde by Robert Louis Stevenson](https://amzn.to/3rXtCyZ)
 * [Nerds retten die Welt: Gespräche mit denen, die es wissen by Sibylle Berg](https://amzn.to/39W9CXg)
-* [Nerds retten die Welt: Gespräche mit denen, die es wissen by Sibylle Berg](https://amzn.to/39W9CXg)
 * [GRM - Brainfuck by Sibylle Berg](https://amzn.to/2Oqb6iM)
 * [Spinner by Benedict Wells](https://amzn.to/2NNpmSi)
 * [Qualityland by Marc-Uwe Kling](https://amzn.to/2FdxhTR)
@@ -102,4 +101,5 @@ permalink: /reading-list.html
 
 * [Matthew Setter's Blog](https://matthewsetter.com)
 * [WDRL: Web Developer Reading List by Anselm Hannemann](https://wdrl.info)
-* [Fefes Blog](http://blog.fefe.de)
+* [Fefes Blog](https://blog.fefe.de)
+* [D64 Ticker](https://ticker.d-64.org/)

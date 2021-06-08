@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.2.1] - 2021-06-28
+
+* Update dependencies
+* Update imprint address
+* Update & fix reading list
+
 ## [2.2.0] - 2021-05-25
 
 * Update dependencies
@@ -27,6 +33,8 @@
 ## [2.0.0] - 2020-06-02
 
 * Move to GitHub pages using jekyll
+
+[2.2.1]: https://github.com/hollodotme/hollo.me/compare/v2.2.0..v2.2.1
 
 [2.2.0]: https://github.com/hollodotme/hollo.me/compare/v2.1.0..v2.2.0
 
