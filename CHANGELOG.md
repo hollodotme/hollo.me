@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.2.2] - 2021-07-24
+
+* Update dependencies
+
 ## [2.2.1] - 2021-06-28
 
 * Update dependencies
@@ -34,6 +38,7 @@
 
 * Move to GitHub pages using jekyll
 
+[2.2.2]: https://github.com/hollodotme/hollo.me/compare/v2.2.1..v2.2.2
 [2.2.1]: https://github.com/hollodotme/hollo.me/compare/v2.2.0..v2.2.1
 
 [2.2.0]: https://github.com/hollodotme/hollo.me/compare/v2.1.0..v2.2.0
