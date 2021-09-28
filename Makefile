@@ -26,13 +26,18 @@ bundler-update:
 	gem update bundler
 .PHONY: bundler-update
 
+## Update rubygems
+gems-update:
+	gem update --system
+.PHONY: gems-update
+
 ## Update bundle packages
-update: bundler-update
+update: bundler-update gems-update
 	bundle update github-pages
 .PHONY: update
 
 ## Install bundle packages
-install: bundler-install bundler-update
+install: bundler-install bundler-update gems-update
 	bundle install
 .PHONY: install
 
