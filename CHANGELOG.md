@@ -5,6 +5,8 @@
 * Update dependencies
 * Add blog post about upgrading a PostgreSQL database with docker
 * Fix top margin of headlines
+* Update meta data
+* Remove linked-in profile link
 
 ## [2.2.2] - 2021-07-24
 
