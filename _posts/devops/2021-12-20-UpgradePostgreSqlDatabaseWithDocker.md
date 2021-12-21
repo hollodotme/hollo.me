@@ -82,7 +82,9 @@ The important parts of this config have a comment.
 The command to dump the whole database and meta information to a single file looks like this:
 
 ```shell
-docker-compose exec postgres pg_dumpall -U "my-postgres-user" > /backup/2021-12-20-Backup.sql
+docker-compose exec postgres sh 
+/ pg_dumpall -U"my-postgres-user" > /backup/2021-12-20-Backup.sql
+/ exit
 ```
 
 ### 2. Shut down the database container and remove the data volume
@@ -172,20 +174,20 @@ The following commands will do this:
 # Log into the container's shell
 docker-compose exec postgres sh
 # Import the dump file using psql
-/# psql -U "my-postgres-user" -d "MyDatabase" < /backup/2021-12-20-Backup.sql
+/ psql -U "my-postgres-user" -d "MyDatabase" < /backup/2021-12-20-Backup.sql
 ```
 
 After this was executed I had to set the user's password for my custom database again in order to access it from the outside.
 
 ```shell
 You are now connected to database "postgres" as user "my-postgres-user"
-postgres=#
-postgres=# \c MyDatabase
+postgres=/
+postgres=/ \c MyDatabase
 You are now connected to database "MyDatabase" as user "my-postgres-user"
-MyDatabase=#
-MyDatabase=# ALTER USER my-postgres-user PASSWORD '********'; 
-MyDatabase=# ALTER ROLE 
-MyDatabase=# \q 
+MyDatabase=/
+MyDatabase=/ ALTER USER my-postgres-user PASSWORD '********'; 
+MyDatabase=/ ALTER ROLE 
+MyDatabase=/ \q 
 ```
 
 That's it.
@@ -213,19 +215,19 @@ docker-compose start postgres
 # 6. Import the dumped file into the database instance
 docker-compose exec postgres sh
 
-/#  psql -U "my-postgres-user" -d "MyDatabase" < /backup/2021-12-20-Backup.sql
+/ psql -U "my-postgres-user" -d "MyDatabase" < /backup/2021-12-20-Backup.sql
 
 # 7. Switch to imported database and set the user's password
 
 You are now connected to database "postgres" as user "my-postgres-user"
-postgres=#
-postgres=# \c MyDatabase
+postgres=/
+postgres=/ \c MyDatabase
 You are now connected to database "MyDatabase" as user "my-postgres-user"
-MyDatabase=#
-MyDatabase=# ALTER USER my-postgres-user PASSWORD '********'; 
-MyDatabase=# ALTER ROLE 
-MyDatabase=# \q
-/# exit 
+MyDatabase=/
+MyDatabase=/ ALTER USER my-postgres-user PASSWORD '********'; 
+MyDatabase=/ ALTER ROLE 
+MyDatabase=/ \q
+/ exit 
 ```
 
 #### Sources
