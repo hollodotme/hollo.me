@@ -1,20 +1,35 @@
 <footer class="navbar navbar-expand navbar-dark bg-dark fixed-bottom" style="max-height: 30px;">
 	<div class="container-xl">
 		<div class="collapse navbar-collapse" id="footerNav">
-			<ul class="navbar-nav mr-auto">
+			<ul class="navbar-nav mr-auto small">
 				<li class="nav-item">
-					<a class="nav-link" href="https://github.com/hollodotme" target="_blank">
-						<small><i class="fa fa-github"></i></small>
+					<a class="nav-link" href="{{ site.data.social.github }}"
+					   target="_blank" title="Check out my work on GitHub">
+						<i class="fa fa-github"></i>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://twitter.com/hollodotme" target="_blank">
-						<small><i class="fa fa-twitter"></i></small>
+					<a class="nav-link" href="{{ site.data.social.twitter }}"
+					   target="_blank" title="Follow me on twitter">
+						<i class="fa fa-twitter"></i>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://www.xing.com/profile/Holger_Woltersdorf" target="_blank">
-						<small><i class="fa fa-xing"></i></small>
+					<a class="nav-link" href="{{ site.data.social.linkedin }}"
+					   target="_blank" title="Visit my linkedIn profile">
+						<i class="fa fa-linkedin"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ site.data.social.xing }}"
+					   target="_blank" title="Visit my XING profile">
+						<i class="fa fa-xing"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="feed://{{ site.url | remove: 'https://' | remove: 'http://' }}/feed.xml"
+					   target="_blank" title="Subscribe to my RSS feed">
+						<i class="fa fa-rss"></i>
 					</a>
 				</li>
 				<li class="nav-item">
@@ -22,7 +37,7 @@
 				</li>
 			</ul>
 			<span class="navbar-text">
-				<small>&copy; {{ 'now' | date: '%Y' }} {{ site.data.imprint.fullname }}</small>
+				<small>&copy; 1984 &ndash; {{ 'now' | date: '%Y' }} {{ site.data.imprint.fullname }}</small>
 			</span>
 		</div>
 	</div>
