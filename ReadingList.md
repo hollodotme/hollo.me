@@ -39,6 +39,7 @@ permalink: /reading-list.html
 
 ## Science fiction
 
+* [Sternentagebücher by Stanisław Lem](https://amzn.to/3MzVCoq)
 * [All these worlds (Bobiverse III) by Dennis E. Taylor](https://amzn.to/2WvuCih)
 * [The Three-Body Problem by Cixin Liu](https://amzn.to/2LqhAhR)
 * [Das Orakel vom Berge by Philip K. Dick](https://amzn.to/2Kx6rv1)
@@ -58,6 +59,7 @@ permalink: /reading-list.html
 
 ## Science
 
+* [Think Human: Kundenzentriertes UX-Design by John Whalen](https://amzn.to/3yMcUsz)
 * [Böse: Die Psychologie unserer Abgründe by Dr. Julia Shaw](https://amzn.to/2UXHDMT)
 * [Cashkurs by Dirk Müller](http://www.amazon.de/gp/product/3426787679/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=3426787679&linkCode=as2&tag=hollodotme-21)
 * [Eine kurze Geschichte der Zeit by Stephen Hawking](https://amzn.to/2TYKkwU)
