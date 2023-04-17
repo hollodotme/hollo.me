@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2.3.0] - 2023-04-17
+
+* Migrate from panelbear to cronitor.io for tracking
+* Update reading list
+* Update profile
+* Update work experience
+
 ## [2.2.3] - 2021-12-20
 
 * Update dependencies
