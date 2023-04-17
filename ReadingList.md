@@ -59,6 +59,8 @@ permalink: /reading-list.html
 
 ## Science
 
+* [Krafttraining by Austin Current](https://amzn.to/41yS5go)
+* [Faironomics: Ökologisch, fair und frei by Ilona Koglin & Marek Rohde](https://www.dtv.de/buch/faironomics-26221)
 * [Think Human: Kundenzentriertes UX-Design by John Whalen](https://amzn.to/3yMcUsz)
 * [Böse: Die Psychologie unserer Abgründe by Dr. Julia Shaw](https://amzn.to/2UXHDMT)
 * [Cashkurs by Dirk Müller](http://www.amazon.de/gp/product/3426787679/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=3426787679&linkCode=as2&tag=hollodotme-21)
