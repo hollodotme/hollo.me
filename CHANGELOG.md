@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [2.3.1] - 2023-11-14
+
+* Add new speaker deck link for MQTT best practices talk at PHPUGDD
+* Add new speaker deck link for FastCGI Client talk at PHPMad
+
 ## [2.3.0] - 2023-04-17
 
 * Migrate from panelbear to cronitor.io for tracking
